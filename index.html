@@ -167,6 +167,110 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- HOME PAGE STYLES --- */
+        .hero-section {
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+
+        .hero-section h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            white-space: normal;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            text-align: center;
+        }
+
+        .hero-btn {
+            background: #10b981;
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background: #059669;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 15px;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* Standard Content Styles */
         h2 {
             color: var(--text-main);
             font-size: 32px;
@@ -194,7 +298,7 @@
             margin-bottom: 18px;
             font-size: 16px;
             color: #334155;
-            text-align: justify; /* Justify text */
+            text-align: justify;
         }
 
         /* Code Block W3Schools Style */
@@ -210,6 +314,7 @@
             margin-top: 0;
             font-size: 18px;
             color: #0f172a;
+            text-align: left;
         }
 
         pre {
@@ -218,7 +323,7 @@
             border-radius: 4px;
             padding: 0;
             margin-bottom: 0;
-            overflow-x: auto; /* Horizontal scroll for code */
+            overflow-x: auto;
         }
 
         pre code {
@@ -386,24 +491,24 @@
 
         footer {
             background: #1e293b;
-            color: white;
+            color: #cbd5e1; 
             margin-top: auto;
             width: 100%;
             padding: 30px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            text-align: center; /* Fallback for inner text */
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
         }
         
         footer p {
             margin-bottom: 5px;
-            color: #ffffff;
+            color: #cbd5e1; 
             text-align: center;
         }
 
-        /* --- MOBILE RESPONSIVE DESIGN (Fully Optimized) --- */
+        /* --- MOBILE RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
@@ -411,7 +516,7 @@
             }
             
             header h1 { 
-                font-size: 15px; /* Prevent header title breaking */
+                font-size: 15px; 
                 margin-left: 8px;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -459,12 +564,20 @@
 
             .main-content {
                 margin-left: 0;
-                margin-top: 45px; /* space for horizontal nav */
+                margin-top: 45px; 
                 padding: 20px 15px;
                 box-shadow: none;
             }
 
-            /* Responsive Headings: Reduced sizes so words don't break in portrait */
+            .hero-section {
+                padding: 30px 20px;
+            }
+            
+            .hero-section h1 {
+                font-size: 26px;
+            }
+
+            /* Responsive Headings */
             h2 { 
                 font-size: 20px; 
                 margin-bottom: 15px;
@@ -479,7 +592,7 @@
             
             p, li, .w3-info, .w3-note { 
                 font-size: 14px; 
-                text-align: justify; /* Ensure justify is kept on mobile */
+                text-align: justify; 
             }
             
             select, input, button { width: 100%; margin: 5px 0; }
@@ -489,7 +602,6 @@
             .interactive-box { padding: 15px; }
         }
         
-        /* Extra small devices (portrait phones) */
         @media (max-width: 400px) {
             h2 { font-size: 18px; }
             h3 { font-size: 16px; }
@@ -508,9 +620,10 @@
     <div class="container">
         <!-- W3Schools Style Sidebar -->
         <nav class="sidebar" id="nav-menu">
-            <a class="tab-link special-tab active" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
+            <a class="tab-link active" onclick="openTab(event, 'homepage')">🏠 මුල් පිටුව</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
             
-            <div class="sidebar-title">Python මූලික</div>
+            <div class="sidebar-title">මූලික Python</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
             <a class="tab-link" onclick="openTab(event, 'comments')">Python Comments</a>
@@ -540,13 +653,41 @@
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools & Quiz</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Smart Project</a>
         </nav>
 
         <div class="main-content">
             <div class="content-wrapper">
 
+                <!-- 🏠 HOME PAGE TAB -->
+                <div id="homepage" class="tab-content active">
+                    <div class="hero-section">
+                        <h1>Python ක්‍රමලේඛනය මුල සිට සරලව</h1>
+                        <p>Theory පමණක් නොව, ප්‍රායෝගිකව (Practical) කේතීකරණය ඉගෙන ගන්න. නවීන තාක්ෂණය සහ අන්තර්ක්‍රියාකාරී මෙවලම් සමඟින් ඔබේ Programming සිහිනය සැබෑ කරගන්න.</p>
+                        <button class="hero-btn" onclick="openTab(event, 'smart-secrets')">ඔබේ Python ගමන අරඹන්න 🚀</button>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <h3>ප්‍රායෝගික ඉගෙනුම</h3>
+                            <p>පොතපතට පමණක් සීමා නොවී, Computers භාවිතා කරමින් සජීවීව කේතීකරණයේ (Coding) නිරත වන්න.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>ඉහළ ඉල්ලුම</h3>
+                            <p>Data Science, Web Development සහ AI ඇතුළු ලොව ඉහළම වැටුප් සහිත ක්ෂේත්‍ර සඳහා Python යනු ප්‍රධානතම භාෂාවයි.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>සරල සහ පැහැදිලි</h3>
+                            <p>ඉංග්‍රීසි භාෂාවට සමාන සරල කේත රටාවක් ඇති බැවින්, ආරම්භකයින්ට ඉගෙනීමට ඇති හොඳම භාෂාවයි.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 💡 SMART SECRETS TAB -->
-                <div id="smart-secrets" class="tab-content active">
+                <div id="smart-secrets" class="tab-content">
                     <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Coding Tricks)</h2>
                     <p>පයිතන් කේතීකරණයේදී ඔබව ප්‍රවීණයෙකු (Expert) කරන සුවිශේෂී රහස් කිහිපයක් පහත දැක්වේ:</p>
                     
@@ -571,7 +712,7 @@
                     </div>
 
                     <div class="next-prev-container">
-                        <div></div>
+                        <button class="btn-nav" onclick="openTab(null, 'homepage')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'intro')">Next ❯</button>
                     </div>
                 </div>
@@ -1147,6 +1288,68 @@ finally:
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'filehandling')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'project')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- ☕ PROJECT TAB -->
+                <div id="project" class="tab-content">
+                    <h2>☕ Smart Project: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
+                    <p>අපි මෙතෙක් ඉගෙන ගත් විචල්‍යයන් (Variables), ගණිත කර්ම (Operators) සහ Print කිරීම් එකතු කර කුඩා මෘදුකාංගයක් (Billing System) නිර්මාණය කරමු.</p>
+                    
+                    <div class="w3-example">
+                        <h3>Python කේතය (Python Code)</h3>
+                        <pre><code class="language-python"># තේ කඩයේ බිල්පත් පද්ධතිය (Tea Shop Billing System)
+
+# මිල ගණන් (Prices)
+tea_price = 50
+bun_price = 40
+
+# ප්‍රමාණ (Quantities)
+tea_qty = int(input("තේ කෝප්ප ගණන: "))
+bun_qty = int(input("බනිස් ගණන: "))
+
+# ගණනය කිරීම් (Calculations)
+tea_total = tea_price * tea_qty
+bun_total = bun_price * bun_qty
+sub_total = tea_total + bun_total
+
+# බිල්පත මුද්‍රණය (Printing the Bill)
+print("========================")
+print("      බුත්තල තේ කඩය      ")
+print("========================")
+print("තේ   x", tea_qty, " : රු.", tea_total)
+print("බනිස් x", bun_qty, " : රු.", bun_total)
+print("------------------------")
+print("මුළු මුදල  : රු.", sub_total)
+print("========================")
+print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
+                    </div>
+
+                    <div class="interactive-box">
+                        <h3 style="color:#059669;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
+                        <p>පහත කොටුවල ප්‍රමාණයන් ඇතුළත් කර "Run Code" බොත්තම ඔබන්න. ඔබ ඇතුළත් කරන අගයන්ට අනුව බිල්පත ස්වයංක්‍රීයව සකස් වේ.</p>
+                        
+                        <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
+                            <div style="flex:1; min-width:200px;">
+                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">☕ තේ කෝප්ප ගණන:</label>
+                                <input type="number" id="tea-qty" value="3" min="0" style="width:100%;">
+                            </div>
+                            <div style="flex:1; min-width:200px;">
+                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">🍔 බනිස් ගණන:</label>
+                                <input type="number" id="bun-qty" value="2" min="0" style="width:100%;">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px;" onclick="runTeaShopProject()">▶ Run Code</button>
+                        
+                        <div class="output-console" id="project-console-output" style="text-align: center; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
+                            <i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>
+                        </div>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'interactive')">❮ Prev</button>
                         <div></div>
                     </div>
                 </div>
@@ -1155,8 +1358,8 @@ finally:
 
             <!-- FOOTER -->
             <footer>
-                <p>&copy; Kelum Konara | <span style="font-weight: 700;">Smart<span style="color: #4ade80;">Soft</span></span></p>
-                <p style="font-size: 13px; color:#94a3b8; margin-top: 10px;">Created for Educational Purposes.</p>
+                <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
+                <p style="font-size: 13px; color:#64748b; margin-top: 10px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
     </div> <!-- End container -->
@@ -1366,6 +1569,23 @@ finally:
             
             fileDisplay.innerHTML = virtualFileContent ? virtualFileContent.replace(/\n/g, '<br>') : "<i style='color:#94a3b8'>[Empty File]</i>";
             if(mode !== 'r') document.getElementById('file-input-text').value = '';
+        }
+
+        // --- Tea Shop Project Logic ---
+        function runTeaShopProject() {
+            const teaQty = parseInt(document.getElementById('tea-qty').value) || 0;
+            const bunQty = parseInt(document.getElementById('bun-qty').value) || 0;
+            
+            const teaPrice = 50;
+            const bunPrice = 40;
+            
+            const teaTotal = teaPrice * teaQty;
+            const bunTotal = bunPrice * bunQty;
+            const subTotal = teaTotal + bunTotal;
+            
+            const billOutput = `========================\n      සිල්වා තේ කඩය      \n========================\nතේ    x ${teaQty}  : රු. ${teaTotal}\nබනිස්  x ${bunQty}  : රු. ${bunTotal}\n------------------------\nමුළු මුදල   : රු. ${subTotal}\n========================\n  ස්තූතියි! නැවත එන්න.  `;
+            
+            document.getElementById('project-console-output').innerText = billOutput;
         }
 
         window.onload = function() {
