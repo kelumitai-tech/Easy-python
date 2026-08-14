@@ -25,7 +25,7 @@
             --border-color: #e2e8f0;
             --sidebar-width: 280px;
             --header-height-desktop: 70px;
-            --header-height-mobile: 65px;
+            --header-height-mobile: 60px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -62,6 +62,7 @@
             letter-spacing: 0.5px;
             margin-left: 20px;
             color: #f8fafc;
+            white-space: nowrap;
         }
         
         .logo-text {
@@ -69,6 +70,7 @@
             font-size: 26px; 
             color: white;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
         
         .logo-text span {
@@ -170,6 +172,7 @@
             font-size: 32px;
             margin-bottom: 25px;
             font-weight: 600;
+            word-wrap: break-word;
         }
 
         h3 {
@@ -177,6 +180,7 @@
             margin: 35px 0 15px 0;
             font-size: 22px;
             font-weight: 500;
+            word-wrap: break-word;
         }
 
         hr {
@@ -190,6 +194,7 @@
             margin-bottom: 18px;
             font-size: 16px;
             color: #334155;
+            text-align: justify; /* Justify text */
         }
 
         /* Code Block W3Schools Style */
@@ -213,12 +218,13 @@
             border-radius: 4px;
             padding: 0;
             margin-bottom: 0;
+            overflow-x: auto; /* Horizontal scroll for code */
         }
 
         pre code {
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.5;
         }
 
@@ -229,6 +235,7 @@
             margin: 20px 0;
             border-radius: 4px;
             color: #78350f;
+            text-align: justify;
         }
         
         .w3-info {
@@ -238,15 +245,23 @@
             margin: 20px 0;
             border-radius: 4px;
             color: #1e3a8a;
+            text-align: justify;
         }
 
         ul, ol { margin-left: 25px; margin-bottom: 20px; color: #334155; }
-        li { margin-bottom: 8px; }
+        li { margin-bottom: 8px; text-align: justify; }
+
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            min-width: 500px;
         }
         
         table, th, td {
@@ -321,6 +336,7 @@
             margin-top: 15px;
             min-height: 100px;
             white-space: pre-wrap;
+            overflow-x: auto;
         }
 
         /* Quiz Styling */
@@ -361,6 +377,7 @@
             padding: 15px;
             border-radius: 8px;
             display: none;
+            text-align: justify;
         }
         
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
@@ -368,21 +385,39 @@
 
 
         footer {
-            text-align: center;
-            padding: 30px;
             background: #1e293b;
             color: white;
             margin-top: auto;
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            text-align: center; /* Fallback for inner text */
+        }
+        
+        footer p {
+            margin-bottom: 5px;
+            color: #ffffff;
+            text-align: center;
         }
 
-        /* Mobile Responsive */
+        /* --- MOBILE RESPONSIVE DESIGN (Fully Optimized) --- */
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
                 padding: 10px 15px;
             }
-            header h1 { font-size: 16px; margin-left: 10px;}
-            .logo-text { font-size: 20px; }
+            
+            header h1 { 
+                font-size: 15px; /* Prevent header title breaking */
+                margin-left: 8px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .logo-text { font-size: 18px; }
             
             .container {
                 flex-direction: column;
@@ -401,7 +436,6 @@
                 border-bottom: 1px solid var(--border-color);
                 padding: 5px 0;
                 z-index: 900;
-                /* Hide scrollbar on mobile */
                 -ms-overflow-style: none;  
                 scrollbar-width: none;  
             }
@@ -413,7 +447,8 @@
                 display: inline-block;
                 border-left: none;
                 border-bottom: 3px solid transparent;
-                padding: 12px 15px;
+                padding: 10px 15px;
+                font-size: 14px;
             }
 
             .tab-link.active {
@@ -424,15 +459,42 @@
 
             .main-content {
                 margin-left: 0;
-                margin-top: 50px; /* space for horizontal nav */
+                margin-top: 45px; /* space for horizontal nav */
                 padding: 20px 15px;
                 box-shadow: none;
             }
 
-            h2 { font-size: 24px; }
-            h3 { font-size: 20px; }
+            /* Responsive Headings: Reduced sizes so words don't break in portrait */
+            h2 { 
+                font-size: 20px; 
+                margin-bottom: 15px;
+                line-height: 1.4;
+            }
+            h3 { 
+                font-size: 17px; 
+                margin-top: 25px;
+                margin-bottom: 12px;
+                line-height: 1.4;
+            }
+            
+            p, li, .w3-info, .w3-note { 
+                font-size: 14px; 
+                text-align: justify; /* Ensure justify is kept on mobile */
+            }
             
             select, input, button { width: 100%; margin: 5px 0; }
+            
+            .btn-nav { font-size: 14px; padding: 10px 15px; }
+            
+            .interactive-box { padding: 15px; }
+        }
+        
+        /* Extra small devices (portrait phones) */
+        @media (max-width: 400px) {
+            h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+            header h1 { font-size: 13px; }
+            .logo-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -448,7 +510,7 @@
         <nav class="sidebar" id="nav-menu">
             <a class="tab-link special-tab active" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
             
-            <div class="sidebar-title">Python Fundametals</div>
+            <div class="sidebar-title">Python මූලික</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
             <a class="tab-link" onclick="openTab(event, 'comments')">Python Comments</a>
@@ -612,15 +674,17 @@ print(y)</code></pre>
                     <h2>Python දත්ත වර්ග (Data Types)</h2>
                     <p>Python වල බහුලව භාවිතා වන දත්ත වර්ග කිහිපයක් ඇත.</p>
                     
-                    <table>
-                        <tr><th>දත්ත වර්ගය</th><th>උදාහරණ</th></tr>
-                        <tr><td>Text Type</td><td><code>str</code> (String) - "Hello"</td></tr>
-                        <tr><td>Numeric Types</td><td><code>int</code> (10), <code>float</code> (10.5)</td></tr>
-                        <tr><td>Sequence Types</td><td><code>list</code> ([1, 2]), <code>tuple</code> ((1, 2))</td></tr>
-                        <tr><td>Mapping Type</td><td><code>dict</code> ({"name": "Amal"})</td></tr>
-                        <tr><td>Set Types</td><td><code>set</code> ({1, 2, 3})</td></tr>
-                        <tr><td>Boolean Type</td><td><code>bool</code> (True / False)</td></tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <tr><th>දත්ත වර්ගය</th><th>උදාහරණ</th></tr>
+                            <tr><td>Text Type</td><td><code>str</code> (String) - "Hello"</td></tr>
+                            <tr><td>Numeric Types</td><td><code>int</code> (10), <code>float</code> (10.5)</td></tr>
+                            <tr><td>Sequence Types</td><td><code>list</code> ([1, 2]), <code>tuple</code> ((1, 2))</td></tr>
+                            <tr><td>Mapping Type</td><td><code>dict</code> ({"name": "Amal"})</td></tr>
+                            <tr><td>Set Types</td><td><code>set</code> ({1, 2, 3})</td></tr>
+                            <tr><td>Boolean Type</td><td><code>bool</code> (True / False)</td></tr>
+                        </table>
+                    </div>
 
                     <div class="w3-example">
                         <h3>දත්ත වර්ගය බැලීම (Getting the Data Type)</h3>
