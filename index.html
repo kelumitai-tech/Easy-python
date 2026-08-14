@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python සම්පූර්ණ මාර්ගෝපදේශය - Smart Soft</title>
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5; /* Indigo 600 */
+            --primary-light: #818cf8;
+            --secondary: #ec4899; /* Pink 500 */
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-color: #f3f4f6; /* Gray 100 */
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --sidebar-width: 280px;
+            /* Header heights configuration */
+            --header-height-desktop: 110px;
+            --header-height-mobile: 95px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Modern Glassmorphism Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            margin-top: var(--header-height-desktop); 
+        }
+
+        /* Sidebar Navigation - Modern Pills */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--card-bg);
+            height: calc(100vh - var(--header-height-desktop));
+            position: fixed;
+            top: var(--header-height-desktop);
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+            padding: 20px 15px;
+            z-index: 900;
+        }
+
+        .tab-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+        }
+
+        .tab-link:hover {
+            background-color: #f3f4f6;
+            transform: translateX(4px);
+        }
+
+        .tab-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            font-weight: 600;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 30px;
+            flex-grow: 1;
+            max-width: 900px;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - var(--header-height-desktop));
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* Card-based Content Design */
+        .tab-content {
+            display: none;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 4px;
+            width: 50px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #374151;
+            margin: 30px 0 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 15px;
+            color: #4b5563;
+        }
+
+        /* Custom Callout Boxes */
+        .callout {
+            background: linear-gradient(to right, #eff6ff, #e0e7ff);
+            border-left: 5px solid var(--primary);
+            padding: 18px 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            font-weight: 500;
+            color: #1e3a8a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #4b5563;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        /* Code Blocks Styling */
+        pre {
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #f1f2f6;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: var(--secondary);
+            font-size: 85%;
+            font-weight: 600;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 15px 20px;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Interactive Activity Styling */
+        .interactive-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .interactive-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px dashed #cbd5e1;
+            padding-bottom: 15px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        select, input, textarea {
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            border-color: var(--primary-light);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: inherit;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #cbd5e1;
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #f87171);
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+        }
+        
+        .btn-danger:hover {
+            box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .output-area {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Consolas', monospace;
+            min-height: 100px;
+            white-space: pre-wrap;
+            font-size: 15px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Modern Quiz Styling */
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 12px;
+            background-color: white;
+            color: var(--text-main);
+            border: 2px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 500;
+            background-image: none; /* override global button bg */
+            box-shadow: none;
+        }
+        
+        .quiz-option:hover:not(:disabled) {
+            border-color: var(--primary-light);
+            background-color: #f8fafc;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            border-color: var(--success);
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .quiz-option.wrong {
+            border-color: var(--danger);
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .quiz-feedback {
+            font-weight: 500;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
+        .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .copyright {
+            display: inline-block;
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- MOBILE RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            body {
+                background-color: var(--card-bg);
+            }
+
+            header {
+                padding: 18px 15px;
+            }
+            
+            header h1 {
+                font-size: 20px;
+            }
+
+            .container {
+                flex-direction: column;
+                margin-top: var(--header-height-mobile);
+            }
+
+            /* Horizontal Scrollable Tabs for Mobile */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: var(--header-height-mobile);
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                white-space: nowrap;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                z-index: 999;
+                /* Hide scrollbar for a cleaner look */
+                -ms-overflow-style: none;  
+                scrollbar-width: none;  
+            }
+            
+            .sidebar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .tab-link {
+                display: inline-block;
+                margin-bottom: 0;
+                margin-right: 10px;
+                padding: 10px 18px;
+                border-radius: 20px;
+                font-size: 14px;
+                background-color: #f3f4f6;
+            }
+
+            .tab-link.active {
+                box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-top: 60px; /* Offset for the horizontal nav */
+                padding: 15px;
+                width: 100%;
+            }
+
+            .tab-content {
+                padding: 20px 15px;
+                box-shadow: none;
+                border: none;
+            }
+
+            h2 { font-size: 20px; }
+            h3 { font-size: 16px; }
+            p, li { font-size: 14px; }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .controls select, .controls input, .controls textarea, .controls button {
+                width: 100%;
+            }
+            
+            .quiz-option {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Python සම්පූර්ණ මාර්ගෝපදේශය</h1>
+        <p>ප්‍රායෝගික ක්‍රමලේඛන රහස් සහ අන්තර්ක්‍රියාකාරී ඉගෙනුම</p>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Navigation (Scrollable Pills on Mobile) -->
+        <nav class="sidebar" id="nav-menu">
+            <a href="javascript:void(0)" class="tab-link active" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'intro')">1. හැඳින්වීම</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'variables')">2. විචල්‍යයන් සහ දත්ත</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'structures')">3. දත්ත ව්‍යුහ</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'functions')">4. ශ්‍රිත (Functions)</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'loops')">5. ලූපය (Loops)</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'filehandling')">6. File Handling</a>
+            <a href="javascript:void(0)" class="tab-link" onclick="openTab(event, 'interactive')">🎮 ක්‍රියාකාරකම් සහ Quiz</a>
+        </nav>
+
+        <div class="main-content">
+            <div class="content-wrapper">
+
+                <!-- 💡 SMART SECRETS TAB -->
+                <div id="smart-secrets" class="tab-content active">
+                    <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Coding Tricks)</h2>
+                    <p>පයිතන් කේතීකරණයේදී ඔබව ප්‍රවීණයෙකු (Expert) කරන සුවිශේෂී රහස් කිහිපයක් පහත දැක්වේ:</p>
+                    
+                    <div class="callout">
+                        <strong>🚀 Secret 1: කෝලන් (:) සහ Indentation</strong><br>
+                        ඔබේ කේතයේ If, For, While, Def වැනි පාලන ව්‍යුහයන් (Control Structures) ලියන සෑම විටම පේළිය අවසානයේ <code>:</code> යෙදීමට අමතක නොකරන්න. ඉන්පසු එන පේළිය අනිවාර්යයෙන්ම හිස්තැන් (Space/Tab) තබා ආරම්භ කළ යුතුය.
+                    </div>
+
+                    <div class="callout">
+                        <strong>🚀 Secret 2: දත්ත ව්‍යුහ ක්ෂණිකව හඳුනාගැනීම</strong><br>
+                        වරහන් වර්ගය දුටු පමණින් දත්ත ව්‍යුහය හඳුනාගන්න:
+                        <ul style="margin-top: 10px;">
+                            <li><code>[ ]</code> කො‍ටු වරහන් = <strong>List</strong> (ඕනෑම විටක වෙනස් කළ හැක)</li>
+                            <li><code>( )</code> සාමාන්‍ය වරහන් = <strong>Tuple</strong> (වරක් හැදූ පසු වෙනස් කළ නොහැක)</li>
+                            <li><code>{ }</code> සඟල වරහන් = <strong>Dictionary</strong> (Key-Value යුගල ලෙස ගබඩා වේ)</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout">
+                        <strong>🚀 Secret 3: මනසින් කේතය ධාවනය කිරීම (Dry Run)</strong><br>
+                        ඔබේ කේතයේ දෝෂයක් (Bug) ඇතිවිට, පරිගණකයක් මෙන් සිතා පේළියෙන් පේළිය කේතය කියවන්න. විචල්‍යයක අගය වෙනස් වන සෑම අවස්ථාවක්ම කඩදාසියක සටහන් කරගන්න. මෙය ඉතා සාර්ථක ක්‍රමයකි.
+                    </div>
+                </div>
+
+                <!-- 1. හැඳින්වීම -->
+                <div id="intro" class="tab-content">
+                    <h2>1. Python යනු කුමක්ද?</h2>
+                    <p>Python යනු ඉගෙනීමට පහසු, ඉතා ජනප්‍රිය සහ ප්‍රබල (high-level) ක්‍රමලේඛන භාෂාවකි (Programming Language). එය මුලින්ම නිර්මාණය කරන ලද්දේ Guido van Rossum විසින් 1991 දීය.</p>
+                    
+                    <div class="callout">
+                        <strong>Python විශේෂ වන්නේ ඇයි?</strong>
+                        <ul style="margin-top:10px;">
+                            <li><strong>සරල බව:</strong> ඉංග්‍රීසි භාෂාවට සමාන සරල කේතීකරණ රටාවක් ඇත.</li>
+                            <li><strong>බහුකාර්ය:</strong> Web Development, AI/Machine Learning, Data Science වැනි විවිධ ක්ෂේත්‍ර සඳහා භාවිතා කළ හැක.</li>
+                        </ul>
+                    </div>
+
+                    <h3>ඔබේ පළමු Python වැඩසටහන</h3>
+                    <pre><code class="language-python"># තිරය මත යමක් මුද්‍රණය කිරීම සඳහා print() ශ්‍රිතය භාවිතා වේ
+print("Hello, World!")
+print("Python ඉතා පහසුයි!")</code></pre>
+                </div>
+
+                <!-- 2. විචල්‍යයන් සහ දත්ත වර්ග -->
+                <div id="variables" class="tab-content">
+                    <h2>2. විචල්‍යයන් සහ දත්ත වර්ග</h2>
+                    <p>පරිගණක මතකයේ දත්ත ගබඩා කරන භාජන විචල්‍යයන් (Variables) වේ. Python හි දත්ත වර්ගය ස්වයංක්‍රීයව තීරණය වේ.</p>
+                    
+                    <pre><code class="language-python">age = 25          # int (පූර්ණ සංඛ්‍යා)
+price = 10.50     # float (දශම)
+name = "නිමල්"    # str (වචන - Quotes අනිවාර්යයි)
+is_pass = True    # bool (True/False කැපිටල් අකුරින් පටන් ගනී)</code></pre>
+
+                    <div class="callout">
+                        <strong>📝 වැදගත්:</strong> විචල්‍ය නමක් ඉලක්කමකින් ආරම්භ කළ නොහැක. (උදා: <code>1name = "Kamal"</code> යනු වැරදි කේතයකි).
+                    </div>
+                </div>
+
+                <!-- 3. දත්ත ව්‍යුහ -->
+                <div id="structures" class="tab-content">
+                    <h2>3. දත්ත ව්‍යුහ (Data Structures)</h2>
+                    
+                    <h3>Lists (ලැයිස්තු)</h3>
+                    <p>වෙනස් කළ හැකි දත්ත එකතුවකි. කො‍ටු වරහන් <code>[]</code> භාවිතා වේ.</p>
+                    <pre><code class="language-python">marks = [75, 80, 90]
+marks.append(65)    # අගට අලුත් එකක් එකතු කිරීම
+marks[0] = 78       # පළමු අගය වෙනස් කිරීම (Index ආරම්භ වන්නේ 0 න්)</code></pre>
+
+                    <h3>Tuples (ටපල්ස්)</h3>
+                    <p>වෙනස් කළ නොහැකි දත්ත එකතුවකි. සාමාන්‍ය වරහන් <code>()</code> භාවිතා වේ.</p>
+                    <pre><code class="language-python">vowels = ('a', 'e', 'i', 'o', 'u')
+# vowels[0] = 'b' <-- මෙය කළ නොහැක! Error එකක් පැමිණේ.</code></pre>
+
+                    <h3>Dictionaries (ශබ්දකෝෂ)</h3>
+                    <p>Key සහ Value යුගල ලෙස ගබඩා කරයි. සඟල වරහන් <code>{}</code> භාවිතා වේ.</p>
+                    <pre><code class="language-python">student = {"name": "Amal", "age": 16}
+print(student["name"]) # "Amal" ලබා දෙයි</code></pre>
+
+                    <div class="callout">
+                        <strong>📝 වැදගත්:</strong> "වෙනස් කළ නොහැකි" (Immutable) දත්ත ව්‍යුහය කුමක්දැයි ඇසුවහොත් පිළිතුර <strong>Tuple</strong> වේ.
+                    </div>
+                </div>
+
+                <!-- 4. ශ්‍රිත -->
+                <div id="functions" class="tab-content">
+                    <h2>4. ශ්‍රිත (Functions)</h2>
+                    <p>නැවත නැවත භාවිතා කළ හැකි කේත කාණ්ඩයකි. ආරම්භ කරන්නේ <code>def</code> යන වචනයෙනි.</p>
+
+                    <pre><code class="language-python"># ශ්‍රිතය නිර්මාණය (Definition)
+def calculate_total(maths, science):
+    total = maths + science
+    return total
+
+# ශ්‍රිතය ඇමතීම (Calling)
+my_marks = calculate_total(85, 90)
+print(my_marks) # 175</code></pre>
+
+                    <div class="callout">
+                        <strong>📝 වැදගත්:</strong> Function එකක් තුළ ඇති විචල්‍යයන් (උදා: ඉහත total) පිටතින් භාවිතා කළ නොහැක (Local Scope). අගයක් පිටතට ගැනීමට <code>return</code> භාවිතා කළ යුතුය.
+                    </div>
+                </div>
+
+                <!-- 5. ලූපය -->
+                <div id="loops" class="tab-content">
+                    <h2>5. ලූපය (Loops - For & While)</h2>
+
+                    <h3>For Loop</h3>
+                    <p>නිශ්චිත වාර ගණනක් හෝ List එකක ඇති අයිතම ගණනට සමානව කේතය ධාවනය කිරීමට.</p>
+                    <pre><code class="language-python"># 0 සිට 4 දක්වා මුද්‍රණය කිරීම
+for i in range(5):
+    print(i)</code></pre>
+
+                    <h3>While Loop</h3>
+                    <p>කොන්දේසියක් සත්‍ය (True) වන තාක් කල් කේතය ධාවනය කිරීමට.</p>
+                    <pre><code class="language-python">x = 1
+while x <= 3:
+    print("Python")
+    x = x + 1  # මෙය අමතක කළහොත් Infinite Loop එකක් (නොනවතින ලූපයක්) හැදේ.</code></pre>
+                </div>
+
+                <!-- 6. ගොනු හැසිරවීම (EXPANDED) -->
+                <div id="filehandling" class="tab-content">
+                    <h2>6. ගොනු හැසිරවීම (File Handling)</h2>
+                    <p>වැඩසටහනක් අවසන් වූ පසු එහි ඇති දත්ත (Variables) මතකයෙන් මැකී යයි. දත්ත ස්ථිරවම (permanently) ගබඩා කර තබාගැනීමට Text files භාවිතා කිරීම File Handling මගින් සිදු කෙරේ.</p>
+                    
+                    <div class="callout">
+                        <strong>ප්‍රධාන ගොනු විවෘත කිරීමේ ක්‍රම (Modes):</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><code>"r"</code> - <strong>Read (කියවීම):</strong> දත්ත කියවීමට පමණි. ගොනුව නොමැති නම් Error එකක් පැමිණේ.</li>
+                            <li><code>"w"</code> - <strong>Write (ලිවීම):</strong> ලිවීමට පමණි. ගොනුවේ පැරණි දත්ත සියල්ල මැකී නව දත්ත ලියවේ. ගොනුවක් නොමැති නම් අලුතින් සාදයි.</li>
+                            <li><code>"a"</code> - <strong>Append (එකතු කිරීම):</strong> පැරණි දත්ත නොමැකී, අලුත් දත්ත ගොනුවේ අගට එකතු වේ.</li>
+                        </ul>
+                    </div>
+
+                    <h3>1. ආරක්ෂිතම ක්‍රමය (The 'with' statement) 🌟</h3>
+                    <p>සාමාන්‍යයෙන් ගොනුවක් <code>open()</code> කළ පසු අනිවාර්යයෙන්ම <code>close()</code> කළ යුතුය. නමුත් <code>with</code> භාවිතා කළ විට එය ස්වයංක්‍රීයවම වැසී යයි (Auto-close). කේත ලිවීමේදී (සහ විභාගවලදී) මෙය භාවිතා කිරීම ඉතා හොඳ පුරුද්දකි.</p>
+                    
+                    <pre><code class="language-python"># ගොනුවට ලිවීම (Write)
+with open("data.txt", "w") as file:
+    file.write("Hello Python!\n")
+    file.write("මෙය දෙවන පේළියයි.")
+# මෙහි file.close() ලිවීම අවශ්‍ය නොවේ. එය ස්වයංක්‍රීයයි!</code></pre>
+
+                    <h3>2. ගොනුවක් කියවීම (Reading Data)</h3>
+                    <p>ගොනුවක ඇති දත්ත කියවීමට ප්‍රධාන ක්‍රම 3ක් ඇත:</p>
+                    
+                    <pre><code class="language-python">with open("data.txt", "r") as file:
+    # 1. read() - සම්පූර්ණ ගොනුවම එකවර කියවීම (String එකක් ලෙස)
+    content = file.read()
+    
+    # 2. readline() - එක් පේළියක් පමණක් කියවීම
+    # line = file.readline()
+    
+    # 3. readlines() - සියලු පේළි List එකක් ලෙස ගැනීම 
+    # lines = file.readlines()
+    
+    print(content)</code></pre>
+
+                    <div class="callout">
+                        <strong>📝 විභාග සටහන:</strong> <code>read()</code> සහ <code>readlines()</code> අතර වෙනස අනිවාර්යයෙන් මතක තබාගන්න. <code>readlines()</code> මගින් ප්‍රතිදානය කරන්නේ <strong>List එකකි</strong> (උදා: <code>['පේළිය 1\n', 'පේළිය 2\n']</code>).
+                    </div>
+                </div>
+
+                <!-- 🎮 Interactive Activities -->
+                <div id="interactive" class="tab-content">
+                    <h2>🎮 ප්‍රායෝගික ක්‍රියාකාරකම් සහ Quiz</h2>
+                    <p>ඔබ ඉගෙන ගත් දෑ පහත ක්‍රියාකාරකම් මගින් ප්‍රායෝගිකව අත්හදා බලන්න.</p>
+
+                    <!-- Activity 1: MCQ Quiz (Scenario added) -->
+                    <div class="interactive-card">
+                        <h3>1. බුද්ධි පරීක්ෂණය (Python Quiz)</h3>
+                        <p id="q-text" style="font-weight: 600; font-size: 16px; margin-bottom: 15px;">1. ප්‍රශ්නය මෙහි දිස්වේ.</p>
+                        
+                        <div id="options-container">
+                            <button class="quiz-option" onclick="checkQuiz(1, this)" id="opt1">Option 1</button>
+                            <button class="quiz-option" onclick="checkQuiz(2, this)" id="opt2">Option 2</button>
+                            <button class="quiz-option" onclick="checkQuiz(3, this)" id="opt3">Option 3</button>
+                        </div>
+                        
+                        <div id="quiz-feedback" class="quiz-feedback"></div>
+                        <button id="next-q-btn" onclick="nextQuestion()" style="margin-top: 20px; display: none;">ඊළඟ ප්‍රශ්නය ➔</button>
+                    </div>
+
+                    <!-- Activity 2: Data Structure Builder -->
+                    <div class="interactive-card">
+                        <h3>2. දත්ත ව්‍යුහ Visualizer</h3>
+                        <p>දත්ත ව්‍යුහ 3හි හැසිරීම් වෙනස අත්විඳින්න. (විශේෂයෙන් Tuple වෙනස් කළ නොහැකි බව බලන්න).</p>
+                        
+                        <div class="controls">
+                            <select id="ds-type" onchange="changeType()">
+                                <option value="list">ලැයිස්තුව (List) - [ ]</option>
+                                <option value="tuple">ටපලය (Tuple) - ( )</option>
+                                <option value="dict">ශබ්දකෝෂය (Dictionary) - { }</option>
+                            </select>
+                        </div>
+
+                        <div class="controls" id="input-controls">
+                            <input type="text" id="key-input" placeholder="Key (උදා: name)" style="display:none;">
+                            <input type="text" id="val-input" placeholder="Value (අගය)">
+                            <button id="add-btn" onclick="addItem()">+ දත්ත එකතු කරන්න</button>
+                            <button id="clear-btn" class="btn-danger" onclick="clearData()">මකන්න</button>
+                        </div>
+
+                        <div id="warning-message" style="color: var(--danger); font-weight: 600; margin-bottom: 15px; min-height: 20px; font-size: 14px;"></div>
+                        
+                        <div class="output-area" id="code-output"></div>
+                    </div>
+                    
+                    <!-- NEW Activity 3: File Handling Simulator -->
+                    <div class="interactive-card">
+                        <h3>3. File Handling Simulator (අථත්‍ය ගොනුව)</h3>
+                        <p>විවිධ ගොනු ක්‍රම ('w', 'a', 'r') මගින් ගොනුවක දත්ත වෙනස් වන අයුරු සජීවීව අත්හදා බලන්න.</p>
+                        
+                        <div class="controls">
+                            <select id="file-mode" onchange="updateFileUI()">
+                                <option value="w">Write Mode ('w') - ලිවීම (පැරණි දත්ත මැකේ)</option>
+                                <option value="a">Append Mode ('a') - අගට එකතු කිරීම</option>
+                                <option value="r">Read Mode ('r') - කියවීම පමණි</option>
+                            </select>
+                        </div>
+                        
+                        <div class="controls" id="file-input-group">
+                            <textarea id="file-input-text" rows="2" placeholder="ගොනුවට ලිවීමට අවශ්‍ය දත්ත මෙහි ඇතුලත් කරන්න..."></textarea>
+                        </div>
+                        
+                        <button onclick="runFileSimulator()" style="margin-bottom: 20px; width: 100%;">▶ කේතය ක්‍රියාත්මක කරන්න (Run)</button>
+                        
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <!-- Virtual File Representation -->
+                            <div style="flex: 1; min-width: 250px;">
+                                <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">📄 data.txt (දැනට ගොනුවේ ඇති දත්ත)</h4>
+                                <div class="output-area" id="virtual-file-content" style="background-color: #f8fafc; color: #334155; border: 2px dashed #cbd5e1; box-shadow: none; min-height: 120px; font-family: 'Poppins', sans-serif;">
+                                </div>
+                            </div>
+                            
+                            <!-- Console Output -->
+                            <div style="flex: 1; min-width: 250px;">
+                                <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output (තිරයේ දිස්වන දේ)</h4>
+                                <div class="output-area" id="file-console-output" style="min-height: 120px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- End of content-wrapper -->
+
+            <!-- FOOTER -->
+            <footer>
+                <div class="copyright">
+                    &copy; Kelum Konara | Smart Soft
+                </div>
+            </footer>
+        </div> <!-- End of main-content -->
+    </div> <!-- End of container -->
+
+    <script>
+        // --- 1. Tab Navigation Logic ---
+        function openTab(evt, tabName) {
+            if(evt) evt.preventDefault();
+            
+            // Hide all contents
+            let tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all links
+            let tablinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show current tab and add active class to clicked link
+            document.getElementById(tabName).classList.add("active");
+            if(evt) evt.currentTarget.classList.add("active");
+
+            // Auto-scroll logic for mobile navbar (center the clicked item)
+            if (window.innerWidth <= 768 && evt) {
+                const navMenu = document.getElementById('nav-menu');
+                const clickedItem = evt.currentTarget;
+                const scrollLeft = clickedItem.offsetLeft - (navMenu.offsetWidth / 2) + (clickedItem.offsetWidth / 2);
+                navMenu.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+            }
+
+            // Scroll page to top 
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 2. Interactive Activity: Quiz Logic (With Scenario Question) ---
+        const questions = [
+            {
+                q: "1. Python හි Tuple එකක් නිවැරදිව සාදා ඇති පිළිතුර තෝරන්න.",
+                options: ["A) my_data = [1, 2, 3]", "B) my_data = (1, 2, 3)", "C) my_data = {1, 2, 3}"],
+                answer: 2,
+                explain: "නිවැරදි පිළිතුර B! Tuple එකක් සෑදීමට සාමාන්‍ය වරහන් ( ) භාවිතා කරයි. [ ] යනු List එකකි."
+            },
+            {
+                q: "2. [ප්‍රායෝගික ගැටළුව] ඔබ පාසල් සිසුන්ගේ තොරතුරු ගබඩා කරන මෘදුකාංගයක් සාදයි. එහිදී සිසුවෙකුගේ 'උපන්දිනය' ගබඩා කිරීමට අවශ්‍යයි. එය කිසිදා වෙනස් නොවිය යුතුය. මේ සඳහා සුදුසුම දත්ත ව්‍යුහය කුමක්ද?",
+                options: ["A) List (ලැයිස්තුව)", "B) Tuple (ටපලය)", "C) Dictionary (ශබ්දකෝෂය)"],
+                answer: 2,
+                explain: "නිවැරදි පිළිතුර B! Tuple එකකට ඇතුළත් කරන දත්ත පසුව වෙනස් කළ නොහැකි (Immutable) නිසා මෙවැනි දත්ත සුරක්ෂිතව තබාගැනීමට එය ඉතා සුදුසුය."
+            },
+            {
+                q: "3. 'for i in range(3):' කේතයේ ප්‍රතිදානය (Output) කුමක්ද?",
+                options: ["A) 1, 2, 3", "B) 0, 1, 2", "C) 0, 1, 2, 3"],
+                answer: 2,
+                explain: "නිවැරදි පිළිතුර B! Python හි range ගණන් කිරීම ආරම්භ කරන්නේ 0 නි. එබැවින් 0, 1, 2 ලෙස 3 වතාවක් ක්‍රියාත්මක වේ."
+            }
+        ];
+
+        let currentQ = 0;
+
+        function loadQuestion() {
+            document.getElementById("q-text").innerText = questions[currentQ].q;
+            
+            for(let i=0; i<3; i++){
+                let btn = document.getElementById(`opt${i+1}`);
+                btn.innerText = questions[currentQ].options[i];
+                btn.disabled = false;
+                btn.className = "quiz-option"; // Reset classes
+            }
+            document.getElementById("quiz-feedback").style.display = "none";
+            document.getElementById("next-q-btn").style.display = "none";
+        }
+
+        function checkQuiz(selected, btnElement) {
+            // Disable all buttons
+            for(let i=1; i<=3; i++) {
+                document.getElementById(`opt${i}`).disabled = true;
+            }
+
+            const feedback = document.getElementById("quiz-feedback");
+            
+            if(selected === questions[currentQ].answer) {
+                feedback.className = "quiz-feedback feedback-correct";
+                feedback.innerHTML = "✅ ඉතා හොඳයි! <br>" + questions[currentQ].explain;
+                btnElement.classList.add("correct");
+            } else {
+                feedback.className = "quiz-feedback feedback-wrong";
+                feedback.innerHTML = "❌ වැරදියි! <br>" + questions[currentQ].explain;
+                btnElement.classList.add("wrong");
+                // Highlight the correct answer
+                document.getElementById(`opt${questions[currentQ].answer}`).classList.add("correct");
+            }
+            
+            document.getElementById("quiz-feedback").style.display = "block";
+            
+            if(currentQ < questions.length - 1) {
+                document.getElementById("next-q-btn").style.display = "inline-block";
+                document.getElementById("next-q-btn").innerText = "ඊළඟ ප්‍රශ්නය ➔";
+                document.getElementById("next-q-btn").onclick = nextQuestion;
+            } else {
+                document.getElementById("next-q-btn").style.display = "inline-block";
+                document.getElementById("next-q-btn").innerText = "නැවත මුල සිට අරඹන්න ↻";
+                document.getElementById("next-q-btn").onclick = function() { currentQ = 0; loadQuestion(); };
+            }
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            loadQuestion();
+        }
+
+        // --- 3. Interactive Activity: Data Structures Logic ---
+        let currentType = 'list';
+        let listData = ['Apple', 'Banana'];
+        let tupleData = ['Apple', 'Banana', 'Orange']; 
+        let dictData = { "name": "Kamal", "age": "20" };
+
+        function changeType() {
+            currentType = document.getElementById('ds-type').value;
+            const keyInput = document.getElementById('key-input');
+            const addBtn = document.getElementById('add-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const warningMsg = document.getElementById('warning-message');
+
+            if (currentType === 'dict') {
+                keyInput.style.display = 'block';
+            } else {
+                keyInput.style.display = 'none';
+            }
+
+            if (currentType === 'tuple') {
+                addBtn.disabled = true;
+                clearBtn.disabled = true;
+                warningMsg.textContent = "⚠️ සටහන: Tuples වෙනස් කළ නොහැක (Immutable). එබැවින් දත්ත එකතු කිරීම/මැකීම අක්‍රීය කර ඇත.";
+            } else {
+                addBtn.disabled = false;
+                clearBtn.disabled = false;
+                warningMsg.textContent = "";
+            }
+            renderOutput();
+        }
+
+        function addItem() {
+            const valInput = document.getElementById('val-input').value.trim();
+            const keyInput = document.getElementById('key-input').value.trim();
+
+            if (currentType === 'list' && valInput) {
+                listData.push(valInput);
+            } else if (currentType === 'dict' && keyInput && valInput) {
+                dictData[keyInput] = valInput;
+            }
+
+            document.getElementById('val-input').value = '';
+            document.getElementById('key-input').value = '';
+            renderOutput();
+        }
+
+        function clearData() {
+            if (currentType === 'list') listData = [];
+            else if (currentType === 'dict') dictData = {};
+            renderOutput();
+        }
+
+        function renderOutput() {
+            const outputArea = document.getElementById('code-output');
+            let outputHTML = '';
+
+            if (currentType === 'list') {
+                const items = listData.map(v => `<span style="color: #a78bfa">"${v}"</span>`).join(', ');
+                outputHTML = `<span style="color: #34d399">my_list</span> = [${items}]`;
+            } else if (currentType === 'tuple') {
+                const items = tupleData.map(v => `<span style="color: #a78bfa">"${v}"</span>`).join(', ');
+                outputHTML = `<span style="color: #34d399">my_tuple</span> = (${items})`;
+            } else if (currentType === 'dict') {
+                const pairs = Object.entries(dictData).map(([k, v]) => 
+                    `    <span style="color: #60a5fa">"${k}"</span>: <span style="color: #a78bfa">"${v}"</span>`
+                ).join(',\n');
+                outputHTML = `<span style="color: #34d399">my_dict</span> = {\n${pairs}\n}`;
+            }
+            outputArea.innerHTML = outputHTML;
+        }
+        
+        // --- 4. Interactive Activity: File Simulator ---
+        let virtualFileContent = "පැරණි දත්ත පේළිය 1\nපැරණි දත්ත පේළිය 2";
+        
+        function updateFileUI() {
+            const mode = document.getElementById('file-mode').value;
+            const inputGroup = document.getElementById('file-input-group');
+            if (mode === 'r') {
+                inputGroup.style.display = 'none';
+            } else {
+                inputGroup.style.display = 'flex';
+            }
+        }
+        
+        function runFileSimulator() {
+            const mode = document.getElementById('file-mode').value;
+            const inputText = document.getElementById('file-input-text').value;
+            const fileDisplay = document.getElementById('virtual-file-content');
+            const consoleDisplay = document.getElementById('file-console-output');
+            
+            if (mode === 'w') {
+                virtualFileContent = inputText;
+                consoleDisplay.innerHTML = `<span style="color: #34d399;">Success:</span> ගොනුව සාර්ථකව 'w' (Write) mode එකෙන් ලියැවුණි.<br><i style="color: #94a3b8; font-size: 13px;">(පැරණි දත්ත මැකී නව දත්ත ආදේශ විය)</i>`;
+            } else if (mode === 'a') {
+                virtualFileContent += (virtualFileContent ? "\n" : "") + inputText;
+                consoleDisplay.innerHTML = `<span style="color: #34d399;">Success:</span> ගොනුව සාර්ථකව 'a' (Append) mode එකෙන් ලියැවුණි.<br><i style="color: #94a3b8; font-size: 13px;">(පැරණි දත්ත නොමැකී අගට එකතු විය)</i>`;
+            } else if (mode === 'r') {
+                consoleDisplay.innerHTML = `<span style="color: #60a5fa;">Terminal: print(file.read())</span><br><br><span style="color: #e2e8f0;">${virtualFileContent ? virtualFileContent.replace(/\n/g, '<br>') : '[හිස්]'}</span>`;
+            }
+            
+            // Render virtual file
+            fileDisplay.innerHTML = virtualFileContent ? virtualFileContent.replace(/\n/g, '<br>') : "<i style='color:#94a3b8'>[ගොනුව හිස්ව පවතී]</i>";
+            
+            // Clear input box
+            if(mode !== 'r') document.getElementById('file-input-text').value = '';
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            renderOutput();
+            loadQuestion();
+            
+            // Init file simulator
+            updateFileUI();
+            runFileSimulator(); // Run once to populate file display
+            document.getElementById('file-console-output').innerHTML = "<i style='color:#94a3b8'>කේතය ක්‍රියාත්මක වනතුරු රැඳී සිටී...</i>";
+        };
+    </script>
+</body>
+</html>
