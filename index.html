@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Python සම්පූර්ණ මාර්ගෝපදේශය - SmartSoft</title>
+    <title>SmartSoft</title>
     <!-- Highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb; /* Blue 600 */
@@ -147,7 +147,7 @@
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
             flex-grow: 1;
-            max-width: 1100px;
+            max-width: 1200px;
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--header-height-desktop));
@@ -173,17 +173,18 @@
         .hero-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
-            padding: 60px 30px;
+            padding: 60px 40px;
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(30, 58, 138, 0.2);
-            margin-bottom: 50px;
+            margin: 0 auto 50px auto;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
         }
         
         .hero-section::before {
@@ -225,8 +226,8 @@
         .hero-section p {
             font-size: clamp(15px, 3vw, 18px);
             color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            max-width: 800px;
+            margin: 0 auto 35px auto;
             text-align: center;
             z-index: 1;
         }
@@ -234,8 +235,8 @@
         .hero-btn {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 16px 40px;
-            font-size: clamp(15px, 3vw, 18px);
+            padding: 16px 45px;
+            font-size: clamp(16px, 3vw, 18px);
             font-weight: 600;
             border: none;
             border-radius: 50px;
@@ -245,6 +246,7 @@
             display: inline-block;
             margin: 0 auto;
             z-index: 1;
+            white-space: nowrap;
         }
 
         .hero-btn:hover {
@@ -424,10 +426,37 @@
             font-weight: 600;
         }
 
+        /* Activity Block Style */
+        .activity-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0 10px 0;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-left: 4px solid var(--secondary);
+        }
+
+        details {
+            background: #f8fafc; 
+            padding: 12px; 
+            border-radius: 6px; 
+            border: 1px solid #cbd5e1;
+            margin-top: 15px;
+        }
+
+        summary {
+            cursor: pointer; 
+            font-weight: 600; 
+            color: var(--primary); 
+            font-size: 15px;
+            outline: none;
+        }
+
         .next-prev-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 50px;
+            margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #e2e8f0;
         }
@@ -501,7 +530,7 @@
             padding: 15px;
             border-radius: 12px;
             font-weight: 500;
-            background-image: none; /* override global button bg */
+            background-image: none;
             box-shadow: none;
         }
         
@@ -534,6 +563,7 @@
         
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
+
 
         footer {
             background: #1e293b;
@@ -575,14 +605,12 @@
                 margin-top: var(--header-height-mobile);
             }
 
-            /* Horizontal Scrollable Tabs for Mobile */
             .sidebar {
                 width: 100%;
                 height: auto;
                 position: fixed;
                 top: var(--header-height-mobile);
                 display: flex;
-                flex-direction: row;
                 overflow-x: auto;
                 white-space: nowrap;
                 border-right: none;
@@ -592,61 +620,60 @@
                 -ms-overflow-style: none;  
                 scrollbar-width: none;  
             }
-            
-            .sidebar::-webkit-scrollbar {
-                display: none;
-            }
+            .sidebar::-webkit-scrollbar { display: none; }
 
             .sidebar-title { display: none; }
 
             .tab-link {
                 display: inline-block;
-                margin-bottom: 0;
-                margin-right: 10px;
-                padding: 10px 18px;
-                border-radius: 20px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                padding: 10px 15px;
                 font-size: 14px;
-                background-color: #f3f4f6;
             }
 
             .tab-link.active {
-                box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+                border-left: none;
+                border-bottom: 3px solid var(--primary);
+                background-color: transparent;
             }
 
             .main-content {
                 margin-left: 0;
-                margin-top: 50px; /* Offset for the horizontal nav */
-                padding: 15px;
-                width: 100%;
+                margin-top: 45px; 
+                padding: 15px 10px;
+                box-shadow: none;
             }
 
-            .tab-content {
-                padding: 20px 15px;
-                box-shadow: none; /* Flatter look on mobile */
-                border: none;
+            .hero-section {
+                padding: 40px 15px;
+                border-radius: 12px;
+                margin-bottom: 30px;
             }
             
-            .hero-section {
-                padding: 40px 20px;
+            .hero-btn {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 15px 20px;
             }
 
             h2 { font-size: 20px; margin-bottom: 15px; line-height: 1.4; }
             h3 { font-size: 17px; margin-top: 25px; margin-bottom: 12px; line-height: 1.4; }
             p, li, .w3-info, .w3-note { font-size: 14px; text-align: justify; }
             
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            select, input, button { width: 100%; margin: 5px 0; }
             
-            .controls select, .controls input, .controls button {
-                width: 100%;
-            }
+            .btn-nav { font-size: 14px; padding: 10px 15px; }
             
-            .quiz-option {
-                padding: 12px;
-                font-size: 14px;
-            }
+            .interactive-box { padding: 15px; }
+            details summary { padding: 10px 0; }
+        }
+        
+        @media (max-width: 400px) {
+            h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+            header h1 { font-size: 13px; }
+            .logo-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -702,7 +729,6 @@
                 <!-- 🏠 HOME PAGE TAB -->
                 <div id="homepage" class="tab-content active">
                     <div class="hero-section">
-                        <!-- Added Python Logo -->
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="hero-logo">
                         <h1>Python ක්‍රමලේඛනය මුල සිට සරලව</h1>
                         <p>Theory පමණක් නොව, ප්‍රායෝගිකව (Practical) කේතීකරණය ඉගෙන ගන්න. නවීන තාක්ෂණය සහ අන්තර්ක්‍රියාකාරී මෙවලම් සමඟින් ඔබේ Programming සිහිනය සැබෑ කරගන්න.</p>
@@ -777,6 +803,16 @@
                         <pre><code class="language-python">print("Hello, World!")</code></pre>
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python කේතයක් තිරයේ මුද්‍රණය කිරීමට භාවිතා කරන ශ්‍රිතය (function) කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> print()</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'smart-secrets')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'syntax')">Next ❯</button>
@@ -788,7 +824,7 @@
                     <h2>Python වාක්‍ය වින්‍යාසය (Syntax)</h2>
                     <p>Python හි Syntax එක ඉංග්‍රීසි භාෂාවට ඉතා සමාන වන අතර එය කියවීමට ඉතා පහසුය.</p>
                     
-                    <h3>Python Indentation</h3>
+                    <h3>Python Indentation (හිස්තැන් තැබීම)</h3>
                     <p>වෙනත් භාෂාවන්හිදී (C++, Java) කේත කොටසක් වෙන් කිරීමට සඟල වරහන් <code>{}</code> භාවිතා කළද, Python හි ඒ සඳහා <strong>Indentation (හිස්තැන්)</strong> භාවිතා කරයි. මෙය ඉතා වැදගත් වේ.</p>
                     
                     <div class="w3-example">
@@ -799,6 +835,16 @@
 
                     <div class="w3-note">
                         <strong>දෝෂයක් (Syntax Error):</strong> හිස්තැන් නොතැබුවහොත් Python විසින් Error එකක් ලබාදේ.
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python හි කේත කොටසක් වෙන් කිරීමට භාවිතා කරන්නේ කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Indentation (හිස්තැන් තැබීම)</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -817,6 +863,16 @@
                         <p>Comment එකක් <code>#</code> ලකුණෙන් ආරම්භ වේ. Python විසින් මෙය කියවන්නේ නැත.</p>
                         <pre><code class="language-python"># මෙය Comment එකකි
 print("Hello, World!") # මෙයද කේතයට බාධාවක් නොවේ</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python හි Single-line comment එකක් ලියන සංකේතය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> # ලකුණ</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -839,12 +895,22 @@ print(x)
 print(y)</code></pre>
                     </div>
 
-                    <h3>Variable Names</h3>
+                    <h3>Variable Names (නම් කිරීමේ නීති)</h3>
                     <ul>
                         <li>අකුරකින් හෝ යටි ඉරකින් (<code>_</code>) ආරම්භ විය යුතුය.</li>
                         <li>ඉලක්කමකින් ආරම්භ කළ නොහැක.</li>
                         <li>Case-sensitive වේ (<code>age</code>, <code>Age</code> යනු දෙකකි).</li>
                     </ul>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> වයස 20 ලෙස ගබඩා කිරීමට විචල්‍යයක් (Variable) සාදන්නේ කෙසේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> age = 20</p>
+                        </details>
+                    </div>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'comments')">❮ Prev</button>
@@ -875,6 +941,16 @@ print(y)</code></pre>
 print(type(x)) # Output: &lt;class 'int'&gt;</code></pre>
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> x = 10.5 හි දත්ත වර්ගය (Data type) කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> float</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'variables')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'numbers')">Next ❯</button>
@@ -893,12 +969,22 @@ y = 3.14    # float
 z = -5      # int</code></pre>
                     </div>
 
-                    <h3>Type Casting</h3>
+                    <h3>Type Casting (එක් වර්ගයකින් තවත් වර්ගයකට හැරවීම)</h3>
                     <p>දත්තයක වර්ගය අපට අවශ්‍ය පරිදි වෙනස් කරගැනීමට <code>int()</code>, <code>float()</code>, <code>str()</code> භාවිතා කරයි.</p>
                     <div class="w3-example">
                         <pre><code class="language-python">x = int(2.8)    # x හි අගය 2 වේ
 y = float("3")  # y හි අගය 3.0 වේ
 z = str(10)     # z හි අගය වචනයක් ලෙස "10" වේ</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> දශම සංඛ්‍යාවක් (Float) පූර්ණ සංඛ්‍යාවක් (Integer) බවට පත් කරන්නේ කුමන ශ්‍රිතයෙන්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> int()</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -925,6 +1011,16 @@ print(a.replace("H", "J")) # අකුරක් මාරු කිරීමට 
                         <strong>String Concatenation:</strong> වචන දෙකක් එකතු කිරීමට <code>+</code> ලකුණ භාවිතා කරයි. (උදා: <code>"A" + "B" = "AB"</code>)
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> "Hello" යන වචනයේ අකුරු ගණන සොයන්නේ කෙසේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> len("Hello")</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'numbers')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">Next ❯</button>
@@ -941,6 +1037,16 @@ print(a.replace("H", "J")) # අකුරක් මාරු කිරීමට 
                         <pre><code class="language-python">print(10 > 9)  # True
 print(10 == 9) # False
 print(10 < 9)  # False</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> 10 > 15 හි ප්‍රතිඵලය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> False</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -974,6 +1080,16 @@ print(10 < 9)  # False</code></pre>
 or   - එක් කොන්දේසියක් හෝ සත්‍ය නම් True වේ
 not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> 10, 3 න් බෙදූ පසු ඉතිරිය (Modulus) සෙවීමේ කේතය ලියන්න.</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 10 % 3</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'lists')">Next ❯</button>
@@ -998,6 +1114,16 @@ fruits[1] = "mango"
 print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> List එකකට අලුතින් අයිතමයක් එකතු කරන method එක කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> .append()</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">Next ❯</button>
@@ -1017,6 +1143,16 @@ print(thistuple[1])
 # thistuple[1] = "mango"  <-- මෙය කළ නොහැක! Error පැමිණේ.</code></pre>
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Tuple එකක දත්ත පසුව වෙනස් කළ හැකිද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> නැත (එය Immutable වේ)</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'lists')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'sets')">Next ❯</button>
@@ -1033,6 +1169,16 @@ print(thistuple[1])
                         <pre><code class="language-python">myset = {"apple", "banana", "cherry", "apple"}
 print(myset) 
 # ප්‍රතිඵලයේ "apple" ඇත්තේ එක් වරක් පමණි!</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Set එකක එකම අගය (duplicate) දෙවරක් පැවතිය හැකිද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> නැත</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -1057,6 +1203,16 @@ print(car["model"]) # "Mustang" ලබා දෙයි
 
 # අගය වෙනස් කිරීම
 car["year"] = 2020</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Dictionary එකක දත්ත ගබඩා වන ආකාරය හඳුන්වන්නේ කෙසේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Key-Value (යතුර සහ අගය) යුගල ලෙස</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -1087,6 +1243,16 @@ else:
                         <strong>Indentation:</strong> <code>if</code> ප්‍රකාශයෙන් පසුව එන පේළි අනිවාර්යයෙන්ම හිස්තැන් තබා ලිවිය යුතුය.
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> if කොන්දේසිය අසත්‍ය වූ විට ක්‍රියාත්මක වන කොටස කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> else කොටස</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'dicts')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'while')">Next ❯</button>
@@ -1104,6 +1270,16 @@ else:
 while i < 6:
     print(i)
     i += 1  # මෙය අමතක කළහොත් ලූපය කිසිදා නතර නොවේ (Infinite loop)</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> While loop එකක් කිසිදා නතර නොවන තත්ත්වයක් හැඳින්වෙන්නේ කෙසේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Infinite Loop (නොනවතින ලූපය)</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -1129,6 +1305,16 @@ for x in fruits:
                         <p>නිශ්චිත වාර ගණනක් ලූපය ධාවනය කිරීමට.</p>
                         <pre><code class="language-python">for x in range(5):
     print(x) # 0 සිට 4 දක්වා මුද්‍රණය වේ</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> for x in range(3): මගින් කී වතාවක් ලූපය ක්‍රියාත්මක වේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 3 වතාවක් (0, 1, 2)</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -1162,6 +1348,16 @@ my_function("Amal")</code></pre>
 print(add(5, 3)) # 8 ලබා දෙයි</code></pre>
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> ශ්‍රිතයක් (Function) නිර්මාණය කිරීමට භාවිතා කරන keyword එක කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> def</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'for')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'oop')">Next ❯</button>
@@ -1191,6 +1387,16 @@ print(p1.age)</code></pre>
                         <strong>Note:</strong> <code>__init__</code> ශ්‍රිතය සෑම විටම පන්තියකින් Object එකක් සාදන විට ස්වයංක්‍රීයව ක්‍රියාත්මක වේ.
                     </div>
 
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Class එකකින් Object එකක් සාදන විට ස්වයංක්‍රීයව ක්‍රියාත්මක වන ශ්‍රිතය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> __init__()</p>
+                        </details>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'functions')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tryexcept')">Next ❯</button>
@@ -1213,6 +1419,16 @@ except:
 finally:
     # කුමක් සිදු වුවත් මෙය ක්‍රියාත්මක වේ
     print("Try-except ක්‍රියාවලිය අවසන්.")</code></pre>
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Error එකක් ඇතිවූ විට වැඩසටහන නතර නොවී ක්‍රියාත්මක වීමට දමන කොටස කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> except කොටස</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
@@ -1250,6 +1466,16 @@ finally:
                     
                     <div class="w3-note">
                         <strong>📝 විභාග සටහන:</strong> <code>read()</code> මගින් සම්පූර්ණ ගොනුව String එකක් ලෙසත්, <code>readlines()</code> මගින් එය <strong>List එකක්</strong> ලෙසත් ලබාදෙයි.
+                    </div>
+
+                    <!-- Activity Block -->
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> පැරණි දත්ත නොමැකී ෆයිල් එකකට අලුත් දත්ත ලිවීමට භාවිතා කරන mode එක කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> "a" (Append Mode)</p>
+                        </details>
                     </div>
 
                     <div class="next-prev-container">
