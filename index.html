@@ -171,15 +171,19 @@
 
         /* --- HOME PAGE STYLES --- */
         .hero-section {
-            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
-            padding: 50px 30px;
-            border-radius: 16px;
+            padding: 60px 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
-            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.2);
+            margin-bottom: 50px;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-section::before {
@@ -189,46 +193,64 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 50%);
             transform: rotate(30deg);
             pointer-events: none;
         }
 
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+            animation: float 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
         .hero-section h1 {
-            font-size: clamp(24px, 5vw, 38px);
+            font-size: clamp(28px, 5vw, 42px);
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
             white-space: normal;
+            z-index: 1;
         }
 
         .hero-section p {
-            font-size: clamp(14px, 3vw, 18px);
-            color: #e2e8f0;
+            font-size: clamp(15px, 3vw, 18px);
+            color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto 30px auto;
             text-align: center;
+            z-index: 1;
         }
 
         .hero-btn {
-            background: #10b981;
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 15px 35px;
-            font-size: clamp(14px, 3vw, 18px);
+            padding: 16px 40px;
+            font-size: clamp(15px, 3vw, 18px);
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
             display: inline-block;
             margin: 0 auto;
+            z-index: 1;
         }
 
         .hero-btn:hover {
-            transform: translateY(-3px);
-            background: #059669;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, #34d399, #10b981);
         }
 
         .feature-grid {
@@ -241,21 +263,30 @@
         .feature-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 30px 25px;
             transition: all 0.3s;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
             border-color: var(--primary-light);
+            background: #ffffff;
         }
 
         .feature-icon {
-            font-size: 40px;
+            font-size: 45px;
             margin-bottom: 15px;
+            display: inline-block;
+            background: #eff6ff;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            color: var(--primary);
         }
 
         .feature-card h3 {
@@ -263,6 +294,7 @@
             font-size: 20px;
             color: var(--primary);
             text-align: center;
+            font-weight: 600;
         }
 
         .feature-card p {
@@ -275,7 +307,7 @@
         /* Standard Content Styles - Using clamp for fluid typography */
         h2 {
             color: var(--text-main);
-            font-size: clamp(18px, 4vw, 32px);
+            font-size: clamp(20px, 4vw, 32px);
             margin-bottom: 25px;
             font-weight: 600;
             white-space: nowrap;
@@ -286,7 +318,7 @@
         h3 {
             color: var(--text-main);
             margin: 35px 0 15px 0;
-            font-size: clamp(16px, 3.5vw, 22px);
+            font-size: clamp(18px, 3.5vw, 22px);
             font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
@@ -311,9 +343,10 @@
         .w3-example {
             background-color: #f1f5f9;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             margin: 20px 0;
             box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
 
         .w3-example h3 {
@@ -321,13 +354,13 @@
             font-size: clamp(16px, 3vw, 18px);
             color: #0f172a;
             text-align: left;
-            white-space: normal; /* allow wrap inside code blocks */
+            white-space: normal;
         }
 
         pre {
             background-color: #1e293b;
             border-left: 4px solid var(--success);
-            border-radius: 4px;
+            border-radius: 6px;
             padding: 0;
             margin-bottom: 0;
             overflow-x: auto;
@@ -337,7 +370,7 @@
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .w3-note {
@@ -388,6 +421,7 @@
         th {
             background-color: #f8fafc;
             color: #334155;
+            font-weight: 600;
         }
 
         .next-prev-container {
@@ -403,7 +437,7 @@
             color: white;
             padding: 12px 25px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
             border: none;
@@ -411,26 +445,26 @@
             font-size: 16px;
         }
 
-        .btn-nav:hover { background-color: #047857; }
+        .btn-nav:hover { background-color: #047857; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         /* Interactive Elements */
         .interactive-box {
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 25px;
             margin: 25px 0;
             background: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.03);
         }
         
         .interactive-box h3 {
-            white-space: normal; /* Interactive titles can wrap safely */
+            white-space: normal;
         }
 
         select, input, button {
             padding: 12px;
             border: 1px solid #cbd5e1;
-            border-radius: 5px;
+            border-radius: 8px;
             margin: 5px;
             font-family: inherit;
         }
@@ -448,7 +482,7 @@
             color: #e2e8f0;
             padding: 20px;
             font-family: 'Consolas', monospace;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-top: 15px;
             min-height: 100px;
             white-space: pre-wrap;
@@ -463,16 +497,18 @@
             margin-bottom: 12px;
             background-color: #f8fafc;
             color: var(--text-main);
-            border: 1px solid #cbd5e1;
+            border: 2px solid #e2e8f0;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 500;
-            transition: all 0.2s;
+            background-image: none; /* override global button bg */
+            box-shadow: none;
         }
         
         .quiz-option:hover:not(:disabled) {
             border-color: var(--primary-light);
             background-color: #eff6ff;
+            transform: translateX(5px);
         }
 
         .quiz-option.correct {
@@ -491,14 +527,13 @@
             font-weight: 500;
             margin-top: 20px;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             display: none;
             text-align: justify;
         }
         
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
-
 
         footer {
             background: #1e293b;
@@ -526,17 +561,28 @@
                 padding: 10px 15px;
             }
             
+            header h1 { 
+                font-size: 15px; 
+                margin-left: 8px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .logo-text { font-size: 18px; }
+            
             .container {
                 flex-direction: column;
                 margin-top: var(--header-height-mobile);
             }
 
+            /* Horizontal Scrollable Tabs for Mobile */
             .sidebar {
                 width: 100%;
                 height: auto;
                 position: fixed;
                 top: var(--header-height-mobile);
                 display: flex;
+                flex-direction: row;
                 overflow-x: auto;
                 white-space: nowrap;
                 border-right: none;
@@ -546,46 +592,61 @@
                 -ms-overflow-style: none;  
                 scrollbar-width: none;  
             }
-            .sidebar::-webkit-scrollbar { display: none; }
+            
+            .sidebar::-webkit-scrollbar {
+                display: none;
+            }
 
             .sidebar-title { display: none; }
 
             .tab-link {
                 display: inline-block;
-                border-left: none;
-                border-bottom: 3px solid transparent;
-                padding: 10px 15px;
+                margin-bottom: 0;
+                margin-right: 10px;
+                padding: 10px 18px;
+                border-radius: 20px;
                 font-size: 14px;
+                background-color: #f3f4f6;
             }
 
             .tab-link.active {
-                border-left: none;
-                border-bottom: 3px solid var(--primary);
-                background-color: transparent;
+                box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
             }
 
             .main-content {
                 margin-left: 0;
-                margin-top: 45px; 
+                margin-top: 50px; /* Offset for the horizontal nav */
+                padding: 15px;
+                width: 100%;
+            }
+
+            .tab-content {
                 padding: 20px 15px;
-                box-shadow: none;
+                box-shadow: none; /* Flatter look on mobile */
+                border: none;
             }
-
+            
             .hero-section {
-                padding: 30px 20px;
+                padding: 40px 20px;
             }
 
-            /* Responsive content alignments */
-            p, li, .w3-info, .w3-note { 
-                font-size: 14px; 
-                text-align: justify; 
+            h2 { font-size: 20px; margin-bottom: 15px; line-height: 1.4; }
+            h3 { font-size: 17px; margin-top: 25px; margin-bottom: 12px; line-height: 1.4; }
+            p, li, .w3-info, .w3-note { font-size: 14px; text-align: justify; }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
             }
             
-            select, input, button { width: 100%; margin: 5px 0; }
+            .controls select, .controls input, .controls button {
+                width: 100%;
+            }
             
-            .btn-nav { font-size: 14px; padding: 10px 15px; }
-            
-            .interactive-box { padding: 15px; }
+            .quiz-option {
+                padding: 12px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -602,7 +663,7 @@
             <a class="tab-link active" onclick="openTab(event, 'homepage')">🏠 මුල් පිටුව</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
             
-            <div class="sidebar-title">Fundaments of Python</div>
+            <div class="sidebar-title">Python මූලික</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
             <a class="tab-link" onclick="openTab(event, 'comments')">Python Comments</a>
@@ -641,6 +702,8 @@
                 <!-- 🏠 HOME PAGE TAB -->
                 <div id="homepage" class="tab-content active">
                     <div class="hero-section">
+                        <!-- Added Python Logo -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="hero-logo">
                         <h1>Python ක්‍රමලේඛනය මුල සිට සරලව</h1>
                         <p>Theory පමණක් නොව, ප්‍රායෝගිකව (Practical) කේතීකරණය ඉගෙන ගන්න. නවීන තාක්ෂණය සහ අන්තර්ක්‍රියාකාරී මෙවලම් සමඟින් ඔබේ Programming සිහිනය සැබෑ කරගන්න.</p>
                         <button class="hero-btn" onclick="openTab(event, 'smart-secrets')">ඔබේ Python ගමන අරඹන්න 🚀</button>
@@ -667,7 +730,7 @@
 
                 <!-- 💡 SMART SECRETS TAB -->
                 <div id="smart-secrets" class="tab-content">
-                    <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Tricks)</h2>
+                    <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Coding Tricks)</h2>
                     <p>පයිතන් කේතීකරණයේදී ඔබව ප්‍රවීණයෙකු (Expert) කරන සුවිශේෂී රහස් කිහිපයක් පහත දැක්වේ:</p>
                     
                     <div class="w3-info">
@@ -1312,11 +1375,13 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">☕ තේ කෝප්ප ගණන:</label>
-                                <input type="number" id="tea-qty" value="3" min="0" style="width:100%;">
+                                <!-- Initial values set to 0 as requested -->
+                                <input type="number" id="tea-qty" value="0" min="0" style="width:100%;">
                             </div>
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">🍔 බනිස් ගණන:</label>
-                                <input type="number" id="bun-qty" value="2" min="0" style="width:100%;">
+                                <!-- Initial values set to 0 as requested -->
+                                <input type="number" id="bun-qty" value="0" min="0" style="width:100%;">
                             </div>
                         </div>
                         
@@ -1572,6 +1637,10 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             loadQuestion();
             updateFileUI();
             runFileSimulator();
+            
+            // Project Init run with 0 inputs
+            runTeaShopProject();
+            
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
         };
     </script>
