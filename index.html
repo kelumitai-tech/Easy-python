@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Python සම්පූර්ණ මාර්ගෝපදේශය - Smart Soft</title>
+    <title>Python සම්පූර්ණ මාර්ගෝපදේශය - SmartSoft</title>
     <!-- Highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -57,17 +57,19 @@
         }
 
         header h1 {
-            font-size: 22px;
+            font-size: clamp(14px, 2vw, 22px);
             font-weight: 600;
             letter-spacing: 0.5px;
             margin-left: 20px;
             color: #f8fafc;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .logo-text {
             font-weight: 700; 
-            font-size: 26px; 
+            font-size: clamp(20px, 3vw, 26px); 
             color: white;
             letter-spacing: 1px;
             white-space: nowrap;
@@ -193,7 +195,7 @@
         }
 
         .hero-section h1 {
-            font-size: 38px;
+            font-size: clamp(24px, 5vw, 38px);
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
@@ -201,7 +203,7 @@
         }
 
         .hero-section p {
-            font-size: 18px;
+            font-size: clamp(14px, 3vw, 18px);
             color: #e2e8f0;
             max-width: 700px;
             margin: 0 auto 30px auto;
@@ -212,7 +214,7 @@
             background: #10b981;
             color: white;
             padding: 15px 35px;
-            font-size: 18px;
+            font-size: clamp(14px, 3vw, 18px);
             font-weight: 600;
             border: none;
             border-radius: 50px;
@@ -270,21 +272,25 @@
             text-align: center;
         }
 
-        /* Standard Content Styles */
+        /* Standard Content Styles - Using clamp for fluid typography */
         h2 {
             color: var(--text-main);
-            font-size: 32px;
+            font-size: clamp(18px, 4vw, 32px);
             margin-bottom: 25px;
             font-weight: 600;
-            word-wrap: break-word;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         h3 {
             color: var(--text-main);
             margin: 35px 0 15px 0;
-            font-size: 22px;
+            font-size: clamp(16px, 3.5vw, 22px);
             font-weight: 500;
-            word-wrap: break-word;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         hr {
@@ -312,9 +318,10 @@
 
         .w3-example h3 {
             margin-top: 0;
-            font-size: 18px;
+            font-size: clamp(16px, 3vw, 18px);
             color: #0f172a;
             text-align: left;
+            white-space: normal; /* allow wrap inside code blocks */
         }
 
         pre {
@@ -414,6 +421,10 @@
             margin: 25px 0;
             background: #fff;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        
+        .interactive-box h3 {
+            white-space: normal; /* Interactive titles can wrap safely */
         }
 
         select, input, button {
@@ -515,15 +526,6 @@
                 padding: 10px 15px;
             }
             
-            header h1 { 
-                font-size: 15px; 
-                margin-left: 8px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
-            .logo-text { font-size: 18px; }
-            
             .container {
                 flex-direction: column;
                 margin-top: var(--header-height-mobile);
@@ -572,24 +574,8 @@
             .hero-section {
                 padding: 30px 20px;
             }
-            
-            .hero-section h1 {
-                font-size: 26px;
-            }
 
-            /* Responsive Headings */
-            h2 { 
-                font-size: 20px; 
-                margin-bottom: 15px;
-                line-height: 1.4;
-            }
-            h3 { 
-                font-size: 17px; 
-                margin-top: 25px;
-                margin-bottom: 12px;
-                line-height: 1.4;
-            }
-            
+            /* Responsive content alignments */
             p, li, .w3-info, .w3-note { 
                 font-size: 14px; 
                 text-align: justify; 
@@ -600,13 +586,6 @@
             .btn-nav { font-size: 14px; padding: 10px 15px; }
             
             .interactive-box { padding: 15px; }
-        }
-        
-        @media (max-width: 400px) {
-            h2 { font-size: 18px; }
-            h3 { font-size: 16px; }
-            header h1 { font-size: 13px; }
-            .logo-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -623,7 +602,7 @@
             <a class="tab-link active" onclick="openTab(event, 'homepage')">🏠 මුල් පිටුව</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
             
-            <div class="sidebar-title"> Fundamentals of Python</div>
+            <div class="sidebar-title">Fundaments of Python</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
             <a class="tab-link" onclick="openTab(event, 'comments')">Python Comments</a>
@@ -671,7 +650,7 @@
                         <div class="feature-card">
                             <div class="feature-icon">💻</div>
                             <h3>ප්‍රායෝගික ඉගෙනුම</h3>
-                            <p>පොතපතට පමණක් සීමා නොවී, Computers භාවිතා කරමින් සජීවීව කේතීකරණයේ (Coding) නිරත වන්න.</p>
+                            <p>පොතපතට පමණක් සීමා නොවී, Laptops භාවිතා කරමින් සජීවීව කේතීකරණයේ (Coding) නිරත වන්න.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📈</div>
@@ -688,7 +667,7 @@
 
                 <!-- 💡 SMART SECRETS TAB -->
                 <div id="smart-secrets" class="tab-content">
-                    <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Coding Tricks)</h2>
+                    <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Tricks)</h2>
                     <p>පයිතන් කේතීකරණයේදී ඔබව ප්‍රවීණයෙකු (Expert) කරන සුවිශේෂී රහස් කිහිපයක් පහත දැක්වේ:</p>
                     
                     <div class="w3-info">
@@ -746,7 +725,7 @@
                     <h2>Python වාක්‍ය වින්‍යාසය (Syntax)</h2>
                     <p>Python හි Syntax එක ඉංග්‍රීසි භාෂාවට ඉතා සමාන වන අතර එය කියවීමට ඉතා පහසුය.</p>
                     
-                    <h3>Python Indentation (හිස්තැන් තැබීම)</h3>
+                    <h3>Python Indentation</h3>
                     <p>වෙනත් භාෂාවන්හිදී (C++, Java) කේත කොටසක් වෙන් කිරීමට සඟල වරහන් <code>{}</code> භාවිතා කළද, Python හි ඒ සඳහා <strong>Indentation (හිස්තැන්)</strong> භාවිතා කරයි. මෙය ඉතා වැදගත් වේ.</p>
                     
                     <div class="w3-example">
@@ -797,7 +776,7 @@ print(x)
 print(y)</code></pre>
                     </div>
 
-                    <h3>Variable Names (නම් කිරීමේ නීති)</h3>
+                    <h3>Variable Names</h3>
                     <ul>
                         <li>අකුරකින් හෝ යටි ඉරකින් (<code>_</code>) ආරම්භ විය යුතුය.</li>
                         <li>ඉලක්කමකින් ආරම්භ කළ නොහැක.</li>
@@ -851,7 +830,7 @@ y = 3.14    # float
 z = -5      # int</code></pre>
                     </div>
 
-                    <h3>Type Casting (එක් වර්ගයකින් තවත් වර්ගයකට හැරවීම)</h3>
+                    <h3>Type Casting</h3>
                     <p>දත්තයක වර්ගය අපට අවශ්‍ය පරිදි වෙනස් කරගැනීමට <code>int()</code>, <code>float()</code>, <code>str()</code> භාවිතා කරයි.</p>
                     <div class="w3-example">
                         <pre><code class="language-python">x = int(2.8)    # x හි අගය 2 වේ
@@ -1327,17 +1306,17 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                     </div>
 
                     <div class="interactive-box">
-                        <h3 style="color:#059669;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
+                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
                         <p>පහත කොටුවල ප්‍රමාණයන් ඇතුළත් කර "Run Code" බොත්තම ඔබන්න. ඔබ ඇතුළත් කරන අගයන්ට අනුව බිල්පත ස්වයංක්‍රීයව සකස් වේ.</p>
                         
                         <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">☕ තේ කෝප්ප ගණන:</label>
-                                <input type="number" id="tea-qty" value="0" min="0" style="width:100%;">
+                                <input type="number" id="tea-qty" value="3" min="0" style="width:100%;">
                             </div>
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">🍔 බනිස් ගණන:</label>
-                                <input type="number" id="bun-qty" value="0" min="0" style="width:100%;">
+                                <input type="number" id="bun-qty" value="2" min="0" style="width:100%;">
                             </div>
                         </div>
                         
