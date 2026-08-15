@@ -157,7 +157,7 @@
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
             flex-grow: 1;
-            max-width: 1100px;
+            max-width: 1200px;
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--header-height-desktop));
@@ -351,7 +351,7 @@
             text-align: justify;
         }
 
-        /* Code Block W3Schools Style */
+        /* Code Block Style */
         .w3-example {
             background-color: #f1f5f9;
             padding: 20px;
@@ -587,22 +587,21 @@
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
 
-
-        /* Floating Reduced Rounded Footer */
+        /* Full-width Footer aligned to bottom of main content */
         footer {
             background: #1e293b;
             color: #cbd5e1; 
-            margin-top: 40px;
-            margin-bottom: 20px;
-            width: auto;
-            padding: 25px 30px;
+            margin-top: auto;
+            margin-left: -50px;
+            margin-right: -50px;
+            margin-bottom: -40px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center; 
             justify-content: center; 
             text-align: center; 
-            border-radius: 12px; /* Reduced roundness for Desktop */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
         
         footer p {
@@ -689,11 +688,22 @@
             .interactive-box { padding: 15px; }
             details summary { padding: 10px 0; }
             
+            /* Make footer bleed perfectly on mobile too */
             footer {
-                margin: 20px 10px 10px 10px;
-                border-radius: 8px; /* Reduced roundness for Mobile */
-                padding: 20px;
+                margin-top: 40px;
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-bottom: -20px;
+                padding: 25px 20px;
+                border-radius: 0;
             }
+        }
+        
+        @media (max-width: 400px) {
+            h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+            header h1 { font-size: 13px; }
+            .logo-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -701,7 +711,7 @@
 
     <header>
         <div class="logo-text">Smart<span>Soft</span></div>
-        <h1>පයිතන් සම්පූර්ණ මාර්ගෝපදේශය</h1>
+        <h1>Python සම්පූර්ණ මාර්ගෝපදේශය</h1>
     </header>
 
     <div class="container">
@@ -710,7 +720,7 @@
             <a class="tab-link active" onclick="openTab(event, 'homepage')">🏠 මුල් පිටුව</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
             
-            <div class="sidebar-title">Fundamentals of Python</div>
+            <div class="sidebar-title">Python මූලික</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
             <a class="tab-link" onclick="openTab(event, 'comments')">Python Comments</a>
@@ -739,7 +749,7 @@
             <a class="tab-link" onclick="openTab(event, 'filehandling')">Python File Handling</a>
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
-            <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools & Quiz</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Smart Project</a>
         </nav>
 
@@ -1629,10 +1639,10 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
 
             </div> <!-- End content-wrapper -->
 
-            <!-- FOOTER (Floating & Rounded) -->
+            <!-- FOOTER (Full Width styling) -->
             <footer>
                 <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
-                <p style="font-size: 13px; color:#64748b; margin-top: 10px;">Created for Educational Purposes.</p>
+                <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
     </div> <!-- End container -->
@@ -1687,7 +1697,6 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
         // --- Skulpt Python Execution Logic ---
         function outf(text) {
             var mypre = document.getElementById("py-output");
-            // Append output instead of replacing
             mypre.innerText = mypre.innerText + text;
         }
         function builtinRead(x) {
@@ -1748,7 +1757,7 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             document.getElementById("next-q-btn").style.display = "none";
         }
 
-        function checkQuiz(selected, btnElement) {
+        function checkQuizQ(selected, btnElement) {
             for(let i=1; i<=3; i++) {
                 document.getElementById(`opt${i}`).disabled = true;
             }
