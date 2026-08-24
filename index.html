@@ -612,7 +612,6 @@
             text-align: center;
         }
 
-        /* Styling for the Mermaid Flowchart Container */
         .mermaid-container {
             background: #ffffff;
             border: 1px solid #cbd5e1;
@@ -1723,45 +1722,44 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
-                    <!-- Fix: Completely safe Mermaid Syntax using separate nodes and clean string literals -->
+                    <!-- Ultimate safe Mermaid syntax strictly avoiding HTML characters and complex quotes -->
                     <div class="activity-box" style="border-left-color: #eab308;">
                         <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
                         <div class="mermaid-container">
                             <div class="mermaid">
                                 graph TD
-                                    id1(["ආරම්භය"])
-                                    id2[/"ඒකක ගණන ලබාගන්න"/]
-                                    id3{"ඒකක <= 60 ද?"}
-                                    id4["ගාස්තුව = ඒකක * 10"]
-                                    id5{"ඒකක <= 90 ද?"}
-                                    id6["ගාස්තුව = 600 + (ඒකක - 60) * 20"]
-                                    id7["ගාස්තුව = 1200 + (ඒකක - 90) * 50"]
-                                    id8["මුළු බිල = ගාස්තුව + 400"]
-                                    id9[/"මුළු බිල මුද්‍රණය කරන්න"/]
-                                    id10(["අවසානය"])
+                                    A([ආරම්භය])
+                                    B[/ඒකක ගණන ලබාගන්න/]
+                                    C{ඒකක ගණන 60 ට<br>අඩු හෝ සමාන ද?}
+                                    D[ගාස්තුව = ඒකක ගණන * 10]
+                                    E{ඒකක ගණන 90 ට<br>අඩු හෝ සමාන ද?}
+                                    F[ගාස්තුව = 600 + ඉතිරිය * 20]
+                                    G[ගාස්තුව = 1200 + ඉතිරිය * 50]
+                                    H[මුළු බිල = ගාස්තුව + 400]
+                                    I[/මුළු බිල මුද්‍රණය කරන්න/]
+                                    J([අවසානය])
 
-                                    id1 --> id2
-                                    id2 --> id3
-                                    id3 -- "ඔව්" --> id4
-                                    id3 -- "නැත" --> id5
-                                    id5 -- "ඔව්" --> id6
-                                    id5 -- "නැත" --> id7
-                                    id4 --> id8
-                                    id6 --> id8
-                                    id7 --> id8
-                                    id8 --> id9
-                                    id9 --> id10
+                                    A --> B
+                                    B --> C
+                                    C -->|ඔව්| D
+                                    C -->|නැත| E
+                                    E -->|ඔව්| F
+                                    E -->|නැත| G
+                                    D --> H
+                                    F --> H
+                                    G --> H
+                                    H --> I
+                                    I --> J
                                     
-                                    style id1 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style id10 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style id2 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style id9 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style id3 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style id5 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style id4 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style id6 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style id7 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style id8 fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
+                                    classDef startEnd fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    classDef io fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    classDef decision fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    classDef process fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    
+                                    class A,J startEnd
+                                    class B,I io
+                                    class C,E decision
+                                    class D,F,G,H process
                             </div>
                         </div>
                     </div>
@@ -1844,7 +1842,7 @@ print("---------------------------------")</textarea>
             
             document.getElementById(tabName).classList.add("active");
             
-            // Flowchart rendering strictly when Project 2 tab opens with slight delay to ensure DOM is ready
+            // Render Mermaid strictly when opening the tab to prevent issues
             if (tabName === 'project2' && !mermaidInitialized) {
                 setTimeout(function() {
                     try {
@@ -1853,7 +1851,7 @@ print("---------------------------------")</textarea>
                     } catch (e) {
                         console.error("Mermaid parsing failed", e);
                     }
-                }, 100);
+                }, 150);
             }
 
             // Find the link corresponding to the tabName to make it active
