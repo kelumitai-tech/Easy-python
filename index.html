@@ -1722,44 +1722,38 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
-                    <!-- Ultimate safe Mermaid syntax strictly avoiding HTML characters and complex quotes -->
+                    <!-- Simplest and Safest Mermaid Syntax with Correct Flow Direction -->
                     <div class="activity-box" style="border-left-color: #eab308;">
                         <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
                         <div class="mermaid-container">
                             <div class="mermaid">
                                 graph TD
-                                    A([ආරම්භය])
-                                    B[/ඒකක ගණන ලබාගන්න/]
-                                    C{ඒකක ගණන 60 ට<br>අඩු හෝ සමාන ද?}
-                                    D[ගාස්තුව = ඒකක ගණන * 10]
-                                    E{ඒකක ගණන 90 ට<br>අඩු හෝ සමාන ද?}
-                                    F[ගාස්තුව = 600 + ඉතිරිය * 20]
-                                    G[ගාස්තුව = 1200 + ඉතිරිය * 50]
-                                    H[මුළු බිල = ගාස්තුව + 400]
-                                    I[/මුළු බිල මුද්‍රණය කරන්න/]
-                                    J([අවසානය])
+                                    N1([ආරම්භය]) --> N2[/ඒකක ගණන ලබාගන්න/]
+                                    N2 --> N3{ඒකක <= 60?}
+                                    
+                                    N3 -- ඔව් --> N4[ගාස්තුව = ඒකක * 10]
+                                    N3 -- නැත --> N5{ඒකක <= 90?}
+                                    
+                                    N5 -- ඔව් --> N6[ගාස්තුව = 600 + ඉතිරිය * 20]
+                                    N5 -- නැත --> N7[ගාස්තුව = 1200 + ඉතිරිය * 50]
+                                    
+                                    N4 --> N8[මුළු බිල = ගාස්තුව + 400]
+                                    N6 --> N8
+                                    N7 --> N8
+                                    
+                                    N8 --> N9[/මුළු බිල පෙන්වන්න/]
+                                    N9 --> N10([අවසානය])
 
-                                    A --> B
-                                    B --> C
-                                    C -->|ඔව්| D
-                                    C -->|නැත| E
-                                    E -->|ඔව්| F
-                                    E -->|නැත| G
-                                    D --> H
-                                    F --> H
-                                    G --> H
-                                    H --> I
-                                    I --> J
-                                    
-                                    classDef startEnd fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    classDef io fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    classDef decision fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    classDef process fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    
-                                    class A,J startEnd
-                                    class B,I io
-                                    class C,E decision
-                                    class D,F,G,H process
+                                    style N1 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style N10 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style N2 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style N9 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style N3 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style N5 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style N4 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style N6 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style N7 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style N8 fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
                             </div>
                         </div>
                     </div>
@@ -1804,7 +1798,7 @@ print("---------------------------------")</textarea>
 
             <!-- FOOTER (Full Width styling) -->
             <footer>
-                <p>&copy; Kelum Koonara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
+                <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
                 <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
@@ -1842,7 +1836,7 @@ print("---------------------------------")</textarea>
             
             document.getElementById(tabName).classList.add("active");
             
-            // Render Mermaid strictly when opening the tab to prevent issues
+            // Flowchart rendering strictly when Project 2 tab opens with slight delay to ensure DOM is ready
             if (tabName === 'project2' && !mermaidInitialized) {
                 setTimeout(function() {
                     try {
@@ -1851,7 +1845,7 @@ print("---------------------------------")</textarea>
                     } catch (e) {
                         console.error("Mermaid parsing failed", e);
                     }
-                }, 150);
+                }, 100);
             }
 
             // Find the link corresponding to the tabName to make it active
