@@ -736,6 +736,7 @@
             <a class="tab-link" onclick="openTab(event, 'strings')">Python Strings</a>
             <a class="tab-link" onclick="openTab(event, 'booleans')">Python Booleans</a>
             <a class="tab-link" onclick="openTab(event, 'operators')">Python Operators</a>
+            <a class="tab-link" onclick="openTab(event, 'userinput')">Python User Input</a>
             
             <div class="sidebar-title">Python දත්ත ව්‍යුහ</div>
             <a class="tab-link" onclick="openTab(event, 'lists')">Python Lists</a>
@@ -1120,6 +1121,42 @@ not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'userinput')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- 9.5 User Input -->
+                <div id="userinput" class="tab-content">
+                    <h2>Python User Input (පරිශීලක ආදාන)</h2>
+                    <p>වැඩසටහන ක්‍රියාත්මක වන අතරතුර පරිශීලකයාගෙන් (User) දත්ත ලබා ගැනීමට Python හි <code>input()</code> ශ්‍රිතය භාවිතා කරයි. මෙහිදී ලබාගන්නා දත්ත සෑමවිටම <strong>String (වචන)</strong> ලෙස සලකනු ලබයි.</p>
+
+                    <div class="w3-example">
+                        <h3>සාමාන්‍ය Input ලබා ගැනීම (String)</h3>
+                        <pre><code class="language-python">name = input("ඔබේ නම ඇතුලත් කරන්න: ")
+print("ආයුබෝවන්, " + name + "!")</code></pre>
+                    </div>
+
+                    <div class="w3-note">
+                        <strong>වැදගත්:</strong> පරිශීලකයාගෙන් අංක (Numbers) ලබා ගැනීමේදී, ඒවා ගණනය කිරීම් සඳහා භාවිතා කිරීමට නම් <code>int()</code> හෝ <code>float()</code> මගින් Type Casting කළ යුතුය.
+                    </div>
+
+                    <div class="w3-example">
+                        <h3>සංඛ්‍යා ලබා ගැනීම (Numbers Input)</h3>
+                        <pre><code class="language-python">age = int(input("ඔබේ වයස කීයද? "))
+print("ලබන වසරේදී ඔබේ වයස:", age + 1)</code></pre>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> පරිශීලකයාගෙන් භාණ්ඩයක මිලක් (දශම සහිතව - උදා: 150.50) ලබා ගැනීමට සුදුසුම කේතය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> <code>price = float(input("මිල ඇතුලත් කරන්න: "))</code></p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'lists')">Next ❯</button>
                     </div>
                 </div>
@@ -1152,7 +1189,7 @@ print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                     </div>
 
                     <div class="next-prev-container">
-                        <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'userinput')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">Next ❯</button>
                     </div>
                 </div>
@@ -1511,11 +1548,12 @@ finally:
                         <h3>1. Python කේත සංස්කාරකය (Code Editor) 💻</h3>
                         <p>පහත කොටුවේ සැබෑ Python කේත ලියා ධාවනය කර බලන්න. (උදා: print, විචල්‍යයන්, ගණිත කර්ම)</p>
                         
-                        <textarea id="py-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න
-x = 15
-y = 25
-print("එකතුව:", x + y)
-</textarea>
+                        <textarea id="py-code" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න (Run ඔබා බලන්න)
+name = input("ඔබේ නම කුමක්ද? ")
+age = int(input("වයස කීයද? "))
+
+print("ආයුබෝවන් " + name + "!")
+print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 2026 - age)</textarea>
                         
                         <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPython()">▶ Run Code</button>
                         
@@ -1647,7 +1685,7 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
 
             <!-- FOOTER (Full Width styling) -->
             <footer>
-                <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
+                <p>&copy; Kelum Koonara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
                 <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
