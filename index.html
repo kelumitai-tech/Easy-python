@@ -1722,27 +1722,26 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
-                    <!-- Simplest and Safest Mermaid Syntax with Correct Flow Direction -->
                     <div class="activity-box" style="border-left-color: #eab308;">
                         <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
                         <div class="mermaid-container">
-                            <div class="mermaid">
+                            <div class="mermaid" id="flowchartDiv">
                                 graph TD
-                                    N1([ආරම්භය]) --> N2[/ඒකක ගණන ලබාගන්න/]
-                                    N2 --> N3{ඒකක <= 60?}
+                                    N1("ආරම්භය") --> N2["ඒකක ගණන ලබාගන්න"]
+                                    N2 --> N3{"ඒකක 60 ට අඩු හෝ සමාන ද?"}
                                     
-                                    N3 -- ඔව් --> N4[ගාස්තුව = ඒකක * 10]
-                                    N3 -- නැත --> N5{ඒකක <= 90?}
+                                    N3 -->|"ඔව්"| N4["ගාස්තුව = ඒකක ගණන x 10"]
+                                    N3 -->|"නැත"| N5{"ඒකක 90 ට අඩු හෝ සමාන ද?"}
                                     
-                                    N5 -- ඔව් --> N6[ගාස්තුව = 600 + ඉතිරිය * 20]
-                                    N5 -- නැත --> N7[ගාස්තුව = 1200 + ඉතිරිය * 50]
+                                    N5 -->|"ඔව්"| N6["ගාස්තුව = 600 + (ඉතිරිය x 20)"]
+                                    N5 -->|"නැත"| N7["ගාස්තුව = 1200 + (ඉතිරිය x 50)"]
                                     
-                                    N4 --> N8[මුළු බිල = ගාස්තුව + 400]
+                                    N4 --> N8["මුළු බිල = ගාස්තුව + 400"]
                                     N6 --> N8
                                     N7 --> N8
                                     
-                                    N8 --> N9[/මුළු බිල පෙන්වන්න/]
-                                    N9 --> N10([අවසානය])
+                                    N8 --> N9["මුළු බිල පෙන්වන්න"]
+                                    N9 --> N10("අවසානය")
 
                                     style N1 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
                                     style N10 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
@@ -1798,7 +1797,7 @@ print("---------------------------------")</textarea>
 
             <!-- FOOTER (Full Width styling) -->
             <footer>
-                <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
+                <p>&copy; Kelum Koonara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
                 <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
@@ -1836,11 +1835,11 @@ print("---------------------------------")</textarea>
             
             document.getElementById(tabName).classList.add("active");
             
-            // Flowchart rendering strictly when Project 2 tab opens with slight delay to ensure DOM is ready
+            // Render Mermaid strictly when opening the tab to prevent issues
             if (tabName === 'project2' && !mermaidInitialized) {
                 setTimeout(function() {
                     try {
-                        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                        mermaid.init(undefined, document.getElementById('flowchartDiv'));
                         mermaidInitialized = true;
                     } catch (e) {
                         console.error("Mermaid parsing failed", e);
