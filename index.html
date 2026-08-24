@@ -757,7 +757,8 @@
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
-            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Smart Project</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Project 1: තේ කඩය</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="color:#eab308; font-weight:600;">⚡ Project 2: විදුලි බිල</a>
         </nav>
 
         <div class="main-content">
@@ -1638,9 +1639,9 @@ print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 20
                     </div>
                 </div>
 
-                <!-- ☕ PROJECT TAB -->
+                <!-- ☕ PROJECT 1 TAB -->
                 <div id="project" class="tab-content">
-                    <h2>☕ Smart Project: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
+                    <h2>☕ Smart Project 1: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
                     <p>අපි මෙතෙක් ඉගෙන ගත් විචල්‍යයන් (Variables), ගණිත කර්ම (Operators) සහ Print කිරීම් එකතු කර කුඩා මෘදුකාංගයක් (Billing System) නිර්මාණය කරමු.</p>
                     
                     <div class="w3-example">
@@ -1696,6 +1697,77 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'interactive')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'project2')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- ⚡ PROJECT 2 TAB (Electricity Bill) -->
+                <div id="project2" class="tab-content">
+                    <h2>⚡ Smart Project 2: විදුලි බිල්පත (Electricity Bill)</h2>
+                    <p><code>If...Elif...Else</code> කොන්දේසි භාවිතා කරමින් විදුලි බිලක් ගණනය කරන මෘදුකාංගයක් නිර්මාණය කරමු.</p>
+
+                    <div class="w3-info">
+                        <h3>📌 ගණනය කිරීමේ ක්‍රමය (Tariff Structure)</h3>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>ස්ථාවර ගාස්තුව (Fixed Charge):</strong> රු. 400</li>
+                            <li><strong>පළමු ඒකක 60 දක්වා (0-60):</strong> එක් ඒකකයකට රු. 10</li>
+                            <li><strong>ඊළඟ ඒකක 30 සඳහා (61-90):</strong> එක් ඒකකයකට රු. 20</li>
+                            <li><strong>ඒකක 90 ට වැඩි නම්:</strong> එක් ඒකකයකට රු. 50</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box" style="border-left-color: #eab308;">
+                        <h3 style="color:#ca8a04; margin-top: 0;">📊 ඇල්ගොරිතමය (ගැලීම් සටහනේ පියවර)</h3>
+                        <ol style="margin-bottom: 0;">
+                            <li><strong>Start</strong> (ආරම්භය)</li>
+                            <li>පරිශීලකයාගෙන් ඒකක ගණන (<code>units</code>) ලබාගන්න.</li>
+                            <li><code>units <= 60</code> ද යන්න පරීක්ෂා කරන්න: <br>
+                                <span style="color:#64748b; font-size:14px;">ඔව් නම්: ගාස්තුව = ඒකක ගණන * 10</span>
+                            </li>
+                            <li>නැතහොත්, <code>units <= 90</code> ද යන්න පරීක්ෂා කරන්න: <br>
+                                <span style="color:#64748b; font-size:14px;">ඔව් නම්: ගාස්තුව = (60 * 10) + ((ඒකක ගණන - 60) * 20)</span>
+                            </li>
+                            <li>එසේත් නැතහොත් (ඒකක 90 ට වැඩි නම්): <br>
+                                <span style="color:#64748b; font-size:14px;">ගාස්තුව = (60 * 10) + (30 * 20) + ((ඒකක ගණන - 90) * 50)</span>
+                            </li>
+                            <li>මුළු මුදල = ගාස්තුව + 400 (ස්ථාවර ගාස්තුව)</li>
+                            <li>මුළු මුදල මුද්‍රණය කරන්න (Print).</li>
+                            <li><strong>End</strong> (අවසානය)</li>
+                        </ol>
+                    </div>
+
+                    <div class="interactive-box">
+                        <h3 style="color:#ca8a04; white-space: normal;">💻 Hands-on Practice (ඔබේ කේතය ලියන්න)</h3>
+                        <p>පහත කේතය අත්හදා බලන්න. අවශ්‍ය නම් ඒකක ගණන (units) වෙනස් කර "Run Code" ඔබන්න.</p>
+                        
+                        <textarea id="py-code-bill" rows="18" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># විදුලි බිල ගණනය කිරීම
+units = int(input("භාවිතා කළ විදුලි ඒකක ගණන ඇතුලත් කරන්න: "))
+fixed_charge = 400
+charge = 0
+
+if units <= 60:
+    charge = units * 10
+elif units <= 90:
+    charge = (60 * 10) + ((units - 60) * 20)
+else:
+    charge = (60 * 10) + (30 * 20) + ((units - 90) * 50)
+
+total_bill = charge + fixed_charge
+
+print("---------------------------------")
+print("ඔබගේ විදුලි බිල: රු.", total_bill)
+print("---------------------------------")</textarea>
+                        
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#eab308; color:#1e293b;" onclick="runPythonCode('py-code-bill', 'py-output-bill')">▶ Run Code</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="py-output-bill" style="min-height: 100px; margin-top: 0; color: #eab308;"></div>
+                        </div>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'project')">❮ Prev</button>
                         <div></div>
                     </div>
                 </div>
