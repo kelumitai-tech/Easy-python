@@ -624,7 +624,7 @@
             border-radius: 12px;
             padding: 20px;
             margin-top: 15px;
-            overflow-x: auto; /* allows scrolling on mobile if diagram is wide */
+            overflow-x: auto;
             text-align: center;
         }
 
@@ -1734,21 +1734,21 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         <div class="mermaid-container">
                             <div class="mermaid">
                                 graph TD
-                                    Start([ආරම්භය]) --> Input[/ඒකක ගණන ලබාගන්න/]
-                                    Input --> Cond1{ඒකක <= 60?}
+                                    Start(["ආරම්භය"]) --> Input[/"ඒකක ගණන ලබාගන්න"/]
+                                    Input --> Cond1{"ඒකක 60 හෝ ඊට අඩු ද?"}
                                     
-                                    Cond1 -- ඔව් --> Calc1[ගාස්තුව = ඒකක * 10]
-                                    Cond1 -- නැත --> Cond2{ඒකක <= 90?}
+                                    Cond1 -- ඔව් --> Calc1["ගාස්තුව = ඒකක * 10"]
+                                    Cond1 -- නැත --> Cond2{"ඒකක 90 හෝ ඊට අඩු ද?"}
                                     
                                     Cond2 -- ඔව් --> Calc2["ගාස්තුව = (60*10) + (ඒකක - 60) * 20"]
                                     Cond2 -- නැත --> Calc3["ගාස්තුව = (60*10) + (30*20) + (ඒකක - 90) * 50"]
                                     
-                                    Calc1 --> Total[මුළු බිල = ගාස්තුව + 400]
+                                    Calc1 --> Total["මුළු බිල = ගාස්තුව + 400"]
                                     Calc2 --> Total
                                     Calc3 --> Total
                                     
-                                    Total --> Output[/මුළු බිල මුද්‍රණය කරන්න/]
-                                    Output --> EndNode([අවසානය])
+                                    Total --> Output[/"මුළු බිල මුද්‍රණය කරන්න"/]
+                                    Output --> EndNode(["අවසානය"])
                                     
                                     style Start fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
                                     style EndNode fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
