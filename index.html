@@ -1543,29 +1543,48 @@ finally:
                     <h2>🎮 Interactive Tools & Quiz</h2>
                     <p>ඔබ ඉගෙන ගත් කරුණු අත්හදා බලන්න.</p>
 
-                    <!-- Real Python Compiler -->
+                    <!-- 1. General Python Compiler -->
                     <div class="interactive-box">
-                        <h3>1. Python කේත සංස්කාරකය (Code Editor) 💻</h3>
-                        <p>පහත කොටුවේ සැබෑ Python කේත ලියා ධාවනය කර බලන්න. (උදා: print, විචල්‍යයන්, ගණිත කර්ම)</p>
+                        <h3>1. ඕනෑම Python කේතයක් ධාවනය කිරීම (General Code Editor) 💻</h3>
+                        <p>පහත කොටුවේ ඕනෑම Python කේතයක් ලියා ධාවනය කර බලන්න. (උදා: Print කිරීම්, ගණිත කර්ම, ලූප)</p>
                         
-                        <textarea id="py-code" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න (Run ඔබා බලන්න)
+                        <textarea id="py-code-general" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඕනෑම කේතයක් මෙහි ලියන්න (Run ඔබා බලන්න)
+print("Hello, Python!")
+
+for i in range(1, 6):
+    print("ගණන් කිරීම:", i)</textarea>
+                        
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonCode('py-code-general', 'py-output-general')">▶ Run Code</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="py-output-general" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. User Input Editor -->
+                    <div class="interactive-box">
+                        <h3>2. User Input අත්හදා බැලීම (Input Simulator) ⌨️</h3>
+                        <p>දත්ත ඇතුළත් කිරීම (User input) පරීක්ෂා කිරීමට මෙම කොටුව භාවිතා කරන්න. කේතය Run කළ පසු තිරයේ දිස්වන Popup (Prompt) එකට අගයන් ලබා දෙන්න.</p>
+                        
+                        <textarea id="py-code-input" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># දත්ත ලබාගැනීමේ කේතය
 name = input("ඔබේ නම කුමක්ද? ")
 age = int(input("වයස කීයද? "))
 
 print("ආයුබෝවන් " + name + "!")
 print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 2026 - age)</textarea>
                         
-                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPython()">▶ Run Code</button>
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#10b981;" onclick="runPythonCode('py-code-input', 'py-output-input')">▶ Run Input Code</button>
                         
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
-                            <div class="output-console" id="py-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
+                            <div class="output-console" id="py-output-input" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
 
-                    <!-- Data Structure Builder -->
+                    <!-- 3. Data Structure Builder -->
                     <div class="interactive-box">
-                        <h3>2. Data Structures Visualizer</h3>
+                        <h3>3. Data Structures Visualizer</h3>
                         <p>Lists, Tuples සහ Dicts වෙනස් වන අයුරු බලන්න.</p>
                         
                         <div>
@@ -1585,9 +1604,9 @@ print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 20
                         <div class="output-console" id="code-output"></div>
                     </div>
 
-                    <!-- File Handling Simulator -->
+                    <!-- 4. File Handling Simulator -->
                     <div class="interactive-box">
-                        <h3>3. File Handling Simulator</h3>
+                        <h3>4. File Handling Simulator</h3>
                         <p>ගොනු විවෘත කිරීමේ ක්‍රම (Modes) අත්හදා බලන්න.</p>
                         <div>
                             <select id="file-mode" onchange="updateFileUI()">
@@ -1738,22 +1757,24 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Skulpt Python Execution Logic ---
-        function outf(text) {
-            var mypre = document.getElementById("py-output");
-            mypre.innerText = mypre.innerText + text;
-        }
+        // --- Skulpt Python Execution Logic (Updated for multiple editors) ---
         function builtinRead(x) {
             if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
                 throw "File not found: '" + x + "'";
             return Sk.builtinFiles["files"][x];
         }
-        function runPython() {
-            var prog = document.getElementById("py-code").value;
-            var mypre = document.getElementById("py-output");
+
+        function runPythonCode(inputId, outputId) {
+            var prog = document.getElementById(inputId).value;
+            var mypre = document.getElementById(outputId);
             mypre.innerHTML = '';
-            Sk.pre = "py-output";
-            Sk.configure({output:outf, read:builtinRead}); 
+            Sk.pre = outputId;
+            Sk.configure({
+                output: function(text) {
+                    mypre.innerText += text;
+                }, 
+                read: builtinRead
+            }); 
             var myPromise = Sk.misceval.asyncToPromise(function() {
                 return Sk.importMainWithBody("<stdin>", false, prog, true);
             });
