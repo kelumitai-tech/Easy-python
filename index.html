@@ -20,6 +20,13 @@
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js" type="text/javascript"></script>
 
+    <!-- Mermaid.js for Flowcharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
+    <script>
+        // Initialize mermaid manually when the tab opens to prevent drawing errors in hidden tabs
+        mermaid.initialize({ startOnLoad: false, theme: 'default' });
+    </script>
+
     <style>
         :root {
             --primary: #2563eb; /* Blue 600 */
@@ -610,6 +617,17 @@
             text-align: center;
         }
 
+        /* Styling for the Mermaid Flowchart Container */
+        .mermaid-container {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            overflow-x: auto; /* allows scrolling on mobile if diagram is wide */
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
@@ -750,7 +768,7 @@
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
 
-            <!-- අලුත් Smart Projects Category එක -->
+            <!-- Smart Projects Category -->
             <div class="sidebar-title" style="color: #059669;">Smart Projects</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="font-weight:600;">☕ Project 1: තේ කඩය</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="font-weight:600;">⚡ Project 2: විදුලි බිල</a>
@@ -1710,24 +1728,40 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
+                    <!-- Flow Chart Section with Mermaid.js -->
                     <div class="activity-box" style="border-left-color: #eab308;">
-                        <h3 style="color:#ca8a04; margin-top: 0;">📊 ඇල්ගොරිතමය (ගැලීම් සටහනේ පියවර)</h3>
-                        <ol style="margin-bottom: 0;">
-                            <li><strong>Start</strong> (ආරම්භය)</li>
-                            <li>පරිශීලකයාගෙන් ඒකක ගණන (<code>units</code>) ලබාගන්න.</li>
-                            <li><code>units <= 60</code> ද යන්න පරීක්ෂා කරන්න: <br>
-                                <span style="color:#64748b; font-size:14px;">ඔව් නම්: ගාස්තුව = ඒකක ගණන * 10</span>
-                            </li>
-                            <li>නැතහොත්, <code>units <= 90</code> ද යන්න පරීක්ෂා කරන්න: <br>
-                                <span style="color:#64748b; font-size:14px;">ඔව් නම්: ගාස්තුව = (60 * 10) + ((ඒකක ගණන - 60) * 20)</span>
-                            </li>
-                            <li>එසේත් නැතහොත් (ඒකක 90 ට වැඩි නම්): <br>
-                                <span style="color:#64748b; font-size:14px;">ගාස්තුව = (60 * 10) + (30 * 20) + ((ඒකක ගණන - 90) * 50)</span>
-                            </li>
-                            <li>මුළු මුදල = ගාස්තුව + 400 (ස්ථාවර ගාස්තුව)</li>
-                            <li>මුළු මුදල මුද්‍රණය කරන්න (Print).</li>
-                            <li><strong>End</strong> (අවසානය)</li>
-                        </ol>
+                        <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
+                        <div class="mermaid-container">
+                            <div class="mermaid">
+                                graph TD
+                                    Start([ආරම්භය]) --> Input[/ඒකක ගණන ලබාගන්න/]
+                                    Input --> Cond1{ඒකක <= 60?}
+                                    
+                                    Cond1 -- ඔව් --> Calc1[ගාස්තුව = ඒකක * 10]
+                                    Cond1 -- නැත --> Cond2{ඒකක <= 90?}
+                                    
+                                    Cond2 -- ඔව් --> Calc2["ගාස්තුව = (60*10) + (ඒකක - 60) * 20"]
+                                    Cond2 -- නැත --> Calc3["ගාස්තුව = (60*10) + (30*20) + (ඒකක - 90) * 50"]
+                                    
+                                    Calc1 --> Total[මුළු බිල = ගාස්තුව + 400]
+                                    Calc2 --> Total
+                                    Calc3 --> Total
+                                    
+                                    Total --> Output[/මුළු බිල මුද්‍රණය කරන්න/]
+                                    Output --> EndNode([අවසානය])
+                                    
+                                    style Start fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style EndNode fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style Input fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style Output fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style Cond1 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style Cond2 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style Calc1 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style Calc2 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style Calc3 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style Total fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
+                            </div>
+                        </div>
                     </div>
 
                     <div class="interactive-box">
@@ -1790,6 +1824,8 @@ print("---------------------------------")</textarea>
     </script>
 
     <script>
+        let mermaidInitialized = false;
+
         // --- Tab Navigation Logic ---
         function openTab(evt, tabName) {
             if(evt) evt.preventDefault();
@@ -1806,6 +1842,16 @@ print("---------------------------------")</textarea>
             
             document.getElementById(tabName).classList.add("active");
             
+            // Flowchart rendering strictly when Project 2 tab opens (fixes display:none bug)
+            if (tabName === 'project2' && !mermaidInitialized) {
+                try {
+                    mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                    mermaidInitialized = true;
+                } catch (e) {
+                    console.error("Mermaid parsing failed", e);
+                }
+            }
+
             // Find the link corresponding to the tabName to make it active
             for (let i = 0; i < tablinks.length; i++) {
                 if (tablinks[i].getAttribute("onclick").includes(tabName)) {
