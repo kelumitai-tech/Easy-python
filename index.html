@@ -23,15 +23,15 @@
     <!-- Mermaid.js for Flowcharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
     <script>
-        // Initialize mermaid manually
+        // Initialize mermaid manually when the tab opens
         mermaid.initialize({ startOnLoad: false, theme: 'default' });
     </script>
 
     <style>
         :root {
-            --primary: #2563eb; /* Blue 600 */
+            --primary: #2563eb;
             --primary-light: #60a5fa;
-            --secondary: #059669; /* Emerald 600 */
+            --secondary: #059669;
             --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
@@ -57,7 +57,6 @@
             flex-direction: column;
         }
 
-        /* W3Schools style header */
         header {
             background-color: #1e293b;
             color: white;
@@ -93,7 +92,7 @@
         }
         
         .logo-text span {
-            color: #4ade80; /* Green tint */
+            color: #4ade80;
         }
 
         .container {
@@ -102,7 +101,6 @@
             margin-top: var(--header-height-desktop); 
         }
 
-        /* Sidebar Navigation */
         .sidebar {
             width: var(--sidebar-width);
             background-color: #f1f5f9;
@@ -116,7 +114,6 @@
             z-index: 900;
         }
 
-        /* Custom Scrollbar for Sidebar */
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: #f1f5f9; }
         .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -159,7 +156,6 @@
             font-weight: 500;
         }
 
-        /* Main Content Area */
         .main-content {
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
@@ -186,7 +182,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HOME PAGE STYLES --- */
         .hero-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
@@ -1728,38 +1723,45 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
-                    <!-- Flow Chart Section with robust Mermaid.js syntax -->
+                    <!-- Fix: Completely safe Mermaid Syntax using separate nodes and clean string literals -->
                     <div class="activity-box" style="border-left-color: #eab308;">
                         <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
                         <div class="mermaid-container">
                             <div class="mermaid">
                                 graph TD
-                                    A((ආරම්භය)) --> B[/ඒකක ලබාගන්න/]
-                                    B --> C{ඒකක 60 හෝ අඩුද?}
+                                    id1(["ආරම්භය"])
+                                    id2[/"ඒකක ගණන ලබාගන්න"/]
+                                    id3{"ඒකක <= 60 ද?"}
+                                    id4["ගාස්තුව = ඒකක * 10"]
+                                    id5{"ඒකක <= 90 ද?"}
+                                    id6["ගාස්තුව = 600 + (ඒකක - 60) * 20"]
+                                    id7["ගාස්තුව = 1200 + (ඒකක - 90) * 50"]
+                                    id8["මුළු බිල = ගාස්තුව + 400"]
+                                    id9[/"මුළු බිල මුද්‍රණය කරන්න"/]
+                                    id10(["අවසානය"])
+
+                                    id1 --> id2
+                                    id2 --> id3
+                                    id3 -- "ඔව්" --> id4
+                                    id3 -- "නැත" --> id5
+                                    id5 -- "ඔව්" --> id6
+                                    id5 -- "නැත" --> id7
+                                    id4 --> id8
+                                    id6 --> id8
+                                    id7 --> id8
+                                    id8 --> id9
+                                    id9 --> id10
                                     
-                                    C -->|ඔව්| D[ගාස්තුව = ඒකක x 10]
-                                    C -->|නැත| E{ඒකක 90 හෝ අඩුද?}
-                                    
-                                    E -->|ඔව්| F[ගාස්තුව = 600 + ඉතිරිය x 20]
-                                    E -->|නැත| G[ගාස්තුව = 1200 + ඉතිරිය x 50]
-                                    
-                                    D --> H[මුළු බිල = ගාස්තුව + 400]
-                                    F --> H
-                                    G --> H
-                                    
-                                    H --> I[/මුළු බිල පෙන්වන්න/]
-                                    I --> J((අවසානය))
-                                    
-                                    style A fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style J fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style B fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style I fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style C fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style E fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style D fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style F fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style G fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style H fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
+                                    style id1 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style id10 fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style id2 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style id9 fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style id3 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style id5 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style id4 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style id6 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style id7 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style id8 fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
                             </div>
                         </div>
                     </div>
@@ -1842,14 +1844,16 @@ print("---------------------------------")</textarea>
             
             document.getElementById(tabName).classList.add("active");
             
-            // Flowchart rendering strictly when Project 2 tab opens (fixes display:none bug)
+            // Flowchart rendering strictly when Project 2 tab opens with slight delay to ensure DOM is ready
             if (tabName === 'project2' && !mermaidInitialized) {
-                try {
-                    mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-                    mermaidInitialized = true;
-                } catch (e) {
-                    console.error("Mermaid parsing failed", e);
-                }
+                setTimeout(function() {
+                    try {
+                        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                        mermaidInitialized = true;
+                    } catch (e) {
+                        console.error("Mermaid parsing failed", e);
+                    }
+                }, 100);
             }
 
             // Find the link corresponding to the tabName to make it active
@@ -1891,7 +1895,6 @@ print("---------------------------------")</textarea>
                 inputfunTakesPrompt: true,
                 inputfun: function (promptStr) {
                     return new Promise(function(resolve, reject){
-                        // Using browser prompt with instruction text
                         let val = window.prompt(promptStr, "ඔබේ අගය මෙහි ඇතුලත් කරන්න...");
                         resolve(val !== null ? val : "");
                     });
