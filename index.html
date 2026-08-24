@@ -157,7 +157,7 @@
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
             flex-grow: 1;
-            max-width: 1400px; /* Widened for code boxes */
+            max-width: 1400px;
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--header-height-desktop));
@@ -316,7 +316,6 @@
             text-align: center;
         }
 
-        /* Standard Content Styles - Using clamp for fluid typography */
         h2 {
             color: var(--text-main);
             font-size: clamp(20px, 4vw, 32px);
@@ -351,7 +350,6 @@
             text-align: justify;
         }
 
-        /* Code Block Style */
         .w3-example {
             background-color: #f1f5f9;
             padding: 20px;
@@ -383,7 +381,7 @@
         pre code {
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
-            font-size: 15px; /* slightly larger for readability */
+            font-size: 15px;
             line-height: 1.6;
         }
 
@@ -438,7 +436,6 @@
             font-weight: 600;
         }
 
-        /* Activity Block Style */
         .activity-box {
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -489,7 +486,6 @@
 
         .btn-nav:hover { background-color: #047857; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        /* Interactive Elements */
         .interactive-box {
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -547,7 +543,6 @@
             box-sizing: border-box;
         }
 
-        /* Quiz Styling */
         .quiz-option {
             display: block;
             width: 100%;
@@ -593,7 +588,6 @@
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
 
-        /* Full-width Footer aligned to bottom of main content */
         footer {
             background: #1e293b;
             color: #cbd5e1; 
@@ -616,7 +610,6 @@
             text-align: center;
         }
 
-        /* --- MOBILE RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             header {
                 height: var(--header-height-mobile);
@@ -694,7 +687,6 @@
             .interactive-box { padding: 15px; }
             details summary { padding: 10px 0; }
             
-            /* Make footer bleed perfectly on mobile too */
             footer {
                 margin-top: 40px;
                 margin-left: -15px;
@@ -757,8 +749,11 @@
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
-            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Project 1: තේ කඩය</a>
-            <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="color:#eab308; font-weight:600;">⚡ Project 2: විදුලි බිල</a>
+
+            <!-- අලුත් Smart Projects Category එක -->
+            <div class="sidebar-title" style="color: #059669;">Smart Projects</div>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="font-weight:600;">☕ Project 1: තේ කඩය</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="font-weight:600;">⚡ Project 2: විදුලි බිල</a>
         </nav>
 
         <div class="main-content">
@@ -767,7 +762,6 @@
                 <!-- 🏠 HOME PAGE TAB -->
                 <div id="homepage" class="tab-content active">
                     <div class="hero-section">
-                        <!-- Added Python Logo -->
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="hero-logo">
                         <h1>Python ක්‍රමලේඛනය මුල සිට සරලව</h1>
                         <p>Theory පමණක් නොව, ප්‍රායෝගිකව (Practical) කේතීකරණය ඉගෙන ගන්න. නවීන තාක්ෂණය සහ අන්තර්ක්‍රියාකාරී මෙවලම් සමඟින් ඔබේ Programming සිහිනය සැබෑ කරගන්න.</p>
@@ -1546,10 +1540,10 @@ finally:
 
                     <!-- 1. General Python Compiler -->
                     <div class="interactive-box">
-                        <h3>1. ඕනෑම Python කේතයක් ධාවනය කිරීම (General Code Editor) 💻</h3>
+                        <h3>1. ඕනෑම Python කේතයක් ධාවනය කිරීම (Code Editor) 💻</h3>
                         <p>පහත කොටුවේ ඕනෑම Python කේතයක් ලියා ධාවනය කර බලන්න. (උදා: Print කිරීම්, ගණිත කර්ම, ලූප)</p>
                         
-                        <textarea id="py-code-general" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඕනෑම කේතයක් මෙහි ලියන්න (Run ඔබා බලන්න)
+                        <textarea id="py-code-general" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false" placeholder="ඔබේ කේතය මෙතන ලියන්න..."># ඕනෑම කේතයක් මෙහි ලියන්න (Run ඔබා බලන්න)
 print("Hello, Python!")
 
 for i in range(1, 6):
@@ -1568,7 +1562,7 @@ for i in range(1, 6):
                         <h3>2. User Input අත්හදා බැලීම (Input Simulator) ⌨️</h3>
                         <p>දත්ත ඇතුළත් කිරීම (User input) පරීක්ෂා කිරීමට මෙම කොටුව භාවිතා කරන්න. කේතය Run කළ පසු තිරයේ දිස්වන Popup (Prompt) එකට අගයන් ලබා දෙන්න.</p>
                         
-                        <textarea id="py-code-input" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># දත්ත ලබාගැනීමේ කේතය
+                        <textarea id="py-code-input" rows="6" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false" placeholder="Input කේතය මෙතන ලියන්න..."># දත්ත ලබාගැනීමේ කේතය
 name = input("ඔබේ නම කුමක්ද? ")
 age = int(input("වයස කීයද? "))
 
@@ -1596,8 +1590,8 @@ print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 20
                             </select>
                         </div>
                         <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-                            <input type="text" id="key-input" placeholder="Key" style="display:none; flex:1;">
-                            <input type="text" id="val-input" placeholder="Value" style="flex:2;">
+                            <input type="text" id="key-input" placeholder="Key (උදා: age)" style="display:none; flex:1;">
+                            <input type="text" id="val-input" placeholder="Value ඇතුලත් කරන්න" style="flex:2;">
                             <button class="btn-action" onclick="addItem()" id="add-btn">+ Add</button>
                             <button class="btn-action" style="background:#ef4444;" onclick="clearData()" id="clear-btn">Clear</button>
                         </div>
@@ -1617,7 +1611,7 @@ print("ඔබ ඉපදුණු වර්ෂය දළ වශයෙන්:", 20
                             </select>
                         </div>
                         <div id="file-input-group" style="margin-top:10px;">
-                            <input type="text" id="file-input-text" placeholder="දත්ත ඇතුලත් කරන්න" style="width:100%; max-width:500px;">
+                            <input type="text" id="file-input-text" placeholder="ගොනුවට ලිවිය යුතු දත්ත මෙහි ඇතුලත් කරන්න" style="width:100%; max-width:500px;">
                         </div>
                         <button class="btn-action" style="width:100%; max-width:500px; margin-top:10px; padding:12px; background:#10b981;" onclick="runFileSimulator()">▶ Run Code</button>
                         
@@ -1680,11 +1674,11 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">☕ තේ කෝප්ප ගණන:</label>
-                                <input type="number" id="tea-qty" value="0" min="0" style="width:100%;">
+                                <input type="number" id="tea-qty" placeholder="උදා: 5" min="0" style="width:100%;">
                             </div>
                             <div style="flex:1; min-width:200px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">🍔 බනිස් ගණන:</label>
-                                <input type="number" id="bun-qty" value="0" min="0" style="width:100%;">
+                                <input type="number" id="bun-qty" placeholder="උදා: 2" min="0" style="width:100%;">
                             </div>
                         </div>
                         
@@ -1740,7 +1734,7 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         <h3 style="color:#ca8a04; white-space: normal;">💻 Hands-on Practice (ඔබේ කේතය ලියන්න)</h3>
                         <p>පහත කේතය අත්හදා බලන්න. අවශ්‍ය නම් ඒකක ගණන (units) වෙනස් කර "Run Code" ඔබන්න.</p>
                         
-                        <textarea id="py-code-bill" rows="18" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># විදුලි බිල ගණනය කිරීම
+                        <textarea id="py-code-bill" rows="18" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false" placeholder="කේතය මෙතන ලියන්න..."># විදුලි බිල ගණනය කිරීම
 units = int(input("භාවිතා කළ විදුලි ඒකක ගණන ඇතුලත් කරන්න: "))
 fixed_charge = 400
 charge = 0
@@ -1776,7 +1770,7 @@ print("---------------------------------")</textarea>
 
             <!-- FOOTER (Full Width styling) -->
             <footer>
-                <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
+                <p>&copy; Kelum Koonara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
                 <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
             </footer>
         </div> <!-- End main-content -->
@@ -1829,7 +1823,7 @@ print("---------------------------------")</textarea>
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Skulpt Python Execution Logic (Updated for multiple editors) ---
+        // --- Skulpt Python Execution Logic (Updated with Input prompt overriding) ---
         function builtinRead(x) {
             if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
                 throw "File not found: '" + x + "'";
@@ -1841,12 +1835,23 @@ print("---------------------------------")</textarea>
             var mypre = document.getElementById(outputId);
             mypre.innerHTML = '';
             Sk.pre = outputId;
+            
+            // Override input handling to show a clear instructional prompt
             Sk.configure({
                 output: function(text) {
                     mypre.innerText += text;
                 }, 
-                read: builtinRead
+                read: builtinRead,
+                inputfunTakesPrompt: true,
+                inputfun: function (promptStr) {
+                    return new Promise(function(resolve, reject){
+                        // Using browser prompt with instruction text
+                        let val = window.prompt(promptStr, "ඔබේ අගය මෙහි ඇතුලත් කරන්න...");
+                        resolve(val !== null ? val : "");
+                    });
+                }
             }); 
+            
             var myPromise = Sk.misceval.asyncToPromise(function() {
                 return Sk.importMainWithBody("<stdin>", false, prog, true);
             });
@@ -2053,9 +2058,13 @@ print("---------------------------------")</textarea>
             updateFileUI();
             runFileSimulator();
             
-            // Project Init run with 0 inputs
+            // Project Init run
             runTeaShopProject();
             
+            // Initialize empty placeholders
+            document.getElementById('py-output-general').innerHTML = "Ready to run code...";
+            document.getElementById('py-output-input').innerHTML = "Ready to run code...";
+            document.getElementById('py-output-bill').innerHTML = "Ready to run code...";
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
         };
     </script>
