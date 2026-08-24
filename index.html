@@ -23,7 +23,7 @@
     <!-- Mermaid.js for Flowcharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js"></script>
     <script>
-        // Initialize mermaid manually when the tab opens to prevent drawing errors in hidden tabs
+        // Initialize mermaid manually
         mermaid.initialize({ startOnLoad: false, theme: 'default' });
     </script>
 
@@ -1728,38 +1728,38 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                         </ul>
                     </div>
 
-                    <!-- Flow Chart Section with Mermaid.js -->
+                    <!-- Flow Chart Section with robust Mermaid.js syntax -->
                     <div class="activity-box" style="border-left-color: #eab308;">
                         <h3 style="color:#ca8a04; margin-top: 0;">📊 විදුලි බිල සකස් කිරීමේ ගැලීම් සටහන (Flow Chart)</h3>
                         <div class="mermaid-container">
                             <div class="mermaid">
                                 graph TD
-                                    Start(["ආරම්භය"]) --> Input[/"ඒකක ගණන ලබාගන්න"/]
-                                    Input --> Cond1{"ඒකක 60 හෝ ඊට අඩු ද?"}
+                                    A((ආරම්භය)) --> B[/ඒකක ලබාගන්න/]
+                                    B --> C{ඒකක 60 හෝ අඩුද?}
                                     
-                                    Cond1 -- ඔව් --> Calc1["ගාස්තුව = ඒකක * 10"]
-                                    Cond1 -- නැත --> Cond2{"ඒකක 90 හෝ ඊට අඩු ද?"}
+                                    C -->|ඔව්| D[ගාස්තුව = ඒකක x 10]
+                                    C -->|නැත| E{ඒකක 90 හෝ අඩුද?}
                                     
-                                    Cond2 -- ඔව් --> Calc2["ගාස්තුව = (60*10) + (ඒකක - 60) * 20"]
-                                    Cond2 -- නැත --> Calc3["ගාස්තුව = (60*10) + (30*20) + (ඒකක - 90) * 50"]
+                                    E -->|ඔව්| F[ගාස්තුව = 600 + ඉතිරිය x 20]
+                                    E -->|නැත| G[ගාස්තුව = 1200 + ඉතිරිය x 50]
                                     
-                                    Calc1 --> Total["මුළු බිල = ගාස්තුව + 400"]
-                                    Calc2 --> Total
-                                    Calc3 --> Total
+                                    D --> H[මුළු බිල = ගාස්තුව + 400]
+                                    F --> H
+                                    G --> H
                                     
-                                    Total --> Output[/"මුළු බිල මුද්‍රණය කරන්න"/]
-                                    Output --> EndNode(["අවසානය"])
+                                    H --> I[/මුළු බිල පෙන්වන්න/]
+                                    I --> J((අවසානය))
                                     
-                                    style Start fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style EndNode fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
-                                    style Input fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style Output fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
-                                    style Cond1 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style Cond2 fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
-                                    style Calc1 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style Calc2 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style Calc3 fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
-                                    style Total fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
+                                    style A fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style J fill:#fecaca,stroke:#dc2626,stroke-width:2px,color:#000
+                                    style B fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style I fill:#bfdbfe,stroke:#2563eb,stroke-width:2px,color:#000
+                                    style C fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style E fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#000
+                                    style D fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style F fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style G fill:#a7f3d0,stroke:#059669,stroke-width:2px,color:#000
+                                    style H fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#000
                             </div>
                         </div>
                     </div>
@@ -1869,7 +1869,7 @@ print("---------------------------------")</textarea>
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Skulpt Python Execution Logic (Updated with Input prompt overriding) ---
+        // --- Skulpt Python Execution Logic ---
         function builtinRead(x) {
             if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
                 throw "File not found: '" + x + "'";
