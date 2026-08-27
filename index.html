@@ -157,7 +157,7 @@
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
             flex-grow: 1;
-            max-width: 1400px; /* Widened for code boxes */
+            max-width: 1400px;
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--header-height-desktop));
@@ -597,11 +597,11 @@
         footer {
             background: #1e293b;
             color: #cbd5e1; 
-            margin-top: 20px; /* Bring footer closer */
+            margin-top: 20px;
             margin-left: -50px;
             margin-right: -50px;
             margin-bottom: -40px;
-            padding: 15px 30px; /* Reduced vertical padding */
+            padding: 15px 30px; 
             display: flex;
             flex-direction: column;
             align-items: center; 
@@ -758,8 +758,9 @@
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
-            <a class="tab-link special-tab" onclick="openTab(event, 'project')">☕ Tea Shop Project</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Tea Shop Project</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="color:#059669; font-weight:600;">⚡ Electricity Bill</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'past-paper')" style="color:#2563eb; font-weight:600;">📚 O/L Past Paper</a>
         </nav>
 
         <div class="main-content">
@@ -1132,7 +1133,7 @@ not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
                     </div>
                 </div>
 
-                <!-- Python Input (NEW) -->
+                <!-- Python Input -->
                 <div id="input-func" class="tab-content">
                     <h2>Python Input (ආදාන)</h2>
                     <p>පරිශීලකයාගෙන් (User) යම්කිසි දත්තයක් ලබා ගැනීමට Python හිදී <code>input()</code> ශ්‍රිතය භාවිතා කරයි.</p>
@@ -1386,7 +1387,7 @@ for x in fruits:
                     </div>
                 </div>
 
-                <!-- Break Statement (NEW) -->
+                <!-- Break Statement -->
                 <div id="break" class="tab-content">
                     <h2>Python Break Statement</h2>
                     <p>Loop එකක් (While හෝ For) සම්පූර්ණයෙන්ම අවසන් වීමට පෙර, යම් නිශ්චිත කොන්දේසියකදී එය අතරමගින් නතර කිරීමට (Stop) <code>break</code> භාවිතා කරයි. මෙහි වැදගත්කම වන්නේ අනවශ්‍ය ලෙස ලූපය ධාවනය වීම වළක්වා කාලය සහ මතකය (Memory) ඉතිරි කිරීමයි.</p>
@@ -1600,7 +1601,7 @@ print("ආයුබෝවන්", name, "!")
                         </div>
                     </div>
                     
-                    <!-- NEW: Input Activity -->
+                    <!-- Input Activity -->
                     <div class="interactive-box">
                         <h3>2. Input ලබා ගැනීම අත්හදා බලමු</h3>
                         <p>පහත හිස්තැන් පුරවා කේතය Run කර බලන්න.</p>
@@ -1747,7 +1748,7 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                     </div>
                 </div>
 
-                <!-- ⚡ PROJECT TAB 2 (NEW) -->
+                <!-- ⚡ PROJECT TAB 2 -->
                 <div id="project2" class="tab-content">
                     <h2>⚡ Smart Project: විදුලි බිල ගණනය කිරීම</h2>
                     <p>If / Elif / Else කොන්දේසි (Conditions) භාවිතා කරමින් පියවරෙන් පියවර විදුලි බිල (Electricity Bill) ගණනය කරන මෘදුකාංගයක් සාදමු.</p>
@@ -1800,6 +1801,87 @@ print("========================")</code></pre>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'project')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'past-paper')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- 📚 PAST PAPER PROJECT TAB -->
+                <div id="past-paper" class="tab-content">
+                    <h2>📚 විභාග ප්‍රශ්නය: පොත් සාප්පුව</h2>
+                    <p>පහත දැක්වෙන්නේ විභාගයක දී අසන ලද ප්‍රායෝගික ප්‍රශ්නයකි. අපි එය Python මගින් විසඳමු.</p>
+                    
+                    <div class="w3-info">
+                        <strong>ප්‍රශ්නය:</strong> පාසලක පොත් සාප්පුව විවිධ පොත් අලෙවි කරයි. සිසුන් පොත් තෝරාගෙන කූඩයක බහා අයකැමි වෙත ගෙන ආ යුතුය. කූඩයේ ඇති පොත් සඳහා ගෙවීම ගණනය කිරීමට Python වැඩසටහනක් සකස් කරන්න.
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <tr><th>කේතය (Code)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr>
+                            <tr><td>මිල (Rs)</td><td>150</td><td>250</td><td>175</td><td>100</td><td>300</td><td>125</td><td>140</td><td>190</td><td>290</td><td>280</td><td>240</td><td>210</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">(i) අවශ්‍ය ආදාන (Input) සහ ප්‍රතිදාන (Output)</h3>
+                        <ul style="margin-bottom: 0;">
+                            <li><strong>Inputs:</strong> පොත් වර්ගයේ කේතය (Book Code), මිලදී ගන්නා පොත් ගණන (Quantity)</li>
+                            <li><strong>Outputs:</strong> ගෙවිය යුතු මුළු මුදල (Total Amount)</li>
+                        </ul>
+                    </div>
+
+                    <div class="w3-example">
+                        <h3>(iii) Python කේතය (Python Code)</h3>
+                        <pre><code class="language-python"># පොත් සාප්පුවේ බිල්පත් පද්ධතිය
+prices = {
+    1: 150.0, 2: 250.0, 3: 175.0, 4: 100.0,
+    5: 300.0, 6: 125.0, 7: 140.0, 8: 190.0,
+    9: 290.0, 10: 280.0, 11: 240.0, 12: 210.0
+}
+
+total = 0
+while True:
+    code = int(input("පොත් කේතය (අවසන් කිරීමට 0): "))
+    if code == 0:
+        break
+    if 1 <= code <= 12:
+        qty = int(input("පොත් ගණන: "))
+        total += prices[code] * qty
+    else:
+        print("වැරදි කේතයකි!")
+
+print("------------------------")
+print("මුළු මුදල: රු.", total)
+print("------------------------")</code></pre>
+                    </div>
+
+                    <!-- Interactive UI -->
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 ක්‍රියාත්මක කර බලමු (Interactive App)</h3>
+                        <p>පොත් කේතය සහ ප්‍රමාණය ලබා දී කුඩයට එකතු කරන්න.</p>
+                        
+                        <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
+                            <div style="flex:1; min-width:150px;">
+                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">පොත් කේතය (1-12):</label>
+                                <input type="number" id="pp-code" value="1" min="1" max="12" style="width:100%;">
+                            </div>
+                            <div style="flex:1; min-width:150px;">
+                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">ප්‍රමාණය:</label>
+                                <input type="number" id="pp-qty" value="1" min="1" style="width:100%;">
+                            </div>
+                        </div>
+                        
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 15px;">
+                            <button class="btn-action" style="flex:1; padding:12px; background:#2563eb; font-size:16px;" onclick="addBookToBasket()">🛒 කුඩයට එක් කරන්න</button>
+                            <button class="btn-action" style="flex:1; padding:12px; background:#ef4444; font-size:16px;" onclick="resetBasket()">🗑️ අලුතින් අරඹන්න</button>
+                        </div>
+                        
+                        <div class="output-console" id="pp-console-output" style="text-align: left; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
+                            <i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>
+                        </div>
+                    </div>
+                    
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'project2')">❮ Prev</button>
                         <div></div>
                     </div>
                 </div>
@@ -2104,6 +2186,35 @@ print("========================")</code></pre>
             document.getElementById('project2-console-output').innerText = output;
         }
 
+        // --- Past Paper Project Logic ---
+        let basketTotal = 0;
+        let basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
+
+        function addBookToBasket() {
+            const prices = {1:150, 2:250, 3:175, 4:100, 5:300, 6:125, 7:140, 8:190, 9:290, 10:280, 11:240, 12:210};
+            const code = parseInt(document.getElementById('pp-code').value);
+            const qty = parseInt(document.getElementById('pp-qty').value);
+            
+            if (prices[code] && qty > 0) {
+                const itemTotal = prices[code] * qty;
+                basketTotal += itemTotal;
+                basketItemsText += `කේතය ${code} x ${qty} : රු. ${itemTotal}.00\n`;
+                
+                const output = basketItemsText + "------------------------\n" + `දැනට මුළු මුදල : රු. ${basketTotal}.00\n`;
+                document.getElementById('pp-console-output').innerText = output;
+            } else {
+                alert("කරුණාකර නිවැරදි කේතයක් (1-12) සහ ප්‍රමාණයක් ලබා දෙන්න.");
+            }
+        }
+
+        function resetBasket() {
+            basketTotal = 0;
+            basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
+            document.getElementById('pp-console-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
+            document.getElementById('pp-code').value = 1;
+            document.getElementById('pp-qty').value = 1;
+        }
+
         window.onload = function() {
             renderOutput();
             loadQuestion();
@@ -2115,6 +2226,7 @@ print("========================")</code></pre>
             runElectricityBillProject();
             
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
+            document.getElementById('pp-console-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
         };
     </script>
 </body>
