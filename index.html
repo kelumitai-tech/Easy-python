@@ -157,7 +157,7 @@
             margin-left: var(--sidebar-width);
             padding: 40px 50px;
             flex-grow: 1;
-            max-width: 1400px;
+            max-width: 1400px; /* Widened for code boxes */
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--header-height-desktop));
@@ -316,7 +316,7 @@
             text-align: center;
         }
 
-        /* Standard Content Styles */
+        /* Standard Content Styles - Using clamp for fluid typography */
         h2 {
             color: var(--text-main);
             font-size: clamp(20px, 4vw, 32px);
@@ -383,7 +383,7 @@
         pre code {
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
-            font-size: 15px;
+            font-size: 15px; /* slightly larger for readability */
             line-height: 1.6;
         }
 
@@ -520,7 +520,8 @@
             width: 100%;
             outline: none;
             transition: border-color 0.3s;
-            font-size: 14px;
+            font-size: 15px;
+            box-sizing: border-box;
         }
         
         textarea:focus { border-color: var(--primary-light); }
@@ -596,11 +597,11 @@
         footer {
             background: #1e293b;
             color: #cbd5e1; 
-            margin-top: 20px;
+            margin-top: 20px; /* Bring footer closer */
             margin-left: -50px;
             margin-right: -50px;
             margin-bottom: -40px;
-            padding: 15px 30px;
+            padding: 15px 30px; /* Reduced vertical padding */
             display: flex;
             flex-direction: column;
             align-items: center; 
@@ -703,6 +704,13 @@
                 border-radius: 0;
             }
         }
+        
+        @media (max-width: 400px) {
+            h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+            header h1 { font-size: 13px; }
+            .logo-text { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -728,6 +736,7 @@
             <a class="tab-link" onclick="openTab(event, 'strings')">Python Strings</a>
             <a class="tab-link" onclick="openTab(event, 'booleans')">Python Booleans</a>
             <a class="tab-link" onclick="openTab(event, 'operators')">Python Operators</a>
+            <a class="tab-link" onclick="openTab(event, 'input-func')">Python Input (ආදාන)</a>
             
             <div class="sidebar-title">Python දත්ත ව්‍යුහ</div>
             <a class="tab-link" onclick="openTab(event, 'lists')">Python Lists</a>
@@ -749,7 +758,8 @@
             
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
-            <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Smart Project</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project')">☕ Tea Shop Project</a>
+            <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="color:#059669; font-weight:600;">⚡ Electricity Bill</a>
         </nav>
 
         <div class="main-content">
@@ -1118,6 +1128,40 @@ not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'input-func')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- Python Input (NEW) -->
+                <div id="input-func" class="tab-content">
+                    <h2>Python Input (ආදාන)</h2>
+                    <p>පරිශීලකයාගෙන් (User) යම්කිසි දත්තයක් ලබා ගැනීමට Python හිදී <code>input()</code> ශ්‍රිතය භාවිතා කරයි.</p>
+
+                    <div class="w3-example">
+                        <h3>Input Example</h3>
+                        <pre><code class="language-python"># පරිශීලකයාගෙන් නම ලබා ගැනීම
+name = input("ඔබේ නම කුමක්ද? ")
+
+# ලබාගත් නම සමඟ ආචාර කිරීම
+print("ආයුබෝවන්, " + name)</code></pre>
+                    </div>
+
+                    <div class="w3-note">
+                        <strong>වැදගත්:</strong> <code>input()</code> මගින් ලබාගන්නා දත්ත නිතරම <strong>String (වචන)</strong> ලෙස සලකනු ලැබේ. සංඛ්‍යාවක් ලබා ගැනීමට අවශ්‍ය නම් <code>int()</code> හෝ <code>float()</code> භාවිතා කර එය හරවා (Cast කර) ගත යුතුය.<br>
+                        <em>උදා: <code>age = int(input("වයස කීයද? "))</code></em>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> <code>input()</code> ශ්‍රිතයෙන් ලබාගන්නා දත්ත නිතරම කුමන Data type එකකින් යුක්ත වේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> String (str)</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'lists')">Next ❯</button>
                     </div>
                 </div>
@@ -1150,7 +1194,7 @@ print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                     </div>
 
                     <div class="next-prev-container">
-                        <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'input-func')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">Next ❯</button>
                     </div>
                 </div>
@@ -1531,7 +1575,7 @@ finally:
 
                 <!-- 🎮 Interactive Activities -->
                 <div id="interactive" class="tab-content">
-                    <h2>🎮 Interactive Tools & Quiz</h2>
+                    <h2>🎮 Interactive Tools</h2>
                     <p>ඔබ ඉගෙන ගත් කරුණු අත්හදා බලන්න.</p>
 
                     <!-- Real Python Compiler -->
@@ -1539,10 +1583,13 @@ finally:
                         <h3>1. Python කේත සංස්කාරකය (Code Editor) 💻</h3>
                         <p>පහත කොටුවේ සැබෑ Python කේත ලියා ධාවනය කර බලන්න. (උදා: print, විචල්‍යයන්, ගණිත කර්ම)</p>
                         
+                        <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
+                            <strong>Note:</strong> මෙහි <code>input()</code> භාවිත කිරීමේදී බ්‍රවුසරයේ pop-up window එකක් හරහා දත්ත ලබාදීමට සිදුවේ.
+                        </div>
+
                         <textarea id="py-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න
-x = 15
-y = 25
-print("එකතුව:", x + y)
+name = input("ඔබේ නම කුමක්ද? ")
+print("ආයුබෝවන්", name, "!")
 </textarea>
                         
                         <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPython()">▶ Run Code</button>
@@ -1552,10 +1599,24 @@ print("එකතුව:", x + y)
                             <div class="output-console" id="py-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
+                    
+                    <!-- NEW: Input Activity -->
+                    <div class="interactive-box">
+                        <h3>2. Input ලබා ගැනීම අත්හදා බලමු</h3>
+                        <p>පහත හිස්තැන් පුරවා කේතය Run කර බලන්න.</p>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+                            <input type="text" id="input-act-name" placeholder="ඔබේ නම..." style="flex:1; min-width:150px;">
+                            <input type="number" id="input-act-age" placeholder="ඔබේ වයස..." style="flex:1; min-width:150px;">
+                            <button class="btn-action" onclick="runInputActivity()">▶ Run Code</button>
+                        </div>
+                        <div class="output-console" id="input-act-output">
+                            <i style='color:#94a3b8'>ප්‍රතිඵලය මෙහි දිස්වනු ඇත...</i>
+                        </div>
+                    </div>
 
                     <!-- Data Structure Builder -->
                     <div class="interactive-box">
-                        <h3>2. Data Structures Visualizer</h3>
+                        <h3>3. Data Structures Visualizer</h3>
                         <p>Lists, Tuples සහ Dicts වෙනස් වන අයුරු බලන්න.</p>
                         
                         <div>
@@ -1577,7 +1638,7 @@ print("එකතුව:", x + y)
 
                     <!-- File Handling Simulator -->
                     <div class="interactive-box">
-                        <h3>3. File Handling Simulator</h3>
+                        <h3>4. File Handling Simulator</h3>
                         <p>ගොනු විවෘත කිරීමේ ක්‍රම (Modes) අත්හදා බලන්න.</p>
                         <div>
                             <select id="file-mode" onchange="updateFileUI()">
@@ -1603,13 +1664,28 @@ print("එකතුව:", x + y)
                         </div>
                     </div>
 
+                    <!-- Quiz -->
+                    <div class="interactive-box">
+                        <h3>5. බුද්ධි පරීක්ෂණය (Python Quiz)</h3>
+                        <p id="q-text" style="font-weight: 600; font-size: 16px; margin-bottom: 15px;"></p>
+                        
+                        <div id="options-container">
+                            <button class="quiz-option" onclick="checkQuizQ(1, this)" id="opt1">Option 1</button>
+                            <button class="quiz-option" onclick="checkQuizQ(2, this)" id="opt2">Option 2</button>
+                            <button class="quiz-option" onclick="checkQuizQ(3, this)" id="opt3">Option 3</button>
+                        </div>
+                        
+                        <div id="quiz-feedback" class="quiz-feedback"></div>
+                        <button class="btn-action" id="next-q-btn" onclick="nextQuestion()" style="margin-top: 20px; display: none;">ඊළඟ ප්‍රශ්නය ❯</button>
+                    </div>
+
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'filehandling')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'project')">Next ❯</button>
                     </div>
                 </div>
 
-                <!-- ☕ PROJECT TAB -->
+                <!-- ☕ PROJECT TAB 1-->
                 <div id="project" class="tab-content">
                     <h2>☕ Smart Project: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
                     <p>අපි මෙතෙක් ඉගෙන ගත් විචල්‍යයන් (Variables), ගණිත කර්ම (Operators) සහ Print කිරීම් එකතු කර කුඩා මෘදුකාංගයක් (Billing System) නිර්මාණය කරමු.</p>
@@ -1667,6 +1743,63 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'interactive')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'project2')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- ⚡ PROJECT TAB 2 (NEW) -->
+                <div id="project2" class="tab-content">
+                    <h2>⚡ Smart Project: විදුලි බිල ගණනය කිරීම</h2>
+                    <p>If / Elif / Else කොන්දේසි (Conditions) භාවිතා කරමින් පියවරෙන් පියවර විදුලි බිල (Electricity Bill) ගණනය කරන මෘදුකාංගයක් සාදමු.</p>
+                    
+                    <div class="w3-example">
+                        <h3>Python කේතය (Python Code)</h3>
+                        <pre><code class="language-python"># විදුලි බිල ගණනය කිරීමේ පද්ධතිය
+
+units = int(input("භාවිතා කළ ඒකක ගණන: "))
+bill = 0
+
+# පළමු ඒකක 50 සඳහා රු. 10 බැගින්
+if units <= 50:
+    bill = units * 10
+
+# ඒකක 51 සිට 100 දක්වා රු. 15 බැගින්
+elif units <= 100:
+    bill = (50 * 10) + ((units - 50) * 15)
+
+# ඒකක 100ට වැඩි නම් ඉතිරි ඒවාට රු. 20 බැගින්
+else:
+    bill = (50 * 10) + (50 * 15) + ((units - 100) * 20)
+
+print("========================")
+print("  ලංකා විදුලිබල මණ්ඩලය  ")
+print("========================")
+print("භාවිතා කළ ඒකක :", units)
+print("------------------------")
+print("මුළු බිල්පත   : රු.", bill)
+print("========================")</code></pre>
+                    </div>
+
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
+                        <p>පහත කොටුවේ ඒකක (Units) ගණන ලබා දී "Run Code" ඔබන්න.</p>
+                        
+                        <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
+                            <div style="flex:1; min-width:200px;">
+                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">⚡ භාවිත කළ ඒකක ගණන:</label>
+                                <input type="number" id="elec-units" value="0" min="0" style="width:100%;">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px;" onclick="runElectricityBillProject()">▶ Run Code</button>
+                        
+                        <div class="output-console" id="project2-console-output" style="text-align: center; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
+                            <i style='color:#94a3b8'>විදුලි බිල මෙහි දිස්වනු ඇත...</i>
+                        </div>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'project')">❮ Prev</button>
                         <div></div>
                     </div>
                 </div>
@@ -1752,6 +1885,16 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             }, function(err) {
                 mypre.innerHTML += '<span style="color:#ef4444;">Error: ' + err.toString() + '</span>';
             });
+        }
+
+        // --- NEW: Input Activity Logic ---
+        function runInputActivity() {
+            const name = document.getElementById('input-act-name').value || "මිත්‍රයා";
+            const age = document.getElementById('input-act-age').value || "0";
+            
+            const output = `<span style="color:#64748b;">> name = input("ඔබේ නම කුමක්ද? ")</span>\n<span style="color:#fca5a5;">${name}</span>\n<span style="color:#64748b;">> age = input("ඔබේ වයස කීයද? ")</span>\n<span style="color:#fca5a5;">${age}</span>\n\n<span style="color:#4ade80; font-weight:bold;">ආයුබෝවන් ${name}! ඔබට වයස අවුරුදු ${age} යි.</span>`;
+            
+            document.getElementById('input-act-output').innerHTML = output;
         }
 
         // --- Quiz Logic ---
@@ -1944,6 +2087,23 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             document.getElementById('project-console-output').innerText = billOutput;
         }
 
+        // --- Electricity Bill Project Logic ---
+        function runElectricityBillProject() {
+            const units = parseInt(document.getElementById('elec-units').value) || 0;
+            let bill = 0;
+            
+            if (units <= 50) {
+                bill = units * 10;
+            } else if (units <= 100) {
+                bill = (50 * 10) + ((units - 50) * 15);
+            } else {
+                bill = (50 * 10) + (50 * 15) + ((units - 100) * 20);
+            }
+            
+            const output = `========================\n  ලංකා විදුලිබල මණ්ඩලය  \n========================\nභාවිතා කළ ඒකක : ${units}\n------------------------\nමුළු බිල්පත   : රු. ${bill}.00\n========================`;
+            document.getElementById('project2-console-output').innerText = output;
+        }
+
         window.onload = function() {
             renderOutput();
             loadQuestion();
@@ -1952,6 +2112,7 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
             
             // Project Init run with 0 inputs
             runTeaShopProject();
+            runElectricityBillProject();
             
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
         };
