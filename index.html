@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SmartSoft</title>
+    <title>SmartSoft - Python Guide</title>
+    
     <!-- Highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -20,11 +22,15 @@
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js" type="text/javascript"></script>
 
+    <!-- Mermaid.js for Flowcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+
     <style>
         :root {
-            --primary: #2563eb; /* Blue 600 */
+            --primary: #2563eb; 
             --primary-light: #60a5fa;
-            --secondary: #059669; /* Emerald 600 */
+            --secondary: #059669; 
             --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
@@ -86,7 +92,7 @@
         }
         
         .logo-text span {
-            color: #4ade80; /* Green tint */
+            color: #4ade80;
         }
 
         .container {
@@ -109,7 +115,6 @@
             z-index: 900;
         }
 
-        /* Custom Scrollbar for Sidebar */
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: #f1f5f9; }
         .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -179,7 +184,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HOME PAGE STYLES --- */
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
@@ -316,7 +321,7 @@
             text-align: center;
         }
 
-        /* Standard Content Styles - Using clamp for fluid typography */
+        /* Typography */
         h2 {
             color: var(--text-main);
             font-size: clamp(20px, 4vw, 32px);
@@ -337,19 +342,9 @@
             text-overflow: ellipsis;
         }
 
-        hr {
-            border: 0;
-            height: 1px;
-            background: #e2e8f0;
-            margin: 30px 0;
-        }
+        hr { border: 0; height: 1px; background: #e2e8f0; margin: 30px 0; }
 
-        p {
-            margin-bottom: 18px;
-            font-size: 16px;
-            color: #334155;
-            text-align: justify;
-        }
+        p { margin-bottom: 18px; font-size: 16px; color: #334155; text-align: justify; }
 
         /* Code Block Style */
         .w3-example {
@@ -383,7 +378,7 @@
         pre code {
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
-            font-size: 15px; /* slightly larger for readability */
+            font-size: 15px; 
             line-height: 1.6;
         }
 
@@ -423,20 +418,9 @@
             min-width: 500px;
         }
         
-        table, th, td {
-            border: 1px solid #cbd5e1;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f8fafc;
-            color: #334155;
-            font-weight: 600;
-        }
+        table, th, td { border: 1px solid #cbd5e1; }
+        th, td { padding: 12px; text-align: left; }
+        th { background-color: #f8fafc; color: #334155; font-weight: 600; }
 
         /* Activity Block Style */
         .activity-box {
@@ -500,9 +484,7 @@
             width: 100%;
         }
         
-        .interactive-box h3 {
-            white-space: normal;
-        }
+        .interactive-box h3 { white-space: normal; }
 
         select, input, button {
             padding: 12px;
@@ -569,27 +551,10 @@
             transform: translateX(5px);
         }
 
-        .quiz-option.correct {
-            border-color: var(--success);
-            background-color: #d1fae5;
-            color: #065f46;
-        }
+        .quiz-option.correct { border-color: var(--success); background-color: #d1fae5; color: #065f46; }
+        .quiz-option.wrong { border-color: var(--danger); background-color: #fee2e2; color: #991b1b; }
 
-        .quiz-option.wrong {
-            border-color: var(--danger);
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        .quiz-feedback {
-            font-weight: 500;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-            text-align: justify;
-        }
-        
+        .quiz-feedback { font-weight: 500; margin-top: 20px; padding: 15px; border-radius: 10px; display: none; text-align: justify; }
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
 
@@ -610,32 +575,26 @@
             box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
         
-        footer p {
-            margin-bottom: 2px;
-            color: #cbd5e1; 
-            text-align: center;
+        footer p { margin-bottom: 2px; color: #cbd5e1; text-align: center; }
+
+        /* Mermaid Graph Container */
+        .mermaid-wrapper {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
         }
 
         /* --- MOBILE RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
-            header {
-                height: var(--header-height-mobile);
-                padding: 10px 15px;
-            }
-            
-            header h1 { 
-                font-size: 15px; 
-                margin-left: 8px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
+            header { height: var(--header-height-mobile); padding: 10px 15px; }
+            header h1 { font-size: 15px; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; }
             .logo-text { font-size: 18px; }
-            
-            .container {
-                flex-direction: column;
-                margin-top: var(--header-height-mobile);
-            }
+            .container { flex-direction: column; margin-top: var(--header-height-mobile); }
 
             .sidebar {
                 width: 100%;
@@ -653,7 +612,6 @@
                 scrollbar-width: none;  
             }
             .sidebar::-webkit-scrollbar { display: none; }
-
             .sidebar-title { display: none; }
 
             .tab-link {
@@ -670,27 +628,14 @@
                 background-color: transparent;
             }
 
-            .main-content {
-                margin-left: 0;
-                margin-top: 45px; 
-                padding: 20px 15px;
-                box-shadow: none;
-            }
-
-            .hero-section {
-                padding: 40px 15px;
-                border-radius: 12px;
-                margin-bottom: 30px;
-            }
+            .main-content { margin-left: 0; margin-top: 45px; padding: 20px 15px; box-shadow: none; }
+            .hero-section { padding: 40px 15px; border-radius: 12px; margin-bottom: 30px; }
 
             h2 { font-size: 20px; margin-bottom: 15px; line-height: 1.4; }
             h3 { font-size: 17px; margin-top: 25px; margin-bottom: 12px; line-height: 1.4; }
             p, li, .w3-info, .w3-note { font-size: 14px; text-align: justify; }
-            
             select, input, button { width: 100%; margin: 5px 0; }
-            
             .btn-nav { font-size: 14px; padding: 10px 15px; }
-            
             .interactive-box { padding: 15px; }
             details summary { padding: 10px 0; }
             
@@ -1152,6 +1097,24 @@ print("ආයුබෝවන්, " + name)</code></pre>
                         <em>උදා: <code>age = int(input("වයස කීයද? "))</code></em>
                     </div>
 
+                    <div class="interactive-box">
+                        <h3>💻 Input ශ්‍රිතය අත්හදා බලමු (Run the Code)</h3>
+                        <p>මෙම කේතය ධාවනය කිරීමේදී අගයන් ලබාදීම සඳහා තිරය මැද Text Box එකක් දිස්වනු ඇත.</p>
+                        <textarea id="py-input-test-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">name = input("ඔබේ නම කුමක්ද? ")
+age_str = input("ඔබේ වයස කීයද? ")
+age = int(age_str)
+
+print("ආයුබෝවන් " + name + "!")
+print("ලබන වසරේදී ඔබට වයස", age + 1, "ක් වනු ඇත.")</textarea>
+                        
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-input-test-code', 'py-input-test-output')">▶ Run Code</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="py-input-test-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
+                        </div>
+                    </div>
+
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> <code>input()</code> ශ්‍රිතයෙන් ලබාගන්නා දත්ත නිතරම කුමන Data type එකකින් යුක්ත වේද?</p>
@@ -1585,39 +1548,25 @@ finally:
                         <p>පහත කොටුවේ සැබෑ Python කේත ලියා ධාවනය කර බලන්න. (උදා: print, විචල්‍යයන්, ගණිත කර්ම)</p>
                         
                         <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
-                            <strong>Note:</strong> මෙහි <code>input()</code> භාවිත කිරීමේදී බ්‍රවුසරයේ pop-up window එකක් හරහා දත්ත ලබාදීමට සිදුවේ.
+                            <strong>Note:</strong> මෙහි <code>input()</code> භාවිත කිරීමේදී Pop-up එකක් වෙනුවට තිරය මත විශේෂ Text Box එකක් දිස්වනු ඇත. එහි අගය ඇතුළත් කර Enter ඔබන්න.
                         </div>
 
-                        <textarea id="py-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න
+                        <textarea id="py-general-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න
 name = input("ඔබේ නම කුමක්ද? ")
 print("ආයුබෝවන්", name, "!")
 </textarea>
                         
-                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPython()">▶ Run Code</button>
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-general-code', 'py-general-output')">▶ Run Code</button>
                         
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
-                            <div class="output-console" id="py-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Input Activity -->
-                    <div class="interactive-box">
-                        <h3>2. Input ලබා ගැනීම අත්හදා බලමු</h3>
-                        <p>පහත හිස්තැන් පුරවා කේතය Run කර බලන්න.</p>
-                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-                            <input type="text" id="input-act-name" placeholder="ඔබේ නම..." style="flex:1; min-width:150px;">
-                            <input type="number" id="input-act-age" placeholder="ඔබේ වයස..." style="flex:1; min-width:150px;">
-                            <button class="btn-action" onclick="runInputActivity()">▶ Run Code</button>
-                        </div>
-                        <div class="output-console" id="input-act-output">
-                            <i style='color:#94a3b8'>ප්‍රතිඵලය මෙහි දිස්වනු ඇත...</i>
+                            <div class="output-console" id="py-general-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
 
                     <!-- Data Structure Builder -->
                     <div class="interactive-box">
-                        <h3>3. Data Structures Visualizer</h3>
+                        <h3>2. Data Structures Visualizer</h3>
                         <p>Lists, Tuples සහ Dicts වෙනස් වන අයුරු බලන්න.</p>
                         
                         <div>
@@ -1639,7 +1588,7 @@ print("ආයුබෝවන්", name, "!")
 
                     <!-- File Handling Simulator -->
                     <div class="interactive-box">
-                        <h3>4. File Handling Simulator</h3>
+                        <h3>3. File Handling Simulator</h3>
                         <p>ගොනු විවෘත කිරීමේ ක්‍රම (Modes) අත්හදා බලන්න.</p>
                         <div>
                             <select id="file-mode" onchange="updateFileUI()">
@@ -1667,7 +1616,7 @@ print("ආයුබෝවන්", name, "!")
 
                     <!-- Quiz -->
                     <div class="interactive-box">
-                        <h3>5. බුද්ධි පරීක්ෂණය (Python Quiz)</h3>
+                        <h3>4. බුද්ධි පරීක්ෂණය (Python Quiz)</h3>
                         <p id="q-text" style="font-weight: 600; font-size: 16px; margin-bottom: 15px;"></p>
                         
                         <div id="options-container">
@@ -1690,25 +1639,22 @@ print("ආයුබෝවන්", name, "!")
                 <div id="project" class="tab-content">
                     <h2>☕ Smart Project: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
                     <p>අපි මෙතෙක් ඉගෙන ගත් විචල්‍යයන් (Variables), ගණිත කර්ම (Operators) සහ Print කිරීම් එකතු කර කුඩා මෘදුකාංගයක් (Billing System) නිර්මාණය කරමු.</p>
-                    
-                    <div class="w3-example">
-                        <h3>Python කේතය (Python Code)</h3>
-                        <pre><code class="language-python"># තේ කඩයේ බිල්පත් පද්ධතිය (Tea Shop Billing System)
 
-# මිල ගණන් (Prices)
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code in Terminal)</h3>
+                        <p>පහත කේතය ඔබේ කැමැත්ත පරිදි වෙනස් කර ධාවනය කර බලන්න. අගයන් ඉල්ලූ විට Text Box එකෙහි ඇතුළත් කර Enter ඔබන්න.</p>
+                        
+                        <textarea id="py-tea-code" rows="18" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># තේ කඩයේ බිල්පත් පද්ධතිය
 tea_price = 50
 bun_price = 40
 
-# ප්‍රමාණ (Quantities)
 tea_qty = int(input("තේ කෝප්ප ගණන: "))
 bun_qty = int(input("බනිස් ගණන: "))
 
-# ගණනය කිරීම් (Calculations)
 tea_total = tea_price * tea_qty
 bun_total = bun_price * bun_qty
 sub_total = tea_total + bun_total
 
-# බිල්පත මුද්‍රණය (Printing the Bill)
 print("========================")
 print("      සිල්වා තේ කඩය      ")
 print("========================")
@@ -1716,29 +1662,13 @@ print("තේ   x", tea_qty, " : රු.", tea_total)
 print("බනිස් x", bun_qty, " : රු.", bun_total)
 print("------------------------")
 print("මුළු මුදල  : රු.", sub_total)
-print("========================")
-print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
-                    </div>
-
-                    <div class="interactive-box">
-                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
-                        <p>පහත කොටුවල ප්‍රමාණයන් ඇතුළත් කර "Run Code" බොත්තම ඔබන්න. ඔබ ඇතුළත් කරන අගයන්ට අනුව බිල්පත ස්වයංක්‍රීයව සකස් වේ.</p>
+print("========================")</textarea>
                         
-                        <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
-                            <div style="flex:1; min-width:200px;">
-                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">☕ තේ කෝප්ප ගණන:</label>
-                                <input type="number" id="tea-qty" value="0" min="0" style="width:100%;">
-                            </div>
-                            <div style="flex:1; min-width:200px;">
-                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">🍔 බනිස් ගණන:</label>
-                                <input type="number" id="bun-qty" value="0" min="0" style="width:100%;">
-                            </div>
-                        </div>
+                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-tea-code', 'tea-console-output')">▶ Run Code in Terminal</button>
                         
-                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px;" onclick="runTeaShopProject()">▶ Run Code</button>
-                        
-                        <div class="output-console" id="project-console-output" style="text-align: center; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
-                            <i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="tea-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
 
@@ -1752,10 +1682,12 @@ print("  ස්තූතියි! නැවත එන්න.  ")</code></pre>
                 <div id="project2" class="tab-content">
                     <h2>⚡ Smart Project: විදුලි බිල ගණනය කිරීම</h2>
                     <p>If / Elif / Else කොන්දේසි (Conditions) භාවිතා කරමින් පියවරෙන් පියවර විදුලි බිල (Electricity Bill) ගණනය කරන මෘදුකාංගයක් සාදමු.</p>
-                    
-                    <div class="w3-example">
-                        <h3>Python කේතය (Python Code)</h3>
-                        <pre><code class="language-python"># විදුලි බිල ගණනය කිරීමේ පද්ධතිය
+
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code in Terminal)</h3>
+                        <p>ඔබේ නිවසේ විදුලි ඒකක ගණනට අදාළව කේතය Run කර බිල පරීක්ෂා කරන්න.</p>
+                        
+                        <textarea id="py-elec-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># විදුලි බිල ගණනය කිරීමේ පද්ධතිය
 
 units = int(input("භාවිතා කළ ඒකක ගණන: "))
 bill = 0
@@ -1763,11 +1695,9 @@ bill = 0
 # පළමු ඒකක 50 සඳහා රු. 10 බැගින්
 if units <= 50:
     bill = units * 10
-
 # ඒකක 51 සිට 100 දක්වා රු. 15 බැගින්
 elif units <= 100:
     bill = (50 * 10) + ((units - 50) * 15)
-
 # ඒකක 100ට වැඩි නම් ඉතිරි ඒවාට රු. 20 බැගින්
 else:
     bill = (50 * 10) + (50 * 15) + ((units - 100) * 20)
@@ -1778,24 +1708,13 @@ print("========================")
 print("භාවිතා කළ ඒකක :", units)
 print("------------------------")
 print("මුළු බිල්පත   : රු.", bill)
-print("========================")</code></pre>
-                    </div>
-
-                    <div class="interactive-box">
-                        <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code)</h3>
-                        <p>පහත කොටුවේ ඒකක (Units) ගණන ලබා දී "Run Code" ඔබන්න.</p>
+print("========================")</textarea>
                         
-                        <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
-                            <div style="flex:1; min-width:200px;">
-                                <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">⚡ භාවිත කළ ඒකක ගණන:</label>
-                                <input type="number" id="elec-units" value="0" min="0" style="width:100%;">
-                            </div>
-                        </div>
+                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-elec-code', 'elec-console-output')">▶ Run Code in Terminal</button>
                         
-                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px;" onclick="runElectricityBillProject()">▶ Run Code</button>
-                        
-                        <div class="output-console" id="project2-console-output" style="text-align: center; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
-                            <i style='color:#94a3b8'>විදුලි බිල මෙහි දිස්වනු ඇත...</i>
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="elec-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
 
@@ -1807,7 +1726,7 @@ print("========================")</code></pre>
 
                 <!-- 📚 PAST PAPER PROJECT TAB -->
                 <div id="past-paper" class="tab-content">
-                    <h2>📚 විභාග ප්‍රශ්නය: පොත් සාප්පුව</h2>
+                    <h2>📚 Exam Question: පොත් සාප්පුව</h2>
                     <p>පහත දැක්වෙන්නේ විභාගයක දී අසන ලද ප්‍රායෝගික ප්‍රශ්නයකි. අපි එය Python මගින් විසඳමු.</p>
                     
                     <div class="w3-info">
@@ -1829,10 +1748,36 @@ print("========================")</code></pre>
                         </ul>
                     </div>
 
-                    <div class="w3-example">
-                        <h3>(iii) Python කේතය (Python Code)</h3>
-                        <pre><code class="language-python"># පොත් සාප්පුවේ බිල්පත් පද්ධතිය
-prices = {
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 15px;">(ii) ගැලීම් සටහන (Flowchart)</h3>
+                        <div class="mermaid-wrapper">
+                            <div class="mermaid">
+                            graph TD
+                                Start(["Start"]) --> Init["total = 0"]
+                                Init --> InputCode[/"Input code"/]
+                                InputCode --> CheckZero{"code == 0?"}
+                                CheckZero -->|Yes| PrintTotal[/"Print total"/]
+                                PrintTotal --> End(["End"])
+                                CheckZero -->|No| CheckValid{"1 <= code <= 12?"}
+                                CheckValid -->|Yes| InputQty[/"Input qty"/]
+                                InputQty --> Calc["total = total + (price * qty)"]
+                                Calc --> InputCode
+                                CheckValid -->|No| PrintErr[/"Print Error message"/]
+                                PrintErr --> InputCode
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive UI -->
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">(iii) 💻 Python කේතය ක්‍රියාත්මක කර බලමු</h3>
+                        <p>මෙහි <code>while True:</code> සහ <code>break</code> භාවිතා කර ඇත.</p>
+                        
+                        <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
+                            <strong>Note:</strong> කේතය ධාවනය කර, පොත් කේත සහ ප්‍රමාණ ඇතුළත් කරන්න. බිල්පත බැලීමට සහ අවසන් කිරීමට <strong>0</strong> ඇතුළත් කරන්න.
+                        </div>
+                        
+                        <textarea id="py-pastpaper-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">prices = {
     1: 150.0, 2: 250.0, 3: 175.0, 4: 100.0,
     5: 300.0, 6: 125.0, 7: 140.0, 8: 190.0,
     9: 290.0, 10: 280.0, 11: 240.0, 12: 210.0
@@ -1840,24 +1785,36 @@ prices = {
 
 total = 0
 while True:
-    code = int(input("පොත් කේතය (අවසන් කිරීමට 0): "))
+    code_str = input("පොත් කේතය (අවසන් කිරීමට 0): ")
+    code = int(code_str)
+    
     if code == 0:
         break
+        
     if 1 <= code <= 12:
-        qty = int(input("පොත් ගණන: "))
+        qty_str = input("පොත් ගණන: ")
+        qty = int(qty_str)
         total += prices[code] * qty
+        print(f"==> කේතය {code} පොත් {qty} ක් එකතු විය. (දැනට එකතුව: රු. {total})")
     else:
         print("වැරදි කේතයකි!")
 
-print("------------------------")
-print("මුළු මුදල: රු.", total)
-print("------------------------")</code></pre>
+print("\n------------------------")
+print("අවසන් මුළු මුදල: රු.", total)
+print("------------------------")</textarea>
+                        
+                        <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-pastpaper-code', 'pp-console-output')">▶ Run Code in Terminal</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="pp-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
+                        </div>
                     </div>
-
-                    <!-- Interactive UI -->
-                    <div class="interactive-box">
-                        <h3 style="color:#059669; white-space: normal;">💻 ක්‍රියාත්මක කර බලමු (Interactive App)</h3>
-                        <p>පොත් කේතය සහ ප්‍රමාණය ලබා දී කුඩයට එකතු කරන්න.</p>
+                    
+                    <!-- Custom HTML GUI fallback for the past paper -->
+                    <div class="interactive-box" style="background: #eff6ff; border-color: #93c5fd;">
+                        <h3 style="color:#1e3a8a; white-space: normal;">🛒 Visual Simulator (පහසු මුහුණත)</h3>
+                        <p>කේත ලියන්නේ නැතිව පහසුවෙන් පොත් එකතු කර බිල්පත හැදෙන අයුරු බලන්න.</p>
                         
                         <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
                             <div style="flex:1; min-width:150px;">
@@ -1875,7 +1832,7 @@ print("------------------------")</code></pre>
                             <button class="btn-action" style="flex:1; padding:12px; background:#ef4444; font-size:16px;" onclick="resetBasket()">🗑️ අලුතින් අරඹන්න</button>
                         </div>
                         
-                        <div class="output-console" id="pp-console-output" style="text-align: left; font-size: 16px; letter-spacing: 1px; line-height: 1.8;">
+                        <div class="output-console" id="pp-gui-output" style="text-align: left; font-size: 16px; letter-spacing: 1px; line-height: 1.8; background: #1e293b;">
                             <i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>
                         </div>
                     </div>
@@ -1895,6 +1852,17 @@ print("------------------------")</code></pre>
             </footer>
         </div> <!-- End main-content -->
     </div> <!-- End container -->
+
+    <!-- Custom Input Modal for Python -->
+    <div id="input-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 23, 42, 0.85); z-index:9999; align-items:center; justify-content:center; backdrop-filter: blur(4px);">
+        <div style="background:white; padding:30px; border-radius:16px; width:90%; max-width:450px; box-shadow:0 20px 40px rgba(0,0,0,0.3); text-align:center;">
+            <div style="font-size:40px; margin-bottom:10px;">⌨️</div>
+            <h3 style="margin-top:0; color:#1e293b; font-size:22px; font-weight:600;">Input අවශ්‍යයි</h3>
+            <p id="input-modal-msg" style="margin-bottom:20px; font-size:16px; font-weight:500; color:#059669;"></p>
+            <input type="text" id="input-modal-input" placeholder="මෙහි ටයිප් කරන්න..." style="width:100%; padding:15px; border:2px solid #cbd5e1; border-radius:10px; margin-bottom:20px; font-size:16px; box-sizing:border-box; text-align:center;">
+            <button onclick="submitInput()" style="width:100%; padding:15px; background:linear-gradient(135deg, #2563eb, #1e3a8a); color:white; border:none; border-radius:10px; font-weight:600; font-size:16px; cursor:pointer; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);">Enter (ඇතුළත් කරන්න)</button>
+        </div>
+    </div>
 
     <!-- Service Worker Registration -->
     <script>
@@ -1943,40 +1911,84 @@ print("------------------------")</code></pre>
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Skulpt Python Execution Logic ---
-        function outf(text) {
-            var mypre = document.getElementById("py-output");
-            mypre.innerText = mypre.innerText + text;
-        }
-        function builtinRead(x) {
-            if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-                throw "File not found: '" + x + "'";
-            return Sk.builtinFiles["files"][x];
-        }
-        function runPython() {
-            var prog = document.getElementById("py-code").value;
-            var mypre = document.getElementById("py-output");
-            mypre.innerHTML = '';
-            Sk.pre = "py-output";
-            Sk.configure({output:outf, read:builtinRead}); 
-            var myPromise = Sk.misceval.asyncToPromise(function() {
-                return Sk.importMainWithBody("<stdin>", false, prog, true);
-            });
-            myPromise.then(function(mod) {
-                // Success
-            }, function(err) {
-                mypre.innerHTML += '<span style="color:#ef4444;">Error: ' + err.toString() + '</span>';
+        // --- Custom Input Logic for Skulpt ---
+        let currentInputResolve = null;
+        let activeOutputId = null;
+
+        function customInput(promptMsg) {
+            return new Promise((resolve) => {
+                const modal = document.getElementById('input-modal');
+                const msgEl = document.getElementById('input-modal-msg');
+                const inputEl = document.getElementById('input-modal-input');
+                
+                // Show the prompt text requested by Python code
+                msgEl.innerText = promptMsg || "අගයක් ඇතුළත් කරන්න:";
+                inputEl.value = '';
+                
+                // Show modal
+                modal.style.display = 'flex';
+                inputEl.focus();
+                
+                // Allow Enter key to submit
+                inputEl.onkeypress = function(e) {
+                    if(e.key === 'Enter') submitInput();
+                };
+                
+                currentInputResolve = resolve;
             });
         }
 
-        // --- NEW: Input Activity Logic ---
-        function runInputActivity() {
-            const name = document.getElementById('input-act-name').value || "මිත්‍රයා";
-            const age = document.getElementById('input-act-age').value || "0";
+        function submitInput() {
+            if (currentInputResolve) {
+                const val = document.getElementById('input-modal-input').value;
+                document.getElementById('input-modal').style.display = 'none';
+                
+                // Echo the input into the terminal
+                if (activeOutputId) {
+                    const outConsole = document.getElementById(activeOutputId);
+                    outConsole.innerHTML += `<span style="color:#cbd5e1">${val}</span>\n`;
+                }
+                
+                currentInputResolve(val);
+                currentInputResolve = null;
+            }
+        }
+
+        // --- Skulpt Python Execution Logic (Dynamic for any editor) ---
+        function runPythonEditor(inputId, outputId) {
+            var prog = document.getElementById(inputId).value;
+            var mypre = document.getElementById(outputId);
+            activeOutputId = outputId; // Store active console for input echoing
+            mypre.innerHTML = '';
             
-            const output = `<span style="color:#64748b;">> name = input("ඔබේ නම කුමක්ද? ")</span>\n<span style="color:#fca5a5;">${name}</span>\n<span style="color:#64748b;">> age = input("ඔබේ වයස කීයද? ")</span>\n<span style="color:#fca5a5;">${age}</span>\n\n<span style="color:#4ade80; font-weight:bold;">ආයුබෝවන් ${name}! ඔබට වයස අවුරුදු ${age} යි.</span>`;
+            Sk.pre = outputId;
+            Sk.configure({
+                output: function(text) {
+                    mypre.innerHTML += text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                },
+                read: function(x) {
+                    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                        throw "File not found: '" + x + "'";
+                    return Sk.builtinFiles["files"][x];
+                },
+                inputfun: customInput,
+                inputfunTakesPrompt: true
+            }); 
             
-            document.getElementById('input-act-output').innerHTML = output;
+            var myPromise = Sk.misceval.asyncToPromise(function() {
+                return Sk.importMainWithBody("<stdin>", false, prog, true);
+            });
+            
+            myPromise.then(function(mod) {
+                // Success
+            }, function(err) {
+                mypre.innerHTML += '<span style="color:#ef4444;">\nError: ' + err.toString() + '</span>';
+            });
+        }
+
+        // Keep backwards compatibility for the first editor
+        function runPython() {
+            runPythonEditor('py-general-code', 'py-general-output');
         }
 
         // --- Quiz Logic ---
@@ -2152,41 +2164,7 @@ print("------------------------")</code></pre>
             if(mode !== 'r') document.getElementById('file-input-text').value = '';
         }
 
-        // --- Tea Shop Project Logic ---
-        function runTeaShopProject() {
-            const teaQty = parseInt(document.getElementById('tea-qty').value) || 0;
-            const bunQty = parseInt(document.getElementById('bun-qty').value) || 0;
-            
-            const teaPrice = 50;
-            const bunPrice = 40;
-            
-            const teaTotal = teaPrice * teaQty;
-            const bunTotal = bunPrice * bunQty;
-            const subTotal = teaTotal + bunTotal;
-            
-            const billOutput = `========================\n      සිල්වා තේ කඩය      \n========================\nතේ    x ${teaQty}  : රු. ${teaTotal}\nබනිස්  x ${bunQty}  : රු. ${bunTotal}\n------------------------\nමුළු මුදල   : රු. ${subTotal}\n========================\n  ස්තූතියි! නැවත එන්න.  `;
-            
-            document.getElementById('project-console-output').innerText = billOutput;
-        }
-
-        // --- Electricity Bill Project Logic ---
-        function runElectricityBillProject() {
-            const units = parseInt(document.getElementById('elec-units').value) || 0;
-            let bill = 0;
-            
-            if (units <= 50) {
-                bill = units * 10;
-            } else if (units <= 100) {
-                bill = (50 * 10) + ((units - 50) * 15);
-            } else {
-                bill = (50 * 10) + (50 * 15) + ((units - 100) * 20);
-            }
-            
-            const output = `========================\n  ලංකා විදුලිබල මණ්ඩලය  \n========================\nභාවිතා කළ ඒකක : ${units}\n------------------------\nමුළු බිල්පත   : රු. ${bill}.00\n========================`;
-            document.getElementById('project2-console-output').innerText = output;
-        }
-
-        // --- Past Paper Project Logic ---
+        // --- Past Paper GUI Project Logic ---
         let basketTotal = 0;
         let basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
 
@@ -2201,7 +2179,7 @@ print("------------------------")</code></pre>
                 basketItemsText += `කේතය ${code} x ${qty} : රු. ${itemTotal}.00\n`;
                 
                 const output = basketItemsText + "------------------------\n" + `දැනට මුළු මුදල : රු. ${basketTotal}.00\n`;
-                document.getElementById('pp-console-output').innerText = output;
+                document.getElementById('pp-gui-output').innerText = output;
             } else {
                 alert("කරුණාකර නිවැරදි කේතයක් (1-12) සහ ප්‍රමාණයක් ලබා දෙන්න.");
             }
@@ -2210,7 +2188,7 @@ print("------------------------")</code></pre>
         function resetBasket() {
             basketTotal = 0;
             basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
-            document.getElementById('pp-console-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
+            document.getElementById('pp-gui-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
             document.getElementById('pp-code').value = 1;
             document.getElementById('pp-qty').value = 1;
         }
@@ -2219,11 +2197,6 @@ print("------------------------")</code></pre>
             renderOutput();
             loadQuestion();
             updateFileUI();
-            runFileSimulator();
-            
-            // Project Init run with 0 inputs
-            runTeaShopProject();
-            runElectricityBillProject();
             
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
             document.getElementById('pp-console-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
