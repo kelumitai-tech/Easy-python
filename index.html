@@ -4,27 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SmartSoft - Python Guide</title>
-    
     <!-- Highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e293b">
     <link rel="apple-touch-icon" href="icon-192.png">
-
     <!-- Skulpt for Python Execution -->
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js" type="text/javascript"></script>
-
-    
     <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
-
     <style>
         :root {
             --primary: #2563eb; 
@@ -42,9 +35,7 @@
             --header-height-desktop: 70px;
             --header-height-mobile: 60px;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
         body {
             font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif;
             line-height: 1.7;
@@ -54,8 +45,6 @@
             min-height: 100vh;
             flex-direction: column;
         }
-
-        
         .header-counter {
             display: flex;
             align-items: center;
@@ -71,7 +60,6 @@
             margin-right: 8px;
             font-weight: 600;
         }
-
         /* W3Schools style header */
         header {
             background-color: #1e293b;
@@ -87,7 +75,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             height: var(--header-height-desktop);
         }
-
         header h1 {
             flex-grow: 1;
             font-size: clamp(14px, 2vw, 22px);
@@ -99,7 +86,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
         .logo-text {
             font-weight: 700; 
             font-size: clamp(20px, 3vw, 26px); 
@@ -107,17 +93,14 @@
             letter-spacing: 1px;
             white-space: nowrap;
         }
-        
         .logo-text span {
             color: #4ade80;
         }
-
         .container {
             display: flex;
             flex: 1;
             margin-top: var(--header-height-desktop); 
         }
-
         /* Sidebar Navigation */
         .sidebar {
             width: var(--sidebar-width);
@@ -131,11 +114,9 @@
             padding: 15px 0;
             z-index: 900;
         }
-
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: #f1f5f9; }
         .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-
         .sidebar-title {
             padding: 10px 20px;
             font-size: 14px;
@@ -145,7 +126,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         .tab-link {
             display: block;
             padding: 8px 20px;
@@ -157,23 +137,19 @@
             font-size: 15px;
             border-left: 4px solid transparent;
         }
-
         .tab-link:hover {
             background-color: #e2e8f0;
         }
-
         .tab-link.active {
             background-color: #dbeafe;
             color: var(--primary);
             border-left: 4px solid var(--primary);
             font-weight: 600;
         }
-        
         .special-tab {
             color: var(--secondary);
             font-weight: 500;
         }
-
         /* Main Content Area */
         .main-content {
             margin-left: var(--sidebar-width);
@@ -186,21 +162,16 @@
             background: var(--card-bg);
             box-shadow: -5px 0 15px rgba(0,0,0,0.02);
         }
-
         .content-wrapper { flex: 1; }
-
         .tab-content {
             display: none;
             animation: fadeIn 0.4s ease;
         }
-
         .tab-content.active { display: block; }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
@@ -218,7 +189,6 @@
             justify-content: center;
             width: 100%;
         }
-        
         .hero-section::before {
             content: '';
             position: absolute;
@@ -230,7 +200,6 @@
             transform: rotate(30deg);
             pointer-events: none;
         }
-
         .hero-logo {
             width: 120px;
             height: auto;
@@ -239,13 +208,11 @@
             animation: float 3s ease-in-out infinite;
             z-index: 1;
         }
-
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-12px); }
             100% { transform: translateY(0px); }
         }
-
         .hero-section h1 {
             font-size: clamp(28px, 5vw, 42px);
             font-weight: 700;
@@ -254,7 +221,6 @@
             white-space: normal;
             z-index: 1;
         }
-
         .hero-section p {
             font-size: clamp(15px, 3vw, 18px);
             color: #cbd5e1;
@@ -263,7 +229,6 @@
             text-align: center;
             z-index: 1;
         }
-
         .hero-btn {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
@@ -280,20 +245,17 @@
             z-index: 1;
             white-space: nowrap;
         }
-
         .hero-btn:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
             background: linear-gradient(135deg, #34d399, #10b981);
         }
-
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
-
         .feature-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -303,14 +265,12 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-
         .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
             border-color: var(--primary-light);
             background: #ffffff;
         }
-
         .feature-icon {
             font-size: 45px;
             margin-bottom: 15px;
@@ -322,7 +282,6 @@
             border-radius: 50%;
             color: var(--primary);
         }
-
         .feature-card h3 {
             margin: 0 0 10px 0;
             font-size: 20px;
@@ -330,14 +289,12 @@
             text-align: center;
             font-weight: 600;
         }
-
         .feature-card p {
             margin: 0;
             font-size: 15px;
             color: #64748b;
             text-align: center;
         }
-
         /* Typography */
         h2 {
             color: var(--text-main);
@@ -348,7 +305,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         h3 {
             color: var(--text-main);
             margin: 35px 0 15px 0;
@@ -358,11 +314,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         hr { border: 0; height: 1px; background: #e2e8f0; margin: 30px 0; }
-
         p { margin-bottom: 18px; font-size: 16px; color: #334155; text-align: justify; }
-
         /* Code Block Style */
         .w3-example {
             background-color: #f1f5f9;
@@ -372,7 +325,6 @@
             box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
         }
-
         .w3-example h3 {
             margin-top: 0;
             font-size: clamp(16px, 3vw, 18px);
@@ -380,7 +332,6 @@
             text-align: left;
             white-space: normal;
         }
-
         pre {
             background-color: #1e293b;
             border-left: 4px solid var(--success);
@@ -391,14 +342,12 @@
             width: 100%;
             box-sizing: border-box;
         }
-
         pre code {
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 15px !important;
             font-size: 15px; 
             line-height: 1.6;
         }
-
         .w3-note {
             background-color: #fffbeb;
             border-left: 5px solid #f59e0b;
@@ -408,7 +357,6 @@
             color: #78350f;
             text-align: justify;
         }
-        
         .w3-info {
             background-color: #eff6ff;
             border-left: 5px solid var(--primary);
@@ -418,28 +366,22 @@
             color: #1e3a8a;
             text-align: justify;
         }
-
         ul, ol { margin-left: 25px; margin-bottom: 20px; color: #334155; }
         li { margin-bottom: 8px; text-align: justify; }
-
         .table-responsive {
             overflow-x: auto;
             width: 100%;
             -webkit-overflow-scrolling: touch;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
             min-width: 500px;
         }
-        
         table, th, td { border: 1px solid #cbd5e1; }
         th, td { padding: 12px; text-align: left; }
         th { background-color: #f8fafc; color: #334155; font-weight: 600; }
-
-        
         /* CSS Flowchart Styling */
         .fc-container { display: flex; flex-direction: column; align-items: center; font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; margin: 10px 0; overflow-x: auto; padding-bottom: 20px;}
         .fc-arrow { color: #94a3b8; font-size: 20px; font-weight: bold; margin: 4px 0; text-align: center;}
@@ -450,7 +392,6 @@
         .fc-decision { position: relative; width: 120px; height: 120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
         .fc-decision::before { content: ''; position: absolute; top: 15px; left: 15px; width: 90px; height: 90px; background: #fffbeb; border: 2px solid #f59e0b; transform: rotate(45deg); border-radius: 6px; z-index: 1; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .fc-decision span { position: relative; z-index: 2; color: #92400e; font-weight: 700; font-size: 13px; text-align: center; line-height: 1.3; }
-
         /* Activity Block Style */
         .activity-box {
             border: 1px solid var(--border-color);
@@ -461,7 +402,6 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             border-left: 4px solid var(--secondary);
         }
-
         details {
             background: #f8fafc; 
             padding: 12px; 
@@ -469,7 +409,6 @@
             border: 1px solid #cbd5e1;
             margin-top: 15px;
         }
-
         summary {
             cursor: pointer; 
             font-weight: 600; 
@@ -477,7 +416,6 @@
             font-size: 15px;
             outline: none;
         }
-
         .next-prev-container {
             display: flex;
             justify-content: space-between;
@@ -486,7 +424,6 @@
             padding-bottom: 10px;
             border-top: 1px solid #e2e8f0;
         }
-
         .btn-nav {
             background-color: var(--secondary);
             color: white;
@@ -499,9 +436,7 @@
             transition: 0.3s;
             font-size: 16px;
         }
-
         .btn-nav:hover { background-color: #047857; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
         /* Interactive Elements */
         .interactive-box {
             border: 1px solid var(--border-color);
@@ -512,9 +447,7 @@
             box-shadow: 0 8px 15px rgba(0,0,0,0.03);
             width: 100%;
         }
-        
         .interactive-box h3 { white-space: normal; }
-
         select, input, button {
             padding: 12px;
             border: 1px solid #cbd5e1;
@@ -522,7 +455,6 @@
             margin: 5px;
             font-family: inherit;
         }
-        
         textarea {
             font-family: 'Consolas', monospace;
             padding: 15px;
@@ -534,9 +466,7 @@
             font-size: 15px;
             box-sizing: border-box;
         }
-        
         textarea:focus { border-color: var(--primary-light); }
-
         .btn-action {
             background-color: var(--primary);
             color: white;
@@ -544,7 +474,6 @@
             cursor: pointer;
             font-weight: 600;
         }
-        
         .output-console {
             background: #0f172a;
             color: #e2e8f0;
@@ -558,7 +487,6 @@
             width: 100%;
             box-sizing: border-box;
         }
-
         /* Quiz Styling */
         .quiz-option {
             display: block;
@@ -573,20 +501,16 @@
             font-weight: 500;
             transition: all 0.2s;
         }
-        
         .quiz-option:hover:not(:disabled) {
             border-color: var(--primary-light);
             background-color: #eff6ff;
             transform: translateX(5px);
         }
-
         .quiz-option.correct { border-color: var(--success); background-color: #d1fae5; color: #065f46; }
         .quiz-option.wrong { border-color: var(--danger); background-color: #fee2e2; color: #991b1b; }
-
         .quiz-feedback { font-weight: 500; margin-top: 20px; padding: 15px; border-radius: 10px; display: none; text-align: justify; }
         .feedback-correct { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); display: block; }
         .feedback-wrong { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); display: block; }
-
         /* Full-width Footer aligned to bottom of main content */
         footer {
             background: #1e293b;
@@ -603,9 +527,7 @@
             text-align: center; 
             box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
-        
         footer p { margin-bottom: 2px; color: #cbd5e1; text-align: center; }
-
         /* Mermaid Graph Container */
         .mermaid-wrapper {
             background: #f8fafc;
@@ -617,18 +539,14 @@
             display: flex;
             justify-content: center;
         }
-
         /* --- MOBILE RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             header { height: var(--header-height-mobile); padding: 10px 15px; }
             header h1 { font-size: 14px; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; }
-
             .hc-text { display: none; }
             .header-counter { padding: 3px 8px; font-size: 11px; }
-
             .logo-text { font-size: 18px; }
             .container { flex-direction: column; margin-top: var(--header-height-mobile); }
-
             .sidebar {
                 width: 100%;
                 height: auto;
@@ -646,7 +564,6 @@
             }
             .sidebar::-webkit-scrollbar { display: none; }
             .sidebar-title { display: none; }
-
             .tab-link {
                 display: inline-block;
                 border-left: none;
@@ -654,16 +571,13 @@
                 padding: 10px 15px;
                 font-size: 14px;
             }
-
             .tab-link.active {
                 border-left: none;
                 border-bottom: 3px solid var(--primary);
                 background-color: transparent;
             }
-
             .main-content { margin-left: 0; margin-top: 45px; padding: 20px 15px; box-shadow: none; }
             .hero-section { padding: 40px 15px; border-radius: 12px; margin-bottom: 30px; }
-
             h2 { font-size: 20px; margin-bottom: 15px; line-height: 1.4; }
             h3 { font-size: 17px; margin-top: 25px; margin-bottom: 12px; line-height: 1.4; }
             p, li, .w3-info, .w3-note { font-size: 14px; text-align: justify; }
@@ -671,7 +585,6 @@
             .btn-nav { font-size: 14px; padding: 10px 15px; }
             .interactive-box { padding: 15px; }
             details summary { padding: 10px 0; }
-            
             /* Make footer bleed perfectly on mobile too */
             footer {
                 margin-top: 40px;
@@ -682,7 +595,6 @@
                 border-radius: 0;
             }
         }
-        
         @media (max-width: 400px) {
             h2 { font-size: 18px; }
             h3 { font-size: 16px; }
@@ -692,7 +604,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo-text">Smart<span>Soft</span></div>
         <h1>Python සම්පූර්ණ මාර්ගෝපදේශය</h1>
@@ -702,13 +613,11 @@
             <img src="https://hits.sh/smartsoft.kelum.python.svg?style=for-the-badge&label=Views&color=10b981" alt="Views" style="height: 22px; border-radius: 4px;">
         </div>
     </header>
-
     <div class="container">
         <!-- W3Schools Style Sidebar -->
         <nav class="sidebar" id="nav-menu">
             <a class="tab-link active" onclick="openTab(event, 'homepage')">🏠 මුල් පිටුව</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'smart-secrets')">💡 ස්මාර්ට් කේතීකරණ රහස්</a>
-            
             <div class="sidebar-title">Python මූලික</div>
             <a class="tab-link" onclick="openTab(event, 'intro')">Python හැඳින්වීම</a>
             <a class="tab-link" onclick="openTab(event, 'syntax')">Python Syntax</a>
@@ -720,41 +629,33 @@
             <a class="tab-link" onclick="openTab(event, 'booleans')">Python Booleans</a>
             <a class="tab-link" onclick="openTab(event, 'operators')">Python Operators</a>
             <a class="tab-link" onclick="openTab(event, 'input-func')">Python Input (ආදාන)</a>
-            
             <div class="sidebar-title">Python දත්ත ව්‍යුහ</div>
             <a class="tab-link" onclick="openTab(event, 'lists')">Python Lists</a>
             <a class="tab-link" onclick="openTab(event, 'tuples')">Python Tuples</a>
             <a class="tab-link" onclick="openTab(event, 'sets')">Python Sets</a>
             <a class="tab-link" onclick="openTab(event, 'dicts')">Python Dictionaries</a>
-            
             <div class="sidebar-title">පාලන ව්‍යුහ (Control Flow)</div>
             <a class="tab-link" onclick="openTab(event, 'ifelse')">Python If...Else</a>
             <a class="tab-link" onclick="openTab(event, 'while')">Python While ලූපය</a>
             <a class="tab-link" onclick="openTab(event, 'for')">Python For ලූපය</a>
             <a class="tab-link" onclick="openTab(event, 'break')">Python Break</a>
             <a class="tab-link" onclick="openTab(event, 'continue')">Python Continue</a>
-            
             <div class="sidebar-title">උසස් සංකල්ප</div>
             <a class="tab-link" onclick="openTab(event, 'functions')">Python Functions</a>
             <a class="tab-link" onclick="openTab(event, 'oop')">Python Classes/Objects</a>
             <a class="tab-link" onclick="openTab(event, 'tryexcept')">Python Try...Except</a>
             <a class="tab-link" onclick="openTab(event, 'filehandling')">Python File Handling</a>
-            
-            
             <div class="sidebar-title">දත්ත විද්‍යාව (Data Science)</div>
             <a class="tab-link" onclick="openTab(event, 'numpy')">Python Numpy</a>
             <a class="tab-link" onclick="openTab(event, 'matplotlib')">Python Matplotlib</a>
-            
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Tea Shop Project</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project2')" style="color:#059669; font-weight:600;">⚡ Electricity Bill</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'past-paper')" style="color:#2563eb; font-weight:600;">📚 Exam Question</a>
         </nav>
-
         <div class="main-content">
             <div class="content-wrapper">
-
                 <!-- 🏠 HOME PAGE TAB -->
                 <div id="homepage" class="tab-content active">
                     <div class="hero-section">
@@ -764,7 +665,6 @@
                         <p>Theory පමණක් නොව, ප්‍රායෝගිකව (Practical) කේතීකරණය ඉගෙන ගන්න. නවීන තාක්ෂණය සහ අන්තර්ක්‍රියාකාරී මෙවලම් සමඟින් ඔබේ Programming සිහිනය සැබෑ කරගන්න.</p>
                         <button class="hero-btn" onclick="openTab(event, 'smart-secrets')">ඔබේ Python ගමන අරඹන්න 🚀</button>
                     </div>
-
                     <div class="feature-grid">
                         <div class="feature-card">
                             <div class="feature-icon">💻</div>
@@ -783,17 +683,14 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- 💡 SMART SECRETS TAB -->
                 <div id="smart-secrets" class="tab-content">
                     <h2>💡 ස්මාර්ට් කේතීකරණ රහස් (Smart Coding Tricks)</h2>
                     <p>පයිතන් කේතීකරණයේදී ඔබව ප්‍රවීණයෙකු (Expert) කරන සුවිශේෂී රහස් කිහිපයක් පහත දැක්වේ:</p>
-                    
                     <div class="w3-info">
                         <strong>🚀 Secret 1: කෝලන් (:) සහ Indentation</strong><br>
                         ඔබේ කේතයේ If, For, While, Def වැනි පාලන ව්‍යුහයන් (Control Structures) ලියන සෑම විටම පේළිය අවසානයේ <code>:</code> යෙදීමට අමතක නොකරන්න. ඉන්පසු එන පේළිය අනිවාර්යයෙන්ම හිස්තැන් (Space/Tab) තබා ආරම්භ කළ යුතුය.
                     </div>
-
                     <div class="w3-info">
                         <strong>🚀 Secret 2: දත්ත ව්‍යුහ ක්ෂණිකව හඳුනාගැනීම</strong><br>
                         වරහන් වර්ගය දුටු පමණින් දත්ත ව්‍යුහය හඳුනාගන්න:
@@ -803,28 +700,23 @@
                             <li><code>{ }</code> සඟල වරහන් = <strong>Dictionary</strong> (Key-Value යුගල ලෙස ගබඩා වේ)</li>
                         </ul>
                     </div>
-
                     <div class="w3-info">
                         <strong>🚀 Secret 3: මනසින් කේතය ධාවනය කිරීම (Dry Run)</strong><br>
                         ඔබේ කේතයේ දෝෂයක් (Bug) ඇතිවිට, පරිගණකයක් මෙන් සිතා පේළියෙන් පේළිය කේතය කියවන්න. විචල්‍යයක අගය වෙනස් වන සෑම අවස්ථාවක්ම කඩදාසියක සටහන් කරගන්න. මෙය ඉතා සාර්ථක ක්‍රමයකි.
                     </div>
-
                     <div class="w3-info">
                         <strong>🚀 Secret 4: Case Sensitivity (අකුරු වල ප්‍රමාණය)</strong><br>
                         Python යනු <strong>Case-Sensitive</strong> භාෂාවකි. එනම් කැපිටල් (Capital) සහ සිම්පල් (Simple) අකුරු එකිනෙකට වෙනස් ලෙස සලකයි. උදාහරණයක් ලෙස <code>Age</code> සහ <code>age</code> යනු විචල්‍යයන් (variables) දෙකකි. Print කිරීමේදී <code>Print()</code> ලෙස කැපිටල් අකුරින් ලිවීමෙන් Error එකක් පැමිණේ. සෑමවිටම නිවැරදි අකුරු ප්‍රමාණය භාවිතා කරන්න.
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'homepage')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'intro')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 1. Intro -->
                 <div id="intro" class="tab-content">
                     <h2>Python හැඳින්වීම (Introduction)</h2>
                     <p>Python යනු ලොව පුරා ඉතා ජනප්‍රිය ක්‍රමලේඛන භාෂාවකි. එය 1991 දී Guido van Rossum විසින් නිර්මාණය කරන ලදී.</p>
-                    
                     <h3>Python භාවිතා කරන්නේ කුමක් සඳහාද?</h3>
                     <ul style="text-align: left;">
                         <li style="text-align: left;">Web Development (Server-side) - වෙබ් අඩවි නිර්මාණය</li>
@@ -832,12 +724,10 @@
                         <li style="text-align: left;">Mathematics & Data Science - දත්ත විශ්ලේෂණය සහ AI</li>
                         <li style="text-align: left;">System Scripting - පද්ධති ස්වයංක්‍රීයකරණය</li>
                     </ul>
-
                     <div class="w3-example">
                         <h3>Example</h3>
                         <pre><code class="language-python">print("Hello, World!")</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python කේතයක් තිරයේ මුද්‍රණය කිරීමට භාවිතා කරන ශ්‍රිතය (function) කුමක්ද?</p>
@@ -846,31 +736,25 @@
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> print()</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'smart-secrets')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'syntax')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 2. Syntax -->
                 <div id="syntax" class="tab-content">
                     <h2>Python වාක්‍ය වින්‍යාසය (Syntax)</h2>
                     <p>Python හි Syntax එක ඉංග්‍රීසි භාෂාවට ඉතා සමාන වන අතර එය කියවීමට ඉතා පහසුය.</p>
-                    
                     <h3>Python Indentation (හිස්තැන් තැබීම)</h3>
                     <p>වෙනත් භාෂාවන්හිදී (C++, Java) කේත කොටසක් වෙන් කිරීමට සඟල වරහන් <code>{}</code> භාවිතා කළද, Python හි ඒ සඳහා <strong>Indentation (හිස්තැන්)</strong> භාවිතා කරයි. මෙය ඉතා වැදගත් වේ.</p>
-                    
                     <div class="w3-example">
                         <h3>නිවැරදි භාවිතය:</h3>
                         <pre><code class="language-python">if 5 > 2:
     print("පහ දෙකට වඩා විශාලයි!") # මෙහි හිස්තැන් තැබීම අනිවාර්යයි</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>දෝෂයක් (Syntax Error):</strong> හිස්තැන් නොතැබුවහොත් Python විසින් Error එකක් ලබාදේ.
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python හි කේත කොටසක් වෙන් කිරීමට භාවිතා කරන්නේ කුමක්ද?</p>
@@ -879,25 +763,21 @@
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Indentation (හිස්තැන් තැබීම)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'intro')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'comments')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 3. Comments -->
                 <div id="comments" class="tab-content">
                     <h2>Python සටහන් (Comments)</h2>
                     <p>ඔබ ලියන කේතය (code) පැහැදිලි කිරීමට හෝ තාවකාලිකව කේතයක් අක්‍රීය කිරීමට Comments භාවිතා කළ හැක.</p>
-                    
                     <div class="w3-example">
                         <h3>Creating a Comment</h3>
                         <p>Comment එකක් <code>#</code> ලකුණෙන් ආරම්භ වේ. Python විසින් මෙය කියවන්නේ නැත.</p>
                         <pre><code class="language-python"># මෙය Comment එකකි
 print("Hello, World!") # මෙයද කේතයට බාධාවක් නොවේ</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python හි Single-line comment එකක් ලියන සංකේතය කුමක්ද?</p>
@@ -906,18 +786,15 @@ print("Hello, World!") # මෙයද කේතයට බාධාවක් න�
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> # ලකුණ</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'syntax')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'variables')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 4. Variables -->
                 <div id="variables" class="tab-content">
                     <h2>Python විචල්‍යයන් (Variables)</h2>
                     <p>විචල්‍යයන් යනු දත්ත ගබඩා කර තබා ගන්නා භාජන (Containers) වේ.</p>
-                    
                     <h3>Creating Variables</h3>
                     <p>Python වලදී විචල්‍යයක් සෑදීමට විශේෂ විධානයක් අවශ්‍ය නොවේ. අගයක් ලබා දුන් වහාම එය සෑදේ.</p>
                     <div class="w3-example">
@@ -926,14 +803,12 @@ y = "කමල්"
 print(x)
 print(y)</code></pre>
                     </div>
-
                     <h3>Variable Names (නම් කිරීමේ නීති)</h3>
                     <ul>
                         <li>අකුරකින් හෝ යටි ඉරකින් (<code>_</code>) ආරම්භ විය යුතුය.</li>
                         <li>ඉලක්කමකින් ආරම්භ කළ නොහැක.</li>
                         <li>Case-sensitive වේ (<code>age</code>, <code>Age</code> යනු දෙකකි).</li>
                     </ul>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> වයස 20 ලෙස ගබඩා කිරීමට විචල්‍යයක් (Variable) සාදන්නේ කෙසේද?</p>
@@ -942,18 +817,15 @@ print(y)</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> age = 20</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'comments')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'datatypes')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 5. Data Types -->
                 <div id="datatypes" class="tab-content">
                     <h2>Python දත්ත වර්ග (Data Types)</h2>
                     <p>Python වල බහුලව භාවිතා වන දත්ත වර්ග කිහිපයක් ඇත.</p>
-                    
                     <div class="table-responsive">
                         <table>
                             <tr><th>දත්ත වර්ගය</th><th>උදාහරණ</th></tr>
@@ -965,13 +837,11 @@ print(y)</code></pre>
                             <tr><td>Boolean Type</td><td><code>bool</code> (True / False)</td></tr>
                         </table>
                     </div>
-
                     <div class="w3-example">
                         <h3>දත්ත වර්ගය බැලීම (Getting the Data Type)</h3>
                         <pre><code class="language-python">x = 5
 print(type(x)) # Output: &lt;class 'int'&gt;</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> x = 10.5 හි දත්ත වර්ගය (Data type) කුමක්ද?</p>
@@ -980,25 +850,21 @@ print(type(x)) # Output: &lt;class 'int'&gt;</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> float</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'variables')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'numbers')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 6. Numbers/Casting -->
                 <div id="numbers" class="tab-content">
                     <h2>Python Numbers & Casting</h2>
                     <p>ප්‍රධාන සංඛ්‍යා වර්ග 2ක් ඇත: Integer සහ Float.</p>
-                    
                     <div class="w3-example">
                         <h3>Numbers</h3>
                         <pre><code class="language-python">x = 10      # int
 y = 3.14    # float
 z = -5      # int</code></pre>
                     </div>
-
                     <h3>Type Casting (එක් වර්ගයකින් තවත් වර්ගයකට හැරවීම)</h3>
                     <p>දත්තයක වර්ගය අපට අවශ්‍ය පරිදි වෙනස් කරගැනීමට <code>int()</code>, <code>float()</code>, <code>str()</code> භාවිතා කරයි.</p>
                     <div class="w3-example">
@@ -1006,7 +872,6 @@ z = -5      # int</code></pre>
 y = float("3")  # y හි අගය 3.0 වේ
 z = str(10)     # z හි අගය වචනයක් ලෙස "10" වේ</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> දශම සංඛ්‍යාවක් (Float) පූර්ණ සංඛ්‍යාවක් (Integer) බවට පත් කරන්නේ කුමන ශ්‍රිතයෙන්ද?</p>
@@ -1015,18 +880,15 @@ z = str(10)     # z හි අගය වචනයක් ලෙස "10" වේ</c
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> int()</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'datatypes')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'strings')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 7. Strings -->
                 <div id="strings" class="tab-content">
                     <h2>Python Strings</h2>
                     <p>Strings යනු අකුරු හෝ වචන වේ. ඒවා තනි උද්ධෘත (<code>' '</code>) හෝ ද්විත්ව උද්ධෘත (<code>" "</code>) තුළ ලිවිය හැක.</p>
-
                     <div class="w3-example">
                         <h3>String Methods</h3>
                         <pre><code class="language-python">a = "Hello, World!"
@@ -1035,11 +897,9 @@ print(a.upper())   # සියල්ල කැපිටල් කිරීමට
 print(a.lower())   # සියල්ල සිම්පල් කිරීමට
 print(a.replace("H", "J")) # අකුරක් මාරු කිරීමට (Jello, World!)</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>String Concatenation:</strong> වචන දෙකක් එකතු කිරීමට <code>+</code> ලකුණ භාවිතා කරයි. (උදා: <code>"A" + "B" = "AB"</code>)
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> "Hello" යන වචනයේ අකුරු ගණන සොයන්නේ කෙසේද?</p>
@@ -1048,25 +908,21 @@ print(a.replace("H", "J")) # අකුරක් මාරු කිරීමට 
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> len("Hello")</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'numbers')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 8. Booleans -->
                 <div id="booleans" class="tab-content">
                     <h2>Python Booleans</h2>
                     <p>Programming වලදී බොහෝ විට සත්‍ය ද අසත්‍ය ද යන්න දැනගැනීමට අවශ්‍ය වේ. Boolean මගින් ලබා දෙන්නේ <code>True</code> හෝ <code>False</code> අගයන් දෙකෙන් එකකි.</p>
-
                     <div class="w3-example">
                         <h3>Boolean Values</h3>
                         <pre><code class="language-python">print(10 > 9)  # True
 print(10 == 9) # False
 print(10 < 9)  # False</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> 10 > 15 හි ප්‍රතිඵලය කුමක්ද?</p>
@@ -1075,18 +931,15 @@ print(10 < 9)  # False</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> False</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'strings')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'operators')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 9. Operators -->
                 <div id="operators" class="tab-content">
                     <h2>Python Operators</h2>
                     <p>විචල්‍යයන් හා අගයන් මත විවිධ මෙහෙයුම් සිදු කිරීමට Operators භාවිතා කරයි.</p>
-
                     <h3>1. Arithmetic (ගණිත කර්ම)</h3>
                     <pre><code class="language-python">+   එකතු කිරීම (Addition)
 -   අඩු කිරීම (Subtraction)
@@ -1094,19 +947,16 @@ print(10 < 9)  # False</code></pre>
 /   බෙදීම (Division)
 %   බෙදූ පසු ඉතිරිය (Modulus)
 **  බෙදූ පසු පූර්ණ සංඛ්‍යාව (Floor division)</code></pre>
-
                     <h3>2. Comparison (සැසඳීම)</h3>
                     <pre><code class="language-python">==  සමානයි
 !=  අසමානයි
 >   විශාලයි
 <   කුඩායි
 >=  විශාලයි හෝ සමානයි</code></pre>
-
                     <h3>3. Logical (තාර්කික)</h3>
                     <pre><code class="language-python">and  - කොන්දේසි දෙකම සත්‍ය නම් True වේ
 or   - එක් කොන්දේසියක් හෝ සත්‍ය නම් True වේ
 not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> 10, 3 න් බෙදූ පසු ඉතිරිය (Modulus) සෙවීමේ කේතය ලියන්න.</p>
@@ -1115,50 +965,40 @@ not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 10 % 3</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'booleans')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'input-func')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- Python Input -->
                 <div id="input-func" class="tab-content">
                     <h2>Python Input (ආදාන)</h2>
                     <p>පරිශීලකයාගෙන් (User) යම්කිසි දත්තයක් ලබා ගැනීමට Python හිදී <code>input()</code> ශ්‍රිතය භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Input Example</h3>
                         <pre><code class="language-python"># පරිශීලකයාගෙන් නම ලබා ගැනීම
 name = input("ඔබේ නම කුමක්ද? ")
-
 # ලබාගත් නම සමඟ ආචාර කිරීම
 print("ආයුබෝවන්, " + name)</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>වැදගත්:</strong> <code>input()</code> මගින් ලබාගන්නා දත්ත නිතරම <strong>String (වචන)</strong> ලෙස සලකනු ලැබේ. සංඛ්‍යාවක් ලබා ගැනීමට අවශ්‍ය නම් <code>int()</code> හෝ <code>float()</code> භාවිතා කර එය හරවා (Cast කර) ගත යුතුය.<br>
                         <em>උදා: <code>age = int(input("වයස කීයද? "))</code></em>
                     </div>
-
                     <div class="interactive-box">
                         <h3>💻 Input ශ්‍රිතය අත්හදා බලමු (Run the Code)</h3>
                         <p>මෙම කේතය ධාවනය කිරීමේදී අගයන් ලබාදීම සඳහා තිරය මැද Text Box එකක් දිස්වනු ඇත.</p>
                         <textarea id="py-input-test-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">name = input("ඔබේ නම කුමක්ද? ")
 age_str = input("ඔබේ වයස කීයද? ")
 age = int(age_str)
-
 print("ආයුබෝවන් " + name + "!")
 print("ලබන වසරේදී ඔබට වයස", age + 1, "ක් වනු ඇත.")</textarea>
-                        
                         <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-input-test-code', 'py-input-test-output')">▶ Run Code</button>
-                        
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
                             <div class="output-console" id="py-input-test-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> <code>input()</code> ශ්‍රිතයෙන් ලබාගන්නා දත්ත නිතරම කුමන Data type එකකින් යුක්ත වේද?</p>
@@ -1167,31 +1007,25 @@ print("ලබන වසරේදී ඔබට වයස", age + 1, "ක් ව�
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> String (str)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'operators')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'lists')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 10. Lists -->
                 <div id="lists" class="tab-content">
                     <h2>Python Lists (ලැයිස්තු)</h2>
                     <p>බහුවිධ දත්ත එකවර ගබඩා කිරීමට List භාවිතා කරයි. මෙය <strong>වෙනස් කළ හැක (Mutable)</strong>. කො‍ටු වරහන් <code>[]</code> භාවිතා වේ.</p>
-
                     <div class="w3-example">
                         <h3>List එකක් සෑදීම සහ දත්ත ලබාගැනීම</h3>
                         <pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
 print(fruits[0])  # "apple" මුද්‍රණය වේ
-
 # අලුතින් දත්තයක් එකතු කිරීම
 fruits.append("orange")
-
 # දත්තයක් වෙනස් කිරීම
 fruits[1] = "mango"
 print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> List එකකට අලුතින් අයිතමයක් එකතු කරන method එක කුමක්ද?</p>
@@ -1200,26 +1034,21 @@ print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> .append()</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'input-func')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 11. Tuples -->
                 <div id="tuples" class="tab-content">
                     <h2>Python Tuples</h2>
                     <p>Tuple යනු List එකටම සමාන, නමුත් <strong>වෙනස් කළ නොහැකි (Immutable)</strong> දත්ත සමූහයකි. සාමාන්‍ය වරහන් <code>()</code> භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Tuple Example</h3>
                         <pre><code class="language-python">thistuple = ("apple", "banana", "cherry")
 print(thistuple[1])
-
 # thistuple[1] = "mango"  <-- මෙය කළ නොහැක! Error පැමිණේ.</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Tuple එකක දත්ත පසුව වෙනස් කළ හැකිද?</p>
@@ -1228,25 +1057,21 @@ print(thistuple[1])
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> නැත (එය Immutable වේ)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'lists')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'sets')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 12. Sets -->
                 <div id="sets" class="tab-content">
                     <h2>Python Sets (කුලක)</h2>
                     <p>Set එකක දත්ත වලට නිශ්චිත පිළිවෙලක් නැත (Unordered). තවද <strong>එකම දත්තය දෙවරක් තිබිය නොහැක (No duplicates)</strong>. සඟල වරහන් <code>{}</code> භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Set Example</h3>
                         <pre><code class="language-python">myset = {"apple", "banana", "cherry", "apple"}
 print(myset) 
 # ප්‍රතිඵලයේ "apple" ඇත්තේ එක් වරක් පමණි!</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Set එකක එකම අගය (duplicate) දෙවරක් පැවතිය හැකිද?</p>
@@ -1255,18 +1080,15 @@ print(myset)
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> නැත</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'dicts')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 13. Dictionaries -->
                 <div id="dicts" class="tab-content">
                     <h2>Python Dictionaries</h2>
                     <p>Key:Value (යතුර සහ අගය) යුගල ලෙස දත්ත ගබඩා කරයි. සඟල වරහන් <code>{}</code> භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Dictionary Example</h3>
                         <pre><code class="language-python">car = {
@@ -1275,11 +1097,9 @@ print(myset)
   "year": 1964
 }
 print(car["model"]) # "Mustang" ලබා දෙයි
-
 # අගය වෙනස් කිරීම
 car["year"] = 2020</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Dictionary එකක දත්ත ගබඩා වන ආකාරය හඳුන්වන්නේ කෙසේද?</p>
@@ -1288,23 +1108,19 @@ car["year"] = 2020</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Key-Value (යතුර සහ අගය) යුගල ලෙස</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'sets')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'ifelse')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 14. If...Else -->
                 <div id="ifelse" class="tab-content">
                     <h2>Python If ... Else</h2>
                     <p>ගණිතමය කොන්දේසි මත පදනම්ව තීරණ ගැනීම සඳහා <code>if</code> භාවිතා වේ.</p>
-
                     <div class="w3-example">
                         <h3>If, Elif, Else</h3>
                         <pre><code class="language-python">a = 200
 b = 33
-
 if b > a:
     print("b විශාලයි")
 elif a == b:
@@ -1312,11 +1128,9 @@ elif a == b:
 else:
     print("a විශාලයි") # මෙය ක්‍රියාත්මක වේ</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>Indentation:</strong> <code>if</code> ප්‍රකාශයෙන් පසුව එන පේළි අනිවාර්යයෙන්ම හිස්තැන් තබා ලිවිය යුතුය.
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> if කොන්දේසිය අසත්‍ය වූ විට ක්‍රියාත්මක වන කොටස කුමක්ද?</p>
@@ -1325,18 +1139,15 @@ else:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> else කොටස</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'dicts')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'while')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 15. While Loops -->
                 <div id="while" class="tab-content">
                     <h2>Python While ලූපය</h2>
                     <p>කොන්දේසියක් සත්‍ය (True) වන තාක් කල් කේත කාණ්ඩයක් නැවත නැවත ක්‍රියාත්මක කිරීමට <code>while</code> ලූපය භාවිතා වේ.</p>
-
                     <div class="w3-example">
                         <h3>The while Loop</h3>
                         <pre><code class="language-python">i = 1
@@ -1344,7 +1155,6 @@ while i < 6:
     print(i)
     i += 1  # මෙය අමතක කළහොත් ලූපය කිසිදා නතර නොවේ (Infinite loop)</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> While loop එකක් කිසිදා නතර නොවන තත්ත්වයක් හැඳින්වෙන්නේ කෙසේද?</p>
@@ -1353,32 +1163,27 @@ while i < 6:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> Infinite Loop (නොනවතින ලූපය)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'ifelse')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'for')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 16. For Loops -->
                 <div id="for" class="tab-content">
                     <h2>Python For ලූපය</h2>
                     <p>List, Tuple, Dictionary හෝ String එකක අයිතම එකින් එක ගෙන ක්‍රියාත්මක කිරීම සඳහා <code>for</code> ලූපය භාවිතා වේ.</p>
-
                     <div class="w3-example">
                         <h3>List එකක් හරහා යාම</h3>
                         <pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
 for x in fruits:
     print(x)</code></pre>
                     </div>
-
                     <div class="w3-example">
                         <h3>The range() Function</h3>
                         <p>නිශ්චිත වාර ගණනක් ලූපය ධාවනය කිරීමට.</p>
                         <pre><code class="language-python">for x in range(5):
     print(x) # 0 සිට 4 දක්වා මුද්‍රණය වේ</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> for x in range(3): මගින් කී වතාවක් ලූපය ක්‍රියාත්මක වේද?</p>
@@ -1387,18 +1192,15 @@ for x in fruits:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 3 වතාවක් (0, 1, 2)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'while')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'break')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- Break Statement -->
                 <div id="break" class="tab-content">
                     <h2>Python Break Statement</h2>
                     <p>Loop එකක් (While හෝ For) සම්පූර්ණයෙන්ම අවසන් වීමට පෙර, යම් නිශ්චිත කොන්දේසියකදී එය අතරමගින් නතර කිරීමට (Stop) <code>break</code> භාවිතා කරයි. මෙහි වැදගත්කම වන්නේ අනවශ්‍ය ලෙස ලූපය ධාවනය වීම වළක්වා කාලය සහ මතකය (Memory) ඉතිරි කිරීමයි.</p>
-
                     <div class="w3-example">
                         <h3>Example: While Loop එකකදී</h3>
                         <pre><code class="language-python">i = 1
@@ -1408,7 +1210,6 @@ while i < 10:
         break # i සමාන 3 වූ විට ලූපය නතර වේ
     i += 1</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> <code>break</code> මූල පදය භාවිතා කරන්නේ කුමක් සඳහාද?</p>
@@ -1417,32 +1218,27 @@ while i < 10:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> ක්‍රියාත්මක වන ලූපයක් (Loop) අතරමගින් නතර කිරීමට.</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'for')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'continue')">Next ❯</button>
                     </div>
                 </div>
-
                                 <!-- Continue Statement -->
                 <div id="continue" class="tab-content">
                     <h2>Python Continue Statement</h2>
                     <p>Loop එකක් (While හෝ For) ක්‍රියාත්මක වන විට, සම්පූර්ණ ලූපයම නතර නොකර යම් නිශ්චිත අවස්ථාවක් (iteration) පමණක් මඟ හැර (Skip කර) ඊළඟ වාරයට කෙලින්ම ගමන් කිරීමට <code>continue</code> මූල පදය භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Example: For Loop එකකදී</h3>
                         <pre><code class="language-python">for i in range(1, 6):
     if i == 3:
         continue # i සමාන 3 වූ විට මුද්‍රණය නොකර ඊළඟ අංකයට යයි
     print(i)
-    
 # ප්‍රතිඵලය:
 # 1
 # 2
 # 4
 # 5</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> ලූපයක් සම්පූර්ණයෙන්ම නතර නොකර, එහි එක් පියවරක් පමණක් මඟ හැරීමට (Skip) භාවිතා කරන මූල පදය කුමක්ද?</p>
@@ -1451,38 +1247,31 @@ while i < 10:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> continue</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'break')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'functions')">Next ❯</button>
                     </div>
                 </div>
-
 <!-- 17. Functions -->
                 <div id="functions" class="tab-content">
                     <h2>Python Functions (ශ්‍රිත)</h2>
                     <p>ශ්‍රිතයක් යනු අවශ්‍ය වූ විට පමණක් ක්‍රියාත්මක කළ හැකි කේත කාණ්ඩයකි. ශ්‍රිතයක් ආරම්භ කරන්නේ <code>def</code> මූල පදයෙනි.</p>
-
                     <div class="w3-example">
                         <h3>Creating and Calling a Function</h3>
                         <pre><code class="language-python"># ශ්‍රිතය සෑදීම
 def my_function(name):
     print("Hello " + name)
-
 # ශ්‍රිතය ඇමතීම
 my_function("Kamal")
 my_function("Amal")</code></pre>
                     </div>
-
                     <div class="w3-example">
                         <h3>Return Values</h3>
                         <p>අගයක් ආපසු ලබා දීමට <code>return</code> භාවිතා කරන්න.</p>
                         <pre><code class="language-python">def add(x, y):
     return x + y
-
 print(add(5, 3)) # 8 ලබා දෙයි</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> ශ්‍රිතයක් (Function) නිර්මාණය කිරීමට භාවිතා කරන keyword එක කුමක්ද?</p>
@@ -1491,36 +1280,29 @@ print(add(5, 3)) # 8 ලබා දෙයි</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> def</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'continue')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'oop')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 18. Classes / OOP -->
                 <div id="oop" class="tab-content">
                     <h2>Python Classes and Objects</h2>
                     <p>Python යනු Object-Oriented භාෂාවකි. මෝස්තරයක් (Blueprint) සෑදීමට Class එකක් භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Class එකක් සෑදීම (The __init__() Function)</h3>
                         <pre><code class="language-python">class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-
 # Object එකක් සෑදීම
 p1 = Person("John", 36)
-
 print(p1.name)
 print(p1.age)</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>Note:</strong> <code>__init__</code> ශ්‍රිතය සෑම විටම පන්තියකින් Object එකක් සාදන විට ස්වයංක්‍රීයව ක්‍රියාත්මක වේ.
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Class එකකින් Object එකක් සාදන විට ස්වයංක්‍රීයව ක්‍රියාත්මක වන ශ්‍රිතය කුමක්ද?</p>
@@ -1529,18 +1311,15 @@ print(p1.age)</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> __init__()</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'functions')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tryexcept')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 19. Try Except -->
                 <div id="tryexcept" class="tab-content">
                     <h2>Python Try ... Except</h2>
                     <p>කේතයේ දෝෂ (Errors) හටගත් විට වැඩසටහන නතර නොවී පවත්වා ගැනීමට මෙය භාවිතා කරයි.</p>
-
                     <div class="w3-example">
                         <h3>Exception Handling</h3>
                         <pre><code class="language-python">try:
@@ -1553,7 +1332,6 @@ finally:
     # කුමක් සිදු වුවත් මෙය ක්‍රියාත්මක වේ
     print("Try-except ක්‍රියාවලිය අවසන්.")</code></pre>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Error එකක් ඇතිවූ විට වැඩසටහන නතර නොවී ක්‍රියාත්මක වීමට දමන කොටස කුමක්ද?</p>
@@ -1562,18 +1340,15 @@ finally:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> except කොටස</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'oop')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'filehandling')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 20. File Handling -->
                 <div id="filehandling" class="tab-content">
                     <h2>Python File Handling</h2>
                     <p>ගොනු (files) කියවීම, ලිවීම සහ නිර්මාණය කිරීම සඳහා <code>open()</code> ශ්‍රිතය භාවිතා වේ.</p>
-                    
                     <div class="w3-info">
                         <strong>ප්‍රධාන ගොනු විවෘත කිරීමේ ක්‍රම (Modes):</strong>
                         <ul style="margin-top: 10px; color:#1e3a8a;">
@@ -1582,24 +1357,20 @@ finally:
                             <li><code>"a"</code> - Append (එකතු කිරීම): පැරණි දත්ත නොමැකී අගට එකතු වේ.</li>
                         </ul>
                     </div>
-
                     <div class="w3-example">
                         <h3>Writing to a File (The 'with' statement)</h3>
                         <p><code>with</code> භාවිතා කළ විට ගොනුව ස්වයංක්‍රීයව close වේ.</p>
                         <pre><code class="language-python">with open("demofile.txt", "w") as file:
     file.write("මෙය නව දත්තයකි!")</code></pre>
                     </div>
-
                     <div class="w3-example">
                         <h3>Reading from a File</h3>
                         <pre><code class="language-python">with open("demofile.txt", "r") as file:
     print(file.read())</code></pre>
                     </div>
-                    
                     <div class="w3-note">
                         <strong>📝 විභාග සටහන:</strong> <code>read()</code> මගින් සම්පූර්ණ ගොනුව String එකක් ලෙසත්, <code>readlines()</code> මගින් එය <strong>List එකක්</strong> ලෙසත් ලබාදෙයි.
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> පැරණි දත්ත නොමැකී ෆයිල් එකකට අලුත් දත්ත ලිවීමට භාවිතා කරන mode එක කුමක්ද?</p>
@@ -1608,35 +1379,27 @@ finally:
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> "a" (Append Mode)</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'tryexcept')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'numpy')">Next ❯</button>
                     </div>
                 </div>
-
-                
                 <!-- Numpy Tab -->
                 <div id="numpy" class="tab-content">
                     <h2>Python Numpy (දත්ත විද්‍යාව)</h2>
                     <p>Numpy (Numerical Python) යනු ගණිතමය ගණනය කිරීම් සහ දත්ත විශ්ලේෂණය (Data Science) සඳහා භාවිතා කරන ඉතා ප්‍රබල Library එකකි. සාමාන්‍ය Python Lists වලට වඩා මෙය 50x ගුණයක් දක්වා වේගවත්ය.</p>
-                    
                     <div class="w3-example">
                         <h3>Numpy Array එකක් සෑදීම</h3>
                         <pre><code class="language-python">import numpy as np
-
 # 1D Array එකක් සෑදීම
 arr = np.array([1, 2, 3, 4, 5])
 print(arr)
-
 # Array එකක් 2න් ගුණ කිරීම
 print(arr * 2) # [2, 4, 6, 8, 10]</code></pre>
                     </div>
-
                     <div class="w3-note">
                         <strong>වැදගත්:</strong> Numpy යනු C භාෂාවෙන් නිර්මාණය කර ඇති විශාල Library එකක් බැවින්, එය සාමාන්‍ය Web Browser එකක් තුළ ධාවනය කිරීම අපහසුය. මේවා සාමාන්‍යයෙන් පරිගණකයක Jupyter Notebook හෝ PyCharm හරහා ධාවනය කරනු ලබයි.
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python වල සාමාන්‍ය Lists වෙනුවට Numpy Arrays භාවිතා කිරීමට ප්‍රධාන හේතුව කුමක්ද?</p>
@@ -1645,51 +1408,39 @@ print(arr * 2) # [2, 4, 6, 8, 10]</code></pre>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> වේගවත් බව සහ සංකීර්ණ ගණිත කර්ම පහසුවෙන් කළ හැකි වීම.</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'filehandling')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'matplotlib')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- Matplotlib Tab -->
                 <div id="matplotlib" class="tab-content">
                     <h2>Python Matplotlib (ප්‍රස්ථාර)</h2>
                     <p>Matplotlib යනු දත්ත ප්‍රස්ථාර (Graphs & Charts) ලෙස දෘශ්‍යමාන (Visualize) කිරීමට භාවිතා කරන ජනප්‍රියම Library එකයි.</p>
-
                     <div class="w3-example">
                         <h3>සරල රේඛා ප්‍රස්ථාරයක් (Line Chart)</h3>
                         <pre><code class="language-python">import matplotlib.pyplot as plt
 import numpy as np
-
 x = np.array([1, 2, 3, 4])
 y = np.array([10, 20, 25, 30])
-
 plt.plot(x, y) # රේඛාව ඇඳීම
 plt.show() # ප්‍රස්ථාරය පෙන්වීම</code></pre>
                     </div>
-
                     <!-- Simulator UI -->
                     <div class="interactive-box" style="background: #eff6ff; border-color: #93c5fd;">
                         <h3 style="color:#1e3a8a; white-space: normal;">📈 Matplotlib Simulator</h3>
                         <p>Web Browser එකක් තුළ Matplotlib ඍජුව ක්‍රියාත්මක නොවන බැවින්, ඒ සඳහා පහතින් සිමියුලේටරයක් (Simulator) සකස් කර ඇත. කේතයේ <code>plt.plot()</code> වෙනුවට <code>plt.bar()</code> ටයිප් කර රන් (Run) කර බලන්න.</p>
-                        
                         <textarea id="py-plt-code" rows="7" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">import matplotlib.pyplot as plt
 import numpy as np
-
 x = np.array(["A", "B", "C", "D"])
 y = np.array([3, 8, 1, 10])
-
 plt.plot(x, y)
 plt.show()</textarea>
-                        
                         <button class="btn-action" style="width:100%; padding:12px; background:#2563eb; font-size:16px; margin-top: 15px;" onclick="simulatePlot()">▶ Run Simulator</button>
-                        
                         <div id="plot-output" style="margin-top: 20px; background: white; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #cbd5e1; min-height: 250px; display: flex; align-items: center; justify-content: center;">
                             <i style="color: #94a3b8">ප්‍රස්ථාරය මෙහි දිස්වනු ඇත... (Click Run)</i>
                         </div>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
                         <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Matplotlib හි තීරු ප්‍රස්ථාරයක් (Bar Chart) නිර්මාණය කිරීමට භාවිතා කරන ශ්‍රිතය කුමක්ද?</p>
@@ -1698,45 +1449,36 @@ plt.show()</textarea>
                             <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> plt.bar()</p>
                         </details>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'numpy')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'interactive')">Next ❯</button>
                     </div>
                 </div>
-
 <!-- 🎮 Interactive Activities -->
                 <div id="interactive" class="tab-content">
                     <h2>🎮 Interactive Tools</h2>
                     <p>ඔබ ඉගෙන ගත් කරුණු අත්හදා බලන්න.</p>
-
                     <!-- Real Python Compiler -->
                     <div class="interactive-box">
                         <h3>1. Python කේත සංස්කාරකය (Code Editor) 💻</h3>
                         <p>පහත කොටුවේ සැබෑ Python කේත ලියා ධාවනය කර බලන්න. (උදා: print, විචල්‍යයන්, ගණිත කර්ම)</p>
-                        
                         <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
                             <strong>Note:</strong> මෙහි <code>input()</code> භාවිත කිරීමේදී Pop-up එකක් වෙනුවට තිරය මත විශේෂ Text Box එකක් දිස්වනු ඇත. එහි අගය ඇතුළත් කර Enter ඔබන්න.
                         </div>
-
                         <textarea id="py-general-code" rows="5" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># ඔබේ කේතය මෙහි ලියන්න
 name = input("ඔබේ නම කුමක්ද? ")
 print("ආයුබෝවන්", name, "!")
 </textarea>
-                        
                         <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-general-code', 'py-general-output')">▶ Run Code</button>
-                        
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
                             <div class="output-console" id="py-general-output" style="min-height: 100px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
-
                     <!-- Data Structure Builder -->
                     <div class="interactive-box">
                         <h3>2. Data Structures Visualizer</h3>
                         <p>Lists, Tuples සහ Dicts වෙනස් වන අයුරු බලන්න.</p>
-                        
                         <div>
                             <select id="ds-type" onchange="changeType()">
                                 <option value="list">List [ ] (වෙනස් කළ හැක)</option>
@@ -1753,7 +1495,6 @@ print("ආයුබෝවන්", name, "!")
                         <div id="warning-message" style="color: #ef4444; font-weight: bold; margin-top:10px;"></div>
                         <div class="output-console" id="code-output"></div>
                     </div>
-
                     <!-- File Handling Simulator -->
                     <div class="interactive-box">
                         <h3>3. File Handling Simulator</h3>
@@ -1769,7 +1510,6 @@ print("ආයුබෝවන්", name, "!")
                             <input type="text" id="file-input-text" placeholder="දත්ත ඇතුලත් කරන්න" style="width:100%; max-width:500px;">
                         </div>
                         <button class="btn-action" style="width:100%; max-width:500px; margin-top:10px; padding:12px; background:#10b981;" onclick="runFileSimulator()">▶ Run Code</button>
-                        
                         <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top:20px;">
                             <div style="flex: 1; min-width: 250px;">
                                 <h4>📄 data.txt (File State)</h4>
@@ -1781,48 +1521,38 @@ print("ආයුබෝවන්", name, "!")
                             </div>
                         </div>
                     </div>
-
                     <!-- Quiz -->
                     <div class="interactive-box">
                         <h3>4. බුද්ධි පරීක්ෂණය (Python Quiz)</h3>
                         <p id="q-text" style="font-weight: 600; font-size: 16px; margin-bottom: 15px;"></p>
-                        
                         <div id="options-container">
                             <button class="quiz-option" onclick="checkQuizQ(1, this)" id="opt1">Option 1</button>
                             <button class="quiz-option" onclick="checkQuizQ(2, this)" id="opt2">Option 2</button>
                             <button class="quiz-option" onclick="checkQuizQ(3, this)" id="opt3">Option 3</button>
                         </div>
-                        
                         <div id="quiz-feedback" class="quiz-feedback"></div>
                         <button class="btn-action" id="next-q-btn" onclick="nextQuestion()" style="margin-top: 20px; display: none;">ඊළඟ ප්‍රශ්නය ❯</button>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'filehandling')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'project')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- ☕ PROJECT TAB 1-->
                 <div id="project" class="tab-content">
                     <h2>☕ Smart Project: තේ කඩයේ බිල්පත් පද්ධතිය</h2>
                     <p>අපි මෙතෙක් ඉගෙන ගත් විචල්‍යයන් (Variables), ගණිත කර්ම (Operators) සහ Print කිරීම් එකතු කර කුඩා මෘදුකාංගයක් (Billing System) නිර්මාණය කරමු.</p>
-
                     <div class="interactive-box">
                         <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code in Terminal)</h3>
                         <p>පහත කේතය ඔබේ කැමැත්ත පරිදි වෙනස් කර ධාවනය කර බලන්න. අගයන් ඉල්ලූ විට Text Box එකෙහි ඇතුළත් කර Enter ඔබන්න.</p>
-                        
                         <textarea id="py-tea-code" rows="18" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># තේ කඩයේ බිල්පත් පද්ධතිය
 tea_price = 50
 bun_price = 40
-
 tea_qty = int(input("තේ කෝප්ප ගණන: "))
 bun_qty = int(input("බනිස් ගණන: "))
-
 tea_total = tea_price * tea_qty
 bun_total = bun_price * bun_qty
 sub_total = tea_total + bun_total
-
 print("========================")
 print("      සිල්වා තේ කඩය      ")
 print("========================")
@@ -1831,35 +1561,27 @@ print("බනිස් x", bun_qty, " : රු.", bun_total)
 print("------------------------")
 print("මුළු මුදල  : රු.", sub_total)
 print("========================")</textarea>
-                        
                         <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-tea-code', 'tea-console-output')">▶ Run Code in Terminal</button>
-                        
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
                             <div class="output-console" id="tea-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'interactive')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'project2')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- ⚡ PROJECT TAB 2 -->
                 <div id="project2" class="tab-content">
                     <h2>⚡ Smart Project: විදුලි බිල ගණනය කිරීම</h2>
                     <p>If / Elif / Else කොන්දේසි (Conditions) භාවිතා කරමින් පියවරෙන් පියවර විදුලි බිල (Electricity Bill) ගණනය කරන මෘදුකාංගයක් සාදමු.</p>
-
                     <div class="interactive-box">
                         <h3 style="color:#059669; white-space: normal;">💻 කේතය ක්‍රියාත්මක කර බලමු (Run the Code in Terminal)</h3>
                         <p>ඔබේ නිවසේ විදුලි ඒකක ගණනට අදාළව කේතය Run කර බිල පරීක්ෂා කරන්න.</p>
-                        
                         <textarea id="py-elec-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># විදුලි බිල ගණනය කිරීමේ පද්ධතිය
-
 units = int(input("භාවිතා කළ ඒකක ගණන: "))
 bill = 0
-
 # පළමු ඒකක 50 සඳහා රු. 10 බැගින්
 if units <= 50:
     bill = units * 10
@@ -1869,7 +1591,6 @@ elif units <= 100:
 # ඒකක 100ට වැඩි නම් ඉතිරි ඒවාට රු. 20 බැගින්
 else:
     bill = (50 * 10) + (50 * 15) + ((units - 100) * 20)
-
 print("========================")
 print("  ලංකා විදුලිබල මණ්ඩලය  ")
 print("========================")
@@ -1877,37 +1598,30 @@ print("භාවිතා කළ ඒකක :", units)
 print("------------------------")
 print("මුළු බිල්පත   : රු.", bill)
 print("========================")</textarea>
-                        
                         <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-elec-code', 'elec-console-output')">▶ Run Code in Terminal</button>
-                        
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
                             <div class="output-console" id="elec-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
-
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'project')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'past-paper')">Next ❯</button>
                     </div>
                 </div>
-
                 <!-- 📚 PAST PAPER PROJECT TAB -->
                 <div id="past-paper" class="tab-content">
                     <h2>📚 Exam Question: පොත් සාප්පුව</h2>
                     <p>පහත දැක්වෙන්නේ විභාගයක දී අසන ලද ප්‍රායෝගික ප්‍රශ්නයකි. අපි එය Python මගින් විසඳමු.</p>
-                    
                     <div class="w3-info">
                         <strong>ප්‍රශ්නය:</strong> පාසලක පොත් සාප්පුව විවිධ පොත් අලෙවි කරයි. සිසුන් පොත් තෝරාගෙන කූඩයක බහා අයකැමි වෙත ගෙන ආ යුතුය. කූඩයේ ඇති පොත් සඳහා ගෙවීම ගණනය කිරීමට Python වැඩසටහනක් සකස් කරන්න.
                     </div>
-
                     <div class="table-responsive">
                         <table>
                             <tr><th>කේතය (Code)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr>
                             <tr><td>මිල (Rs)</td><td>150</td><td>250</td><td>175</td><td>100</td><td>300</td><td>125</td><td>140</td><td>190</td><td>290</td><td>280</td><td>240</td><td>210</td></tr>
                         </table>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">(i) අවශ්‍ය ආදාන (Input) සහ ප්‍රතිදාන (Output)</h3>
                         <ul style="margin-bottom: 0;">
@@ -1915,7 +1629,6 @@ print("========================")</textarea>
                             <li><strong>Outputs:</strong> ගෙවිය යුතු මුළු මුදල (Total Amount)</li>
                         </ul>
                     </div>
-
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 15px;">(ii) ගැලීම් සටහන (Flowchart)</h3>
                         <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 30px; overflow-x: auto; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
@@ -1928,137 +1641,105 @@ print("========================")</textarea>
                     <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
                 </marker>
             </defs>
-
             <style>
                 .fc-line { fill: none; stroke: #1e293b; stroke-width: 2px; }
                 .fc-line-loop { fill: none; stroke: #3b82f6; stroke-width: 2px; }
                 .fc-text { fill: #1e293b; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
                 .fc-label-yes { font-size: 14px; font-weight: bold; fill: #059669; }
                 .fc-label-no { font-size: 14px; font-weight: bold; fill: #ef4444; }
-                
                 .shape-start { fill: #1e293b; stroke: #0f172a; stroke-width: 2px; }
                 .text-start { fill: #ffffff; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
-                
                 .shape-proc { fill: #ffffff; stroke: #3b82f6; stroke-width: 2px; }
                 .text-proc { fill: #1e3a8a; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
-                
                 .shape-io { fill: #eff6ff; stroke: #10b981; stroke-width: 2px; }
                 .text-io { fill: #065f46; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
-                
                 .shape-dec { fill: #fffbeb; stroke: #f59e0b; stroke-width: 2px; }
                 .text-dec { fill: #92400e; font-size: 14px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
-                
                 .shape-err { fill: #fef2f2; stroke: #ef4444; stroke-width: 2px; }
                 .text-err { fill: #991b1b; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
             </style>
-
             <!-- Lines Downwards -->
             <path d="M 420 100 L 420 145" class="fc-line" marker-end="url(#arrow)" />
             <path d="M 420 200 L 420 245" class="fc-line" marker-end="url(#arrow)" />
             <path d="M 420 300 L 420 345" class="fc-line" marker-end="url(#arrow)" />
-            
             <!-- Decision 1: No (goes downwards) -->
             <path d="M 420 450 L 420 495" class="fc-line" marker-end="url(#arrow)" />
             <rect x="405" y="460" width="40" height="20" fill="white" />
             <text x="425" y="473" class="fc-label-no">නැත</text>
-
             <!-- Decision 2: Yes (goes downwards) -->
             <path d="M 420 620 L 420 665" class="fc-line" marker-end="url(#arrow)" />
             <rect x="405" y="630" width="40" height="20" fill="white" />
             <text x="425" y="643" class="fc-label-yes">ඔව්</text>
-
             <path d="M 420 720 L 420 765" class="fc-line" marker-end="url(#arrow)" />
-
             <!-- Branch 1: Yes (goes right) -->
             <path d="M 490 400 L 710 400 L 710 470" class="fc-line" marker-end="url(#arrow)" />
             <rect x="535" y="390" width="40" height="20" fill="white" />
             <text x="555" y="403" class="fc-label-yes">ඔව්</text>
-
             <!-- Branch 2: No (goes left) -->
             <path d="M 350 560 L 195 560 L 195 620" class="fc-line" marker-end="url(#arrow)" />
             <rect x="255" y="550" width="40" height="20" fill="white" />
             <text x="275" y="563" class="fc-label-no">නැත</text>
-
             <!-- Loop Back 1 (From Calc) -->
             <path d="M 420 830 L 420 870 L 60 870 L 60 225 L 415 225" class="fc-line-loop" marker-end="url(#arrow-blue)" />
-            
             <!-- Loop Back 2 (From Error) -->
             <path d="M 195 670 L 195 870" class="fc-line-loop" />
-
             <!-- Shapes and Text -->
-
             <!-- Start -->
             <rect x="345" y="50" width="150" height="50" rx="25" class="shape-start" />
             <text x="420" y="77" class="text-start">ආරම්භය</text>
-
             <!-- Process: total = 0 -->
             <rect x="345" y="150" width="150" height="50" rx="6" class="shape-proc" />
             <text x="420" y="177" class="text-proc">total = 0</text>
-
             <!-- Input: code -->
             <polygon points="340,250 510,250 500,300 330,300" class="shape-io" />
             <text x="420" y="277" class="text-io">code ආදානය</text>
-
             <!-- Decision 1 -->
             <polygon points="420,350 490,400 420,450 350,400" class="shape-dec" />
             <text x="420" y="392" class="text-dec">code == 0</text>
             <text x="420" y="412" class="text-dec">ද?</text>
-
             <!-- Output: print total -->
             <polygon points="630,475 800,475 790,525 620,525" class="shape-io" />
             <text x="710" y="502" class="text-io">total මුද්‍රණය</text>
-
             <!-- End -->
             <rect x="635" y="575" width="150" height="50" rx="25" class="shape-start" />
             <text x="710" y="602" class="text-start">අවසානය</text>
             <!-- Print to end line -->
             <path d="M 710 525 L 710 575" class="fc-line" marker-end="url(#arrow)" />
-
             <!-- Decision 2 -->
             <polygon points="420,500 490,560 420,620 350,560" class="shape-dec" />
             <text x="420" y="552" class="text-dec">1 &lt;= code</text>
             <text x="420" y="572" class="text-dec">&lt;= 12 ද?</text>
-
             <!-- Output: error -->
             <polygon points="105,620 285,620 275,670 95,670" class="shape-err" />
             <text x="190" y="647" class="text-err">දෝෂ පණිවිඩය</text>
-
             <!-- Input: qty -->
             <polygon points="340,670 510,670 500,720 330,720" class="shape-io" />
             <text x="420" y="697" class="text-io">qty ආදානය</text>
-
             <!-- Process: calc -->
             <rect x="320" y="770" width="200" height="60" rx="6" class="shape-proc" />
             <text x="420" y="792" class="text-proc">total = total +</text>
             <text x="420" y="812" class="text-proc">(price * qty)</text>
-
         </svg>
     </div>
                     </div>
-
                     <!-- Interactive UI -->
                     <div class="interactive-box">
                         <h3 style="color:#059669; white-space: normal;">(iii) 💻 Python කේතය ක්‍රියාත්මක කර බලමු</h3>
                         <p>මෙහි <code>while True:</code> සහ <code>break</code> භාවිතා කර ඇත.</p>
-                        
                         <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
                             <strong>Note:</strong> කේතය ධාවනය කර, පොත් කේත සහ ප්‍රමාණ ඇතුළත් කරන්න. බිල්පත බැලීමට සහ අවසන් කිරීමට <strong>0</strong> ඇතුළත් කරන්න.
                         </div>
-                        
                         <textarea id="py-pastpaper-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">prices = {
     1: 150.0, 2: 250.0, 3: 175.0, 4: 100.0,
     5: 300.0, 6: 125.0, 7: 140.0, 8: 190.0,
     9: 290.0, 10: 280.0, 11: 240.0, 12: 210.0
 }
-
 total = 0
 while True:
     code_str = input("පොත් කේතය (අවසන් කිරීමට 0): ")
     code = int(code_str)
-    
     if code == 0:
         break
-        
     if 1 <= code <= 12:
         qty_str = input("පොත් ගණන: ")
         qty = int(qty_str)
@@ -2066,24 +1747,19 @@ while True:
         print(f"==> කේතය {code} පොත් {qty} ක් එකතු විය. (දැනට එකතුව: රු. {total})")
     else:
         print("වැරදි කේතයකි!")
-
 print("\n------------------------")
 print("අවසන් මුළු මුදල: රු.", total)
 print("------------------------")</textarea>
-                        
                         <button class="btn-action" style="width:100%; padding:12px; background:#10b981; font-size:16px; margin-top: 15px;" onclick="runPythonEditor('py-pastpaper-code', 'pp-console-output')">▶ Run Code in Terminal</button>
-                        
                         <div style="margin-top:20px;">
                             <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
                             <div class="output-console" id="pp-console-output" style="min-height: 150px; margin-top: 0; color: #4ade80;"></div>
                         </div>
                     </div>
-                    
                     <!-- Custom HTML GUI fallback for the past paper -->
                     <div class="interactive-box" style="background: #eff6ff; border-color: #93c5fd;">
                         <h3 style="color:#1e3a8a; white-space: normal;">🛒 Visual Simulator (පහසු මුහුණත)</h3>
                         <p>කේත ලියන්නේ නැතිව පහසුවෙන් පොත් එකතු කර බිල්පත හැදෙන අයුරු බලන්න.</p>
-                        
                         <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom: 15px;">
                             <div style="flex:1; min-width:150px;">
                                 <label style="font-weight:600; color:#334155; display:block; margin-bottom:5px;">පොත් කේතය (1-12):</label>
@@ -2094,35 +1770,27 @@ print("------------------------")</textarea>
                                 <input type="number" id="pp-qty" value="1" min="1" style="width:100%;">
                             </div>
                         </div>
-                        
                         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 15px;">
                             <button class="btn-action" style="flex:1; padding:12px; background:#2563eb; font-size:16px;" onclick="addBookToBasket()">🛒 කුඩයට එක් කරන්න</button>
                             <button class="btn-action" style="flex:1; padding:12px; background:#ef4444; font-size:16px;" onclick="resetBasket()">🗑️ අලුතින් අරඹන්න</button>
                         </div>
-                        
                         <div class="output-console" id="pp-gui-output" style="text-align: left; font-size: 16px; letter-spacing: 1px; line-height: 1.8; background: #1e293b;">
                             <i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>
                         </div>
                     </div>
-                    
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'project2')">❮ Prev</button>
                         <div></div>
                     </div>
                 </div>
-
             </div> <!-- End content-wrapper -->
-
             <!-- FOOTER (Full Width styling) -->
             <footer>
             <p>&copy; Kelum Konara | <span style="font-weight: 700; color: #e2e8f0;">Smart<span style="color: #4ade80;">Soft</span></span></p>
             <p style="font-size: 13px; color:#64748b; margin-top: 5px;">Created for Educational Purposes.</p>
-            
-
         </footer>
         </div> <!-- End main-content -->
     </div> <!-- End container -->
-
     <!-- Custom Input Modal for Python -->
     <div id="input-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 23, 42, 0.85); z-index:9999; align-items:center; justify-content:center; backdrop-filter: blur(4px);">
         <div style="background:white; padding:30px; border-radius:16px; width:90%; max-width:450px; box-shadow:0 20px 40px rgba(0,0,0,0.3); text-align:center;">
@@ -2133,7 +1801,6 @@ print("------------------------")</textarea>
             <button onclick="submitInput()" style="width:100%; padding:15px; background:linear-gradient(135deg, #2563eb, #1e3a8a); color:white; border:none; border-radius:10px; font-weight:600; font-size:16px; cursor:pointer; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);">Enter (ඇතුළත් කරන්න)</button>
         </div>
     </div>
-
     <!-- Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
@@ -2146,24 +1813,19 @@ print("------------------------")</textarea>
         });
       }
     </script>
-
     <script>
         // --- Tab Navigation Logic ---
         function openTab(evt, tabName) {
             if(evt) evt.preventDefault();
-            
             let tabcontent = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active");
             }
-            
             let tablinks = document.getElementsByClassName("tab-link");
             for (let i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-            
             document.getElementById(tabName).classList.add("active");
-            
             // Find the link corresponding to the tabName to make it active
             for (let i = 0; i < tablinks.length; i++) {
                 if (tablinks[i].getAttribute("onclick").includes(tabName)) {
@@ -2179,59 +1841,47 @@ print("------------------------")</textarea>
                 }
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
         }
-
         // --- Custom Input Logic for Skulpt ---
         let currentInputResolve = null;
         let activeOutputId = null;
-
         function customInput(promptMsg) {
             return new Promise((resolve) => {
                 const modal = document.getElementById('input-modal');
                 const msgEl = document.getElementById('input-modal-msg');
                 const inputEl = document.getElementById('input-modal-input');
-                
                 // Show the prompt text requested by Python code
                 msgEl.innerText = promptMsg || "අගයක් ඇතුළත් කරන්න:";
                 inputEl.value = '';
-                
                 // Show modal
                 modal.style.display = 'flex';
                 inputEl.focus();
-                
                 // Allow Enter key to submit
                 inputEl.onkeypress = function(e) {
                     if(e.key === 'Enter') submitInput();
                 };
-                
                 currentInputResolve = resolve;
             });
         }
-
         function submitInput() {
             if (currentInputResolve) {
                 const val = document.getElementById('input-modal-input').value;
                 document.getElementById('input-modal').style.display = 'none';
-                
                 // Echo the input into the terminal
                 if (activeOutputId) {
                     const outConsole = document.getElementById(activeOutputId);
                     outConsole.innerHTML += `<span style="color:#cbd5e1">${val}</span>\n`;
                 }
-                
                 currentInputResolve(val);
                 currentInputResolve = null;
             }
         }
-
         // --- Skulpt Python Execution Logic (Dynamic for any editor) ---
         function runPythonEditor(inputId, outputId) {
             var prog = document.getElementById(inputId).value;
             var mypre = document.getElementById(outputId);
             activeOutputId = outputId; // Store active console for input echoing
             mypre.innerHTML = '';
-            
             Sk.pre = outputId;
             Sk.configure({
                 output: function(text) {
@@ -2245,23 +1895,19 @@ print("------------------------")</textarea>
                 inputfun: customInput,
                 inputfunTakesPrompt: true
             }); 
-            
             var myPromise = Sk.misceval.asyncToPromise(function() {
                 return Sk.importMainWithBody("<stdin>", false, prog, true);
             });
-            
             myPromise.then(function(mod) {
                 // Success
             }, function(err) {
                 mypre.innerHTML += '<span style="color:#ef4444;">\nError: ' + err.toString() + '</span>';
             });
         }
-
         // Keep backwards compatibility for the first editor
         function runPython() {
             runPythonEditor('py-general-code', 'py-general-output');
         }
-
         // --- Quiz Logic ---
         const questions = [
             {
@@ -2283,12 +1929,9 @@ print("------------------------")</textarea>
                 explain: "නිවැරදි පිළිතුර B! Python හි range ගණන් කිරීම ආරම්භ කරන්නේ 0 නි. එබැවින් 0, 1, 2 ලෙස 3 වතාවක් ක්‍රියාත්මක වේ."
             }
         ];
-
         let currentQ = 0;
-
         function loadQuestion() {
             document.getElementById("q-text").innerText = questions[currentQ].q;
-            
             for(let i=0; i<3; i++){
                 let btn = document.getElementById(`opt${i+1}`);
                 btn.innerText = questions[currentQ].options[i];
@@ -2298,14 +1941,11 @@ print("------------------------")</textarea>
             document.getElementById("quiz-feedback").style.display = "none";
             document.getElementById("next-q-btn").style.display = "none";
         }
-
         function checkQuizQ(selected, btnElement) {
             for(let i=1; i<=3; i++) {
                 document.getElementById(`opt${i}`).disabled = true;
             }
-
             const feedback = document.getElementById("quiz-feedback");
-            
             if(selected === questions[currentQ].answer) {
                 feedback.className = "quiz-feedback feedback-correct";
                 feedback.innerHTML = "✅ ඉතා හොඳයි! <br>" + questions[currentQ].explain;
@@ -2316,9 +1956,7 @@ print("------------------------")</textarea>
                 btnElement.classList.add("wrong");
                 document.getElementById(`opt${questions[currentQ].answer}`).classList.add("correct");
             }
-            
             document.getElementById("quiz-feedback").style.display = "block";
-            
             if(currentQ < questions.length - 1) {
                 document.getElementById("next-q-btn").style.display = "inline-block";
                 document.getElementById("next-q-btn").innerText = "ඊළඟ ප්‍රශ්නය ❯";
@@ -2329,31 +1967,26 @@ print("------------------------")</textarea>
                 document.getElementById("next-q-btn").onclick = function() { currentQ = 0; loadQuestion(); };
             }
         }
-
         function nextQuestion() {
             currentQ++;
             loadQuestion();
         }
-
         // --- Data Structures Interactive Logic ---
         let currentType = 'list';
         let listData = ['Apple', 'Banana'];
         let tupleData = ['Apple', 'Banana', 'Orange']; 
         let dictData = { "name": "Kamal", "age": "20" };
-
         function changeType() {
             currentType = document.getElementById('ds-type').value;
             const keyInput = document.getElementById('key-input');
             const addBtn = document.getElementById('add-btn');
             const clearBtn = document.getElementById('clear-btn');
             const warningMsg = document.getElementById('warning-message');
-
             if (currentType === 'dict') {
                 keyInput.style.display = 'inline-block';
             } else {
                 keyInput.style.display = 'none';
             }
-
             if (currentType === 'tuple') {
                 addBtn.disabled = true;
                 clearBtn.disabled = true;
@@ -2365,32 +1998,26 @@ print("------------------------")</textarea>
             }
             renderOutput();
         }
-
         function addItem() {
             const valInput = document.getElementById('val-input').value.trim();
             const keyInput = document.getElementById('key-input').value.trim();
-
             if (currentType === 'list' && valInput) {
                 listData.push(valInput);
             } else if (currentType === 'dict' && keyInput && valInput) {
                 dictData[keyInput] = valInput;
             }
-
             document.getElementById('val-input').value = '';
             document.getElementById('key-input').value = '';
             renderOutput();
         }
-
         function clearData() {
             if (currentType === 'list') listData = [];
             else if (currentType === 'dict') dictData = {};
             renderOutput();
         }
-
         function renderOutput() {
             const outputArea = document.getElementById('code-output');
             let outputHTML = '';
-
             if (currentType === 'list') {
                 const items = listData.map(v => `<span style="color: #fca5a5">"${v}"</span>`).join(', ');
                 outputHTML = `<span style="color: #6ee7b7">my_list</span> = [${items}]`;
@@ -2405,22 +2032,88 @@ print("------------------------")</textarea>
             }
             outputArea.innerHTML = outputHTML;
         }
+        
+        // --- Matplotlib Simulator Logic ---
+        function simulatePlot() {
+            const code = document.getElementById('py-plt-code').value.toLowerCase();
+            const out = document.getElementById('plot-output');
+            
+            if(code.includes('bar(')) {
+                out.innerHTML = `<svg width="100%" height="220" viewBox="0 0 320 220" style="background:#fff; max-width: 400px; margin: 0 auto; display: block;">
+                    <!-- Grid -->
+                    <line x1="40" y1="40" x2="300" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="40" y1="90" x2="300" y2="90" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="40" y1="140" x2="300" y2="140" stroke="#e2e8f0" stroke-width="1"/>
+                    
+                    <!-- Y Axis Labels -->
+                    <text x="30" y="45" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">10</text>
+                    <text x="30" y="95" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">5</text>
+                    <text x="30" y="145" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">0</text>
+                    
+                    <!-- Bars -->
+                    <rect x="70" y="140" width="30" height="40" fill="#3b82f6" rx="2"><animate attributeName="height" from="0" to="40" dur="0.5s"/><animate attributeName="y" from="180" to="140" dur="0.5s"/></rect>
+                    <rect x="130" y="80" width="30" height="100" fill="#3b82f6" rx="2"><animate attributeName="height" from="0" to="100" dur="0.5s"/><animate attributeName="y" from="180" to="80" dur="0.5s"/></rect>
+                    <rect x="190" y="160" width="30" height="20" fill="#3b82f6" rx="2"><animate attributeName="height" from="0" to="20" dur="0.5s"/><animate attributeName="y" from="180" to="160" dur="0.5s"/></rect>
+                    <rect x="250" y="40" width="30" height="140" fill="#3b82f6" rx="2"><animate attributeName="height" from="0" to="140" dur="0.5s"/><animate attributeName="y" from="180" to="40" dur="0.5s"/></rect>
+                    
+                    <!-- Axes -->
+                    <line x1="40" y1="180" x2="300" y2="180" stroke="#334155" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="180" stroke="#334155" stroke-width="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="85" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">A</text>
+                    <text x="145" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">B</text>
+                    <text x="205" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">C</text>
+                    <text x="265" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">D</text>
+                </svg>`;
+            } else if (code.includes('plot(')) {
+                out.innerHTML = `<svg width="100%" height="220" viewBox="0 0 320 220" style="background:#fff; max-width: 400px; margin: 0 auto; display: block;">
+                    <!-- Grid -->
+                    <line x1="40" y1="40" x2="300" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="40" y1="90" x2="300" y2="90" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="40" y1="140" x2="300" y2="140" stroke="#e2e8f0" stroke-width="1"/>
+                    
+                    <!-- Y Axis Labels -->
+                    <text x="30" y="45" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">10</text>
+                    <text x="30" y="95" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">5</text>
+                    <text x="30" y="145" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">0</text>
+                    
+                    <!-- Line -->
+                    <polyline points="85,140 145,80 205,160 265,40" fill="none" stroke="#ef4444" stroke-width="3"/>
+                    
+                    <!-- Points -->
+                    <circle cx="85" cy="140" r="5" fill="#ef4444"/>
+                    <circle cx="145" cy="80" r="5" fill="#ef4444"/>
+                    <circle cx="205" cy="160" r="5" fill="#ef4444"/>
+                    <circle cx="265" cy="40" r="5" fill="#ef4444"/>
+                    
+                    <!-- Axes -->
+                    <line x1="40" y1="180" x2="300" y2="180" stroke="#334155" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="180" stroke="#334155" stroke-width="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="85" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">A</text>
+                    <text x="145" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">B</text>
+                    <text x="205" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">C</text>
+                    <text x="265" y="200" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">D</text>
+                </svg>`;
+            } else {
+                out.innerHTML = `<span style="color:#ef4444; font-weight:600;">Error: කරුණාකර plt.plot() හෝ plt.bar() කේතයේ ඇතුළත් කර Run කරන්න.</span>`;
+            }
+        }
 
         // --- File Handling Simulator Logic ---
         let virtualFileContent = "Line 1\nLine 2";
-        
         function updateFileUI() {
             const mode = document.getElementById('file-mode').value;
             const inputGroup = document.getElementById('file-input-group');
             inputGroup.style.display = mode === 'r' ? 'none' : 'block';
         }
-        
         function runFileSimulator() {
             const mode = document.getElementById('file-mode').value;
             const inputText = document.getElementById('file-input-text').value;
             const fileDisplay = document.getElementById('virtual-file-content');
             const consoleDisplay = document.getElementById('file-console-output');
-            
             if (mode === 'w') {
                 virtualFileContent = inputText;
                 consoleDisplay.innerHTML = `<span style="color:#4ade80;">Success:</span> File written successfully.`;
@@ -2430,32 +2123,26 @@ print("------------------------")</textarea>
             } else if (mode === 'r') {
                 consoleDisplay.innerHTML = `<span style="color:#94a3b8;">> print(file.read())</span><br><br>${virtualFileContent ? virtualFileContent.replace(/\n/g, '<br>') : '[Empty]'}`;
             }
-            
             fileDisplay.innerHTML = virtualFileContent ? virtualFileContent.replace(/\n/g, '<br>') : "<i style='color:#94a3b8'>[Empty File]</i>";
             if(mode !== 'r') document.getElementById('file-input-text').value = '';
         }
-
         // --- Past Paper GUI Project Logic ---
         let basketTotal = 0;
         let basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
-
         function addBookToBasket() {
             const prices = {1:150, 2:250, 3:175, 4:100, 5:300, 6:125, 7:140, 8:190, 9:290, 10:280, 11:240, 12:210};
             const code = parseInt(document.getElementById('pp-code').value);
             const qty = parseInt(document.getElementById('pp-qty').value);
-            
             if (prices[code] && qty > 0) {
                 const itemTotal = prices[code] * qty;
                 basketTotal += itemTotal;
                 basketItemsText += `කේතය ${code} x ${qty} : රු. ${itemTotal}.00\n`;
-                
                 const output = basketItemsText + "------------------------\n" + `දැනට මුළු මුදල : රු. ${basketTotal}.00\n`;
                 document.getElementById('pp-gui-output').innerText = output;
             } else {
                 alert("කරුණාකර නිවැරදි කේතයක් (1-12) සහ ප්‍රමාණයක් ලබා දෙන්න.");
             }
         }
-
         function resetBasket() {
             basketTotal = 0;
             basketItemsText = "========================\n      පාසල් පොත් සාප්පුව      \n========================\n";
@@ -2463,13 +2150,10 @@ print("------------------------")</textarea>
             document.getElementById('pp-code').value = 1;
             document.getElementById('pp-qty').value = 1;
         }
-
         window.onload = function() {
             renderOutput();
             loadQuestion();
             updateFileUI();
-            
-            
             document.getElementById('file-console-output').innerHTML = "Ready to run code...";
             document.getElementById('pp-console-output').innerHTML = "<i style='color:#94a3b8'>බිල්පත මෙහි දිස්වනු ඇත...</i>";
         };
