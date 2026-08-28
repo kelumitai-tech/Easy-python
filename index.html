@@ -740,6 +740,11 @@
             <a class="tab-link" onclick="openTab(event, 'tryexcept')">Python Try...Except</a>
             <a class="tab-link" onclick="openTab(event, 'filehandling')">Python File Handling</a>
             
+            
+            <div class="sidebar-title">දත්ත විද්‍යාව (Data Science)</div>
+            <a class="tab-link" onclick="openTab(event, 'numpy')">Python Numpy</a>
+            <a class="tab-link" onclick="openTab(event, 'matplotlib')">Python Matplotlib</a>
+            
             <div class="sidebar-title">ප්‍රායෝගික</div>
             <a class="tab-link special-tab" onclick="openTab(event, 'interactive')">🎮 Interactive Tools</a>
             <a class="tab-link special-tab" onclick="openTab(event, 'project')" style="color:#059669; font-weight:600;">☕ Tea Shop Project</a>
@@ -1606,11 +1611,101 @@ finally:
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'tryexcept')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'numpy')">Next ❯</button>
+                    </div>
+                </div>
+
+                
+                <!-- Numpy Tab -->
+                <div id="numpy" class="tab-content">
+                    <h2>Python Numpy (දත්ත විද්‍යාව)</h2>
+                    <p>Numpy (Numerical Python) යනු ගණිතමය ගණනය කිරීම් සහ දත්ත විශ්ලේෂණය (Data Science) සඳහා භාවිතා කරන ඉතා ප්‍රබල Library එකකි. සාමාන්‍ය Python Lists වලට වඩා මෙය 50x ගුණයක් දක්වා වේගවත්ය.</p>
+                    
+                    <div class="w3-example">
+                        <h3>Numpy Array එකක් සෑදීම</h3>
+                        <pre><code class="language-python">import numpy as np
+
+# 1D Array එකක් සෑදීම
+arr = np.array([1, 2, 3, 4, 5])
+print(arr)
+
+# Array එකක් 2න් ගුණ කිරීම
+print(arr * 2) # [2, 4, 6, 8, 10]</code></pre>
+                    </div>
+
+                    <div class="w3-note">
+                        <strong>වැදගත්:</strong> Numpy යනු C භාෂාවෙන් නිර්මාණය කර ඇති විශාල Library එකක් බැවින්, එය සාමාන්‍ය Web Browser එකක් තුළ ධාවනය කිරීම අපහසුය. මේවා සාමාන්‍යයෙන් පරිගණකයක Jupyter Notebook හෝ PyCharm හරහා ධාවනය කරනු ලබයි.
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Python වල සාමාන්‍ය Lists වෙනුවට Numpy Arrays භාවිතා කිරීමට ප්‍රධාන හේතුව කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> වේගවත් බව සහ සංකීර්ණ ගණිත කර්ම පහසුවෙන් කළ හැකි වීම.</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'filehandling')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'matplotlib')">Next ❯</button>
+                    </div>
+                </div>
+
+                <!-- Matplotlib Tab -->
+                <div id="matplotlib" class="tab-content">
+                    <h2>Python Matplotlib (ප්‍රස්ථාර)</h2>
+                    <p>Matplotlib යනු දත්ත ප්‍රස්ථාර (Graphs & Charts) ලෙස දෘශ්‍යමාන (Visualize) කිරීමට භාවිතා කරන ජනප්‍රියම Library එකයි.</p>
+
+                    <div class="w3-example">
+                        <h3>සරල රේඛා ප්‍රස්ථාරයක් (Line Chart)</h3>
+                        <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4])
+y = np.array([10, 20, 25, 30])
+
+plt.plot(x, y) # රේඛාව ඇඳීම
+plt.show() # ප්‍රස්ථාරය පෙන්වීම</code></pre>
+                    </div>
+
+                    <!-- Simulator UI -->
+                    <div class="interactive-box" style="background: #eff6ff; border-color: #93c5fd;">
+                        <h3 style="color:#1e3a8a; white-space: normal;">📈 Matplotlib Simulator</h3>
+                        <p>Web Browser එකක් තුළ Matplotlib ඍජුව ක්‍රියාත්මක නොවන බැවින්, ඒ සඳහා පහතින් සිමියුලේටරයක් (Simulator) සකස් කර ඇත. කේතයේ <code>plt.plot()</code> වෙනුවට <code>plt.bar()</code> ටයිප් කර රන් (Run) කර බලන්න.</p>
+                        
+                        <textarea id="py-plt-code" rows="7" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array(["A", "B", "C", "D"])
+y = np.array([3, 8, 1, 10])
+
+plt.plot(x, y)
+plt.show()</textarea>
+                        
+                        <button class="btn-action" style="width:100%; padding:12px; background:#2563eb; font-size:16px; margin-top: 15px;" onclick="simulatePlot()">▶ Run Simulator</button>
+                        
+                        <div id="plot-output" style="margin-top: 20px; background: white; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #cbd5e1; min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                            <i style="color: #94a3b8">ප්‍රස්ථාරය මෙහි දිස්වනු ඇත... (Click Run)</i>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> Matplotlib හි තීරු ප්‍රස්ථාරයක් (Bar Chart) නිර්මාණය කිරීමට භාවිතා කරන ශ්‍රිතය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> plt.bar()</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'numpy')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'interactive')">Next ❯</button>
                     </div>
                 </div>
 
-                <!-- 🎮 Interactive Activities -->
+<!-- 🎮 Interactive Activities -->
                 <div id="interactive" class="tab-content">
                     <h2>🎮 Interactive Tools</h2>
                     <p>ඔබ ඉගෙන ගත් කරුණු අත්හදා බලන්න.</p>
