@@ -22,10 +22,6 @@
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js" type="text/javascript"></script>
 
-    <!-- Mermaid.js for Flowcharts -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
-
     <style>
         :root {
             --primary: #2563eb; 
@@ -576,18 +572,6 @@
         }
         
         footer p { margin-bottom: 2px; color: #cbd5e1; text-align: center; }
-
-        /* Mermaid Graph Container */
-        .mermaid-wrapper {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #cbd5e1;
-            margin: 20px 0;
-            overflow-x: auto;
-            display: flex;
-            justify-content: center;
-        }
 
         /* --- MOBILE RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
@@ -1750,24 +1734,105 @@ print("========================")</textarea>
 
                     <div class="activity-box">
                         <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 15px;">(ii) ගැලීම් සටහන (Flowchart)</h3>
-                        <div class="mermaid-wrapper">
-                            <div class="mermaid">
-                            graph TD
-                                Start(["Start"]) --> Init["total = 0"]
-                                Init --> InputCode[/"Input code"/]
-                                InputCode --> CheckZero{"code == 0?"}
-                                CheckZero -->|Yes| PrintTotal[/"Print total"/]
-                                PrintTotal --> End(["End"])
-                                CheckZero -->|No| CheckValid{"1 <= code <= 12?"}
-                                CheckValid -->|Yes| InputQty[/"Input qty"/]
-                                InputQty --> Calc["total = total + (price * qty)"]
-                                Calc --> InputCode
-                                CheckValid -->|No| PrintErr[/"Print Error message"/]
-                                PrintErr --> InputCode
-                            </div>
-                        </div>
-                    </div>
+                        <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 20px; overflow-x: auto; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+        <svg width="100%" viewBox="0 0 840 800" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; max-width: 800px; margin: 0 auto; display: block;">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b" />
+                </marker>
+            </defs>
 
+            <style>
+                .fc-path { fill: none; stroke: #1e293b; stroke-width: 2px; }
+                .fc-text { fill: #1e293b; font-size: 15px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
+                .fc-label { font-size: 14px; font-weight: bold; fill: #1e293b; }
+                .shape-start { fill: #e2e8f0; stroke: #1e293b; stroke-width: 2px; }
+                .shape-proc { fill: #ffffff; stroke: #1e293b; stroke-width: 2px; }
+                .shape-io { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2px; }
+                .shape-dec { fill: #fef3c7; stroke: #d97706; stroke-width: 2px; }
+                .shape-err { fill: #fef2f2; stroke: #ef4444; stroke-width: 2px; }
+            </style>
+
+            <!-- Lines -->
+            <path d="M 400,70 L 400,110" class="fc-path" marker-end="url(#arrow)" />
+            <path d="M 400,160 L 400,200" class="fc-path" marker-end="url(#arrow)" />
+            <path d="M 400,250 L 400,290" class="fc-path" marker-end="url(#arrow)" />
+            
+            <!-- Decision 1: Yes -->
+            <path d="M 480,330 L 600,330 L 600,370" class="fc-path" marker-end="url(#arrow)" />
+            <rect x="510" y="315" width="60" height="24" fill="white" />
+            <text x="540" y="328" class="fc-label" style="fill: #059669;">ඔව්</text>
+            
+            <!-- Print Total to End -->
+            <path d="M 600,420 L 600,460" class="fc-path" marker-end="url(#arrow)" />
+            
+            <!-- Decision 1: No -->
+            <path d="M 400,370 L 400,420" class="fc-path" marker-end="url(#arrow)" />
+            <rect x="375" y="385" width="50" height="24" fill="white" />
+            <text x="400" y="398" class="fc-label" style="fill: #ef4444;">නැත</text>
+            
+            <!-- Decision 2: No -->
+            <path d="M 300,470 L 200,470 L 200,510" class="fc-path" marker-end="url(#arrow)" />
+            <rect x="230" y="455" width="50" height="24" fill="white" />
+            <text x="255" y="468" class="fc-label" style="fill: #ef4444;">නැත</text>
+            
+            <!-- Decision 2: Yes -->
+            <path d="M 400,520 L 400,570" class="fc-path" marker-end="url(#arrow)" />
+            <rect x="375" y="530" width="50" height="24" fill="white" />
+            <text x="400" y="543" class="fc-label" style="fill: #059669;">ඔව්</text>
+            
+            <!-- Input Qty to Calc -->
+            <path d="M 400,620 L 400,660" class="fc-path" marker-end="url(#arrow)" />
+            
+            <!-- Loops -->
+            <path d="M 200,560 L 200,760 L 80,760 L 80,180 L 400,180" class="fc-path" marker-end="url(#arrow)" />
+            <path d="M 400,720 L 400,760 L 760,760 L 760,180 L 400,180" class="fc-path" marker-end="url(#arrow)" />
+
+            <!-- Shapes -->
+            <!-- Start -->
+            <rect x="340" y="30" width="120" height="40" rx="20" class="shape-start" />
+            <text x="400" y="50" class="fc-text">ආරම්භය</text>
+
+            <!-- Process: total = 0 -->
+            <rect x="310" y="110" width="180" height="50" rx="4" class="shape-proc" />
+            <text x="400" y="137" class="fc-text">total = 0</text>
+
+            <!-- Input: code -->
+            <polygon points="330,200 490,200 470,250 310,250" class="shape-io" />
+            <text x="400" y="227" class="fc-text">code ආදානය කරන්න</text>
+
+            <!-- Decision 1 -->
+            <polygon points="400,290 480,330 400,370 320,330" class="shape-dec" />
+            <text x="400" y="332" class="fc-text">code == 0 ද?</text>
+
+            <!-- Output: print total -->
+            <polygon points="520,370 680,370 660,420 500,420" class="shape-io" />
+            <text x="590" y="397" class="fc-text">total මුද්‍රණය</text>
+
+            <!-- End -->
+            <rect x="530" y="460" width="120" height="40" rx="20" class="shape-start" />
+            <text x="590" y="480" class="fc-text">අවසානය</text>
+
+            <!-- Decision 2 -->
+            <polygon points="400,420 510,470 400,520 290,470" class="shape-dec" />
+            <text x="400" y="462" class="fc-text">1 &lt;= code &lt;= 12</text>
+            <text x="400" y="482" class="fc-text">ද?</text>
+
+            <!-- Output: error -->
+            <polygon points="110,510 290,510 270,560 90,560" class="shape-err" />
+            <text x="190" y="537" class="fc-text" style="fill: #b91c1c;">දෝෂ පණිවිඩය මුද්‍රණය</text>
+
+            <!-- Input: qty -->
+            <polygon points="320,570 500,570 480,620 300,620" class="shape-io" />
+            <text x="400" y="597" class="fc-text">qty ආදානය කරන්න</text>
+
+            <!-- Process: calc -->
+            <rect x="280" y="660" width="240" height="60" rx="4" class="shape-proc" />
+            <text x="400" y="682" class="fc-text">total = total +</text>
+            <text x="400" y="702" class="fc-text">(price * qty)</text>
+
+        </svg>
+    </div>
                     <!-- Interactive UI -->
                     <div class="interactive-box">
                         <h3 style="color:#059669; white-space: normal;">(iii) 💻 Python කේතය ක්‍රියාත්මක කර බලමු</h3>
@@ -1909,6 +1974,7 @@ print("------------------------")</textarea>
                 }
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(tabName === 'past-paper') { setTimeout(() => { try{ mermaid.init(undefined, document.querySelectorAll('.mermaid')); }catch(e){} }, 50); }
         }
 
         // --- Custom Input Logic for Skulpt ---
