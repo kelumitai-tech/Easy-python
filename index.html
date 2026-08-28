@@ -631,6 +631,7 @@
             <a class="tab-link" onclick="openTab(event, 'input-func')">Python Input (ආදාන)</a>
             <div class="sidebar-title">Python දත්ත ව්‍යුහ</div>
             <a class="tab-link" onclick="openTab(event, 'lists')">Python Lists</a>
+            <a class="tab-link" onclick="openTab(event, 'indexing')">Python Indexing</a>
             <a class="tab-link" onclick="openTab(event, 'tuples')">Python Tuples</a>
             <a class="tab-link" onclick="openTab(event, 'sets')">Python Sets</a>
             <a class="tab-link" onclick="openTab(event, 'dicts')">Python Dictionaries</a>
@@ -638,6 +639,7 @@
             <a class="tab-link" onclick="openTab(event, 'ifelse')">Python If...Else</a>
             <a class="tab-link" onclick="openTab(event, 'while')">Python While ලූපය</a>
             <a class="tab-link" onclick="openTab(event, 'for')">Python For ලූපය</a>
+            <a class="tab-link" onclick="openTab(event, 'nestedloops')">Python Nested Loops</a>
             <a class="tab-link" onclick="openTab(event, 'break')">Python Break</a>
             <a class="tab-link" onclick="openTab(event, 'continue')">Python Continue</a>
             <div class="sidebar-title">උසස් සංකල්ප</div>
@@ -1045,10 +1047,58 @@ print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                     </div>
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'input-func')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'indexing')">Next ❯</button>
+                    </div>
+                </div>
+                
+                <!-- Python Indexing -->
+                <div id="indexing" class="tab-content">
+                    <h2>Python Indexing (දර්ශක)</h2>
+                    <p>List, Tuple හෝ String එකක ඇති දත්තයන් එහි පිහිටන ස්ථානය (ස්ථානීය අගය) අනුව ලබා ගැනීම <strong>Indexing</strong> ලෙස හැඳින්වේ. Python හිදී මෙහි විශේෂත්වය වන්නේ ඉදිරියේ සිට මෙන්ම පිටුපස සිටද දත්ත ලබාගත හැකි වීමයි.</p>
+
+                    <div class="w3-info">
+                        <strong>📌 Positive Indexing (ධන දර්ශක):</strong> වමේ සිට දකුණට ගණනය කෙරේ. ආරම්භය නිතරම <strong>0</strong> නි.<br><br>
+                        <strong>📌 Negative Indexing (ඍණ දර්ශක):</strong> දකුණේ සිට වමට (අවසානයේ සිට) ගණනය කෙරේ. අවසාන අගය <strong>-1</strong> නි.
+                    </div>
+
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 ක්‍රියාකාරකම: Indexing අත්හදා බලමු</h3>
+                        <p>පහත කේතයේ ධන සහ ඍණ දර්ශක භාවිතා කර ඇති ආකාරය බලන්න. සංඛ්‍යා වෙනස් කරමින් Run කර ප්‍රතිඵලය නරඹන්න.</p>
+                        
+                        <textarea id="py-indexing-code" rows="7" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">colors = ["Red", "Green", "Blue", "Yellow", "Black"]
+                        
+# Positive Indexing
+print("මුල්ම පාට:", colors[0])
+print("තුන්වන පාට:", colors[2])
+
+# Negative Indexing
+print("අවසාන පාට:", colors[-1])
+print("අවසානයට පෙර පාට:", colors[-2])</textarea>
+                        
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-indexing-code', 'py-indexing-output')">▶ Run Code</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="py-indexing-output" style="min-height: 120px; margin-top: 0; color: #4ade80;"></div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> <code>my_list = [10, 20, 30, 40]</code> හි <code>my_list[-3]</code> ලබා දෙන අගය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 20</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'lists')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'tuples')">Next ❯</button>
                     </div>
                 </div>
-                <!-- 11. Tuples -->
+
+<!-- 11. Tuples -->
                 <div id="tuples" class="tab-content">
                     <h2>Python Tuples</h2>
                     <p>Tuple යනු List එකටම සමාන, නමුත් <strong>වෙනස් කළ නොහැකි (Immutable)</strong> දත්ත සමූහයකි. සාමාන්‍ය වරහන් <code>()</code> භාවිතා කරයි.</p>
@@ -1067,7 +1117,7 @@ print(thistuple[1])
                         </details>
                     </div>
                     <div class="next-prev-container">
-                        <button class="btn-nav" onclick="openTab(null, 'lists')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'indexing')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'sets')">Next ❯</button>
                     </div>
                 </div>
@@ -1203,10 +1253,49 @@ for x in fruits:
                     </div>
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'while')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'nestedloops')">Next ❯</button>
+                    </div>
+                </div>
+                
+                <!-- Nested Loops Statement -->
+                <div id="nestedloops" class="tab-content">
+                    <h2>Python Nested Loops</h2>
+                    <p>ලූපයක් (Loop) ඇතුළත තවත් ලූපයක් ලිවීම <strong>Nested Loop</strong> ලෙස හැඳින්වේ. මෙහිදී පිටත ලූපයේ (Outer loop) එක් වාරයක් (iteration) සඳහා, ඇතුළත ලූපය (Inner loop) සම්පූර්ණයෙන්ම ධාවනය වේ.</p>
+
+                    <div class="interactive-box">
+                        <h3 style="color:#059669; white-space: normal;">💻 ක්‍රියාකාරකම: රටා නිර්මාණය (Pattern Printing)</h3>
+                        <p>Nested loops භාවිතා කර තරු (Stars) වලින් ත්‍රිකෝණ රටාවක් සාදමු. කේතය Run කර ප්‍රතිඵලය නරඹන්න. පේළි ගණන (range) වෙනස් කරමින් අත්හදා බලන්න.</p>
+                        
+                        <textarea id="py-nested-code" rows="8" style="width: 100%; font-family: 'Consolas', monospace; font-size: 15px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># Nested loops වලින් රටාවක් සෑදීම
+for i in range(1, 6):           # පේළි ගණන (Rows)
+    for j in range(i):          # එක් පේළියක තරු ගණන (Columns)
+        print("*", end=" ")     # ඊළඟ පේළියට නොගොස් තරු මුද්‍රණය
+    print()                     # එක් පේළියක් අවසානයේ නව පේළියකට යාම</textarea>
+                        
+                        <button class="btn-action" style="width:100%; max-width:200px; margin-top:10px; padding:12px; background:#2563eb;" onclick="runPythonEditor('py-nested-code', 'py-nested-output')">▶ Run Code</button>
+                        
+                        <div style="margin-top:20px;">
+                            <h4 style="color: #64748b; margin-bottom: 10px; font-size: 14px; font-weight: 600;">💻 Terminal Output</h4>
+                            <div class="output-console" id="py-nested-output" style="min-height: 120px; margin-top: 0; color: #4ade80;"></div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> පිටත ලූපය (Outer loop) 3 වතාවක් ද, ඇතුළත ලූපය (Inner loop) 4 වතාවක් ද ධාවනය වේ නම්, ඇතුළත ලූපයේ කේතය මුළුමනින්ම කී වතාවක් ධාවනය වේද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> 12 වතාවක් (3 x 4)</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'for')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'break')">Next ❯</button>
                     </div>
                 </div>
-                <!-- Break Statement -->
+
+<!-- Break Statement -->
                 <div id="break" class="tab-content">
                     <h2>Python Break Statement</h2>
                     <p>Loop එකක් (While හෝ For) සම්පූර්ණයෙන්ම අවසන් වීමට පෙර, යම් නිශ්චිත කොන්දේසියකදී එය අතරමගින් නතර කිරීමට (Stop) <code>break</code> භාවිතා කරයි. මෙහි වැදගත්කම වන්නේ අනවශ්‍ය ලෙස ලූපය ධාවනය වීම වළක්වා කාලය සහ මතකය (Memory) ඉතිරි කිරීමයි.</p>
@@ -1228,7 +1317,7 @@ while i < 10:
                         </details>
                     </div>
                     <div class="next-prev-container">
-                        <button class="btn-nav" onclick="openTab(null, 'for')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'nestedloops')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'continue')">Next ❯</button>
                     </div>
                 </div>
