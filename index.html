@@ -732,6 +732,7 @@
             <a class="tab-link" onclick="openTab(event, 'while')">Python While ලූපය</a>
             <a class="tab-link" onclick="openTab(event, 'for')">Python For ලූපය</a>
             <a class="tab-link" onclick="openTab(event, 'break')">Python Break</a>
+            <a class="tab-link" onclick="openTab(event, 'continue')">Python Continue</a>
             
             <div class="sidebar-title">උසස් සංකල්ප</div>
             <a class="tab-link" onclick="openTab(event, 'functions')">Python Functions</a>
@@ -1414,11 +1415,45 @@ while i < 10:
 
                     <div class="next-prev-container">
                         <button class="btn-nav" onclick="openTab(null, 'for')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'continue')">Next ❯</button>
+                    </div>
+                </div>
+
+                                <!-- Continue Statement -->
+                <div id="continue" class="tab-content">
+                    <h2>Python Continue Statement</h2>
+                    <p>Loop එකක් (While හෝ For) ක්‍රියාත්මක වන විට, සම්පූර්ණ ලූපයම නතර නොකර යම් නිශ්චිත අවස්ථාවක් (iteration) පමණක් මඟ හැර (Skip කර) ඊළඟ වාරයට කෙලින්ම ගමන් කිරීමට <code>continue</code> මූල පදය භාවිතා කරයි.</p>
+
+                    <div class="w3-example">
+                        <h3>Example: For Loop එකකදී</h3>
+                        <pre><code class="language-python">for i in range(1, 6):
+    if i == 3:
+        continue # i සමාන 3 වූ විට මුද්‍රණය නොකර ඊළඟ අංකයට යයි
+    print(i)
+    
+# ප්‍රතිඵලය:
+# 1
+# 2
+# 4
+# 5</code></pre>
+                    </div>
+
+                    <div class="activity-box">
+                        <h3 style="color:#059669; font-size: 16px; margin-top: 0; margin-bottom: 10px;">💡 දැනුම පරීක්ෂාව</h3>
+                        <p style="font-size: 14px; margin-bottom: 10px;"><strong>ප්‍රශ්නය:</strong> ලූපයක් සම්පූර්ණයෙන්ම නතර නොකර, එහි එක් පියවරක් පමණක් මඟ හැරීමට (Skip) භාවිතා කරන මූල පදය කුමක්ද?</p>
+                        <details>
+                            <summary>පිළිතුර බලන්න</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0; color: #059669; font-size: 14px;"><strong>පිළිතුර:</strong> continue</p>
+                        </details>
+                    </div>
+
+                    <div class="next-prev-container">
+                        <button class="btn-nav" onclick="openTab(null, 'break')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'functions')">Next ❯</button>
                     </div>
                 </div>
 
-                <!-- 17. Functions -->
+<!-- 17. Functions -->
                 <div id="functions" class="tab-content">
                     <h2>Python Functions (ශ්‍රිත)</h2>
                     <p>ශ්‍රිතයක් යනු අවශ්‍ය වූ විට පමණක් ක්‍රියාත්මක කළ හැකි කේත කාණ්ඩයකි. ශ්‍රිතයක් ආරම්භ කරන්නේ <code>def</code> මූල පදයෙනි.</p>
@@ -1453,7 +1488,7 @@ print(add(5, 3)) # 8 ලබා දෙයි</code></pre>
                     </div>
 
                     <div class="next-prev-container">
-                        <button class="btn-nav" onclick="openTab(null, 'break')">❮ Prev</button>
+                        <button class="btn-nav" onclick="openTab(null, 'continue')">❮ Prev</button>
                         <button class="btn-nav" onclick="openTab(null, 'oop')">Next ❯</button>
                     </div>
                 </div>
