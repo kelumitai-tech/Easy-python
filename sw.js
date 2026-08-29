@@ -1,5 +1,5 @@
 // මෙතන අගට තියෙන Number එක (v2) හැම Update එකකදිම වෙනස් කරන්න (v3, v4 ලෙස)
-const CACHE_NAME = 'python-guide-v10'; 
+const CACHE_NAME = 'python-guide-v11'; 
 const urlsToCache = [
   './index.html',
   './manifest.json',
