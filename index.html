@@ -955,7 +955,7 @@ print(10 < 9)  # False</code></pre>
 >   විශාලයි
 <   කුඩායි
 >=  විශාලයි හෝ සමානයි</code></pre>
-                    <h3>3. Logical (තාර්කික)</h3>
+                                        <h3>3. Logical (තාර්කික)</h3>
                     <pre><code class="language-python">and  - කොන්දේසි දෙකම සත්‍ය නම් True වේ
 or   - එක් කොන්දේසියක් හෝ සත්‍ය නම් True වේ
 not  - ප්‍රතිඵලය කණපිට හරවයි</code></pre>
@@ -1050,7 +1050,7 @@ print(fruits) # ['apple', 'mango', 'cherry', 'orange']</code></pre>
                         <button class="btn-nav" onclick="openTab(null, 'indexing')">Next ❯</button>
                     </div>
                 </div>
-                
+
                 <!-- Python Indexing -->
                 <div id="indexing" class="tab-content">
                     <h2>Python Indexing (දර්ශක)</h2>
@@ -1098,7 +1098,7 @@ print("අවසානයට පෙර පාට:", colors[-2])</textarea>
                     </div>
                 </div>
 
-<!-- 11. Tuples -->
+                <!-- 11. Tuples -->
                 <div id="tuples" class="tab-content">
                     <h2>Python Tuples</h2>
                     <p>Tuple යනු List එකටම සමාන, නමුත් <strong>වෙනස් කළ නොහැකි (Immutable)</strong> දත්ත සමූහයකි. සාමාන්‍ය වරහන් <code>()</code> භාවිතා කරයි.</p>
@@ -1256,7 +1256,7 @@ for x in fruits:
                         <button class="btn-nav" onclick="openTab(null, 'nestedloops')">Next ❯</button>
                     </div>
                 </div>
-                
+
                 <!-- Nested Loops Statement -->
                 <div id="nestedloops" class="tab-content">
                     <h2>Python Nested Loops</h2>
@@ -1295,7 +1295,7 @@ for i in range(1, 6):           # පේළි ගණන (Rows)
                     </div>
                 </div>
 
-<!-- Break Statement -->
+                <!-- Break Statement -->
                 <div id="break" class="tab-content">
                     <h2>Python Break Statement</h2>
                     <p>Loop එකක් (While හෝ For) සම්පූර්ණයෙන්ම අවසන් වීමට පෙර, යම් නිශ්චිත කොන්දේසියකදී එය අතරමගින් නතර කිරීමට (Stop) <code>break</code> භාවිතා කරයි. මෙහි වැදගත්කම වන්නේ අනවශ්‍ය ලෙස ලූපය ධාවනය වීම වළක්වා කාලය සහ මතකය (Memory) ඉතිරි කිරීමයි.</p>
@@ -1823,28 +1823,32 @@ print("========================")</textarea>
                     <!-- Interactive UI -->
                     <div class="interactive-box">
                         <h3 style="color:#059669; white-space: normal;">(iii) 💻 Python කේතය ක්‍රියාත්මක කර බලමු</h3>
-                        <p>මෙහි <code>while True:</code> සහ <code>break</code> භාවිතා කර ඇත.</p>
+                        <p>මෙහිදී <code>while code != 0:</code> ලෙස සරල ලූපයක් භාවිතා කර ඇත.</p>
                         <div class="w3-note" style="font-size: 13px; padding: 10px; margin-top:0;">
                             <strong>Note:</strong> කේතය ධාවනය කර, පොත් කේත සහ ප්‍රමාණ ඇතුළත් කරන්න. බිල්පත බැලීමට සහ අවසන් කිරීමට <strong>0</strong> ඇතුළත් කරන්න.
                         </div>
-                        <textarea id="py-pastpaper-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false">prices = {
-    1: 150.0, 2: 250.0, 3: 175.0, 4: 100.0,
-    5: 300.0, 6: 125.0, 7: 140.0, 8: 190.0,
-    9: 290.0, 10: 280.0, 11: 240.0, 12: 210.0
-}
+                        <textarea id="py-pastpaper-code" rows="22" style="width: 100%; font-family: 'Consolas', monospace; font-size: 14px; padding: 15px; border-radius: 8px; border: 2px solid #cbd5e1; outline: none; resize: vertical;" spellcheck="false"># පොත් වල මිල ගණන් List එකක් ලෙස
+# (0 වෙනි අගය 0 ලෙස ගෙන ඇත)
+prices = [0, 150, 250, 175, 100, 300, 125, 140, 190, 290, 280, 240, 210]
+
 total = 0
-while True:
-    code_str = input("පොත් කේතය (අවසන් කිරීමට 0): ")
-    code = int(code_str)
-    if code == 0:
-        break
+
+# පළමු පොතේ කේතය ලබා ගැනීම
+code = int(input("පොත් කේතය (අවසන් කිරීමට 0): "))
+
+# 0 ඇතුළත් කරන තුරු ක්‍රියාත්මක වන ලූපය
+while code != 0:
     if 1 <= code <= 12:
-        qty_str = input("පොත් ගණන: ")
-        qty = int(qty_str)
-        total += prices[code] * qty
-        print(f"==> කේතය {code} පොත් {qty} ක් එකතු විය. (දැනට එකතුව: රු. {total})")
+        qty = int(input("පොත් ගණන: "))
+        
+        total += (prices[code] * qty)
+        print("එකතු කළා! දැනට එකතුව: රු.", total)
     else:
         print("වැරදි කේතයකි!")
+        
+    # ඊළඟ පොතේ කේතය ලබා ගැනීම
+    code = int(input("පොත් කේතය (අවසන් කිරීමට 0): "))
+
 print("\n------------------------")
 print("අවසන් මුළු මුදල: රු.", total)
 print("------------------------")</textarea>
